@@ -1,0 +1,41 @@
+import { ButtonHTMLAttributes } from 'react';
+import { icons } from 'constants/svgIcons';
+import Icon from 'components/Icon';
+import styles from './Button.module.sass';
+import cn from 'classnames';
+import Loader from 'components/Loader';
+interface IAppButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
+  title: string;
+  color: 'orange' | 'green' | 'red' | 'blue';
+  icon?: keyof typeof icons;
+  secondary?: boolean;
+  stroke?: boolean;
+  text?: boolean;
+  isLoading?: boolean;
+}
+const AppButton: React.FC<IAppButtonProps> = ({
+  title,
+  color,
+  icon,
+  secondary,
+  stroke,
+  text,
+  isLoading,
+  ...buttonProps
+}) => (
+  <button
+    disabled={isLoading}
+    className={cn('button', color, { secondary, stroke, text })}
+    {...buttonProps}
+  >
+    {icon && (
+      <div className={styles.icon_container}>
+        <Icon name={icon} size={20} />
+      </div>
+    )}
+    {title}
+    {isLoading && <Loader color={stroke || text ? undefined : color} useColor={secondary} />}
+  </button>
+);
+
+export default AppButton;

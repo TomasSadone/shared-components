@@ -1,0 +1,115 @@
+[class^="button"]
+  display: inline-flex
+  justify-content: center
+  align-items: center
+  padding: 10px 16px
+  border-radius: 8px
+  +button-s
+  text-align: center
+  color: $n1
+  transition: all .2s
+  &.stroke
+    background: $n
+    border: 1px solid $g3
+    svg
+      fill: $n9
+    color: $n9
+    &:hover
+      background: $n9
+      color: $n
+      svg
+        fill: $n
+      &:disabled
+        background: transparent
+      
+  &.text
+    background: transparent
+    color: $g7
+    svg
+      fill: $g7
+    &:hover
+      background: transparent
+      color: $n9
+      svg
+        fill: $n9
+  &:disabled
+    opacity: .5
+    cursor: default
+    pointer-events: none
+
+
+.orange
+  background: $orange
+  svg
+    fill: $n1
+  &:hover
+    background: darken($orange, 10)
+    &:disabled
+      background: $orange
+  &.secondary
+    background: $orange_secondary
+    color: $orange
+    svg
+      fill: $orange
+    &:hover
+      background: darken($orange_secondary, 10)
+      &:disabled
+        background: $orange_secondary
+
+.green
+  background: $green
+  svg
+    fill: $n1
+  &:hover
+    background: darken($green, 10)
+    &:disabled
+      background: $green
+  &.secondary
+    background: $green_secondary
+    color: $green
+    svg
+      fill: $green
+    &:hover
+      background: darken($green_secondary, 10)
+      &:disabled
+        background: $green_secondary
+
+.red
+  background: $red
+  svg
+    fill: $n1
+  &:hover
+    background: darken($red, 10)
+    &:disabled
+      background: $red
+  &.secondary
+    background: $red_secondary
+    color: $red
+    svg
+      fill: $red
+    &:hover
+      background: darken($red_secondary, 10) 
+      &:disabled
+        background: $red_secondary
+
+.blue
+  background: $blue
+  svg
+    fill: $n1
+  &:hover
+    background: darken($blue, 10)
+    &:disabled
+      background: $blue
+  &.secondary
+    background: $blue_secondary
+    color: $blue
+    svg
+      fill: $blue
+    &:hover
+      background: darken($blue_secondary, 10)  
+      &:disabled
+        background: $blue_secondary
+
+
+
+

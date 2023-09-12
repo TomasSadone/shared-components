@@ -1,0 +1,26 @@
+// common styles 
+@import ./reset
+@import ./helpers
+@import ./common
+
+// global classes
+@import ./blocks/button
+@import ./blocks/headers
+@import ./blocks/title
+
+.navigator-container
+    overflow-y: scroll
+    width: 83%
+    height: 100vh
+    background: $n
+    padding: 0 2.5%
+.nav-bar-container
+    padding: 20px 0
+    display: flex
+    flex-direction: column
+    align-items: center
+    overflow-y: scroll
+    width: 17%
+    height: 100vh
+    background: $menu-color
+    +hide-scroll-bar

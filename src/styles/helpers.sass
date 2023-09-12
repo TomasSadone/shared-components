@@ -1,0 +1,108 @@
+// media queries
+=w
+    @media only screen and (max-width: "1419px")
+        @content
+=x
+    @media only screen and (max-width: "1339px")
+        @content
+=d
+    @media only screen and (max-width: "1259px")
+        @content
+=t
+    @media only screen and (max-width: "1023px")
+        @content
+=m
+    @media only screen and (max-width: "767px")
+        @content
+=a
+    @media only screen and (max-width: "639px")
+        @content
+=s
+    @media only screen and (max-width: "474px")
+        @content
+
+// fonts
+=Poppins
+    font-family: "Poppins", sans-serif
+
+// colors
+$orange: #ffa563
+$orange_secondary: #FFEBD6
+$green: #00b27a
+$green_secondary: #EBFFF9
+$blue: #6392ff
+$blue_secondary: #D6E5FF
+$red:#fc6371
+$red_secondary:#FED8DB
+$menu-color:#f6f6f6
+
+$n: #FFFFFF
+$n1: #FCFCFC
+$n2: #F4F4F4
+$n3: #EFEFEF
+$n4: #6F767E
+$n5: #33383F
+$n6: #272B30
+$n7: #1A1D1F
+$n8: #111315
+$n9: #000000
+
+$g2: #FCFCFD
+$g3: #D0D5DD
+$g7: #344054
+
+
+// typography
+=base-font
+    font-size: 0.8rem
+    font-weight: 600
+    line-height: calc(24/15)
+
+=title1-s
+    font-size: 1rem
+    font-weight: 600
+    line-height: calc(32/20)
+    letter-spacing: -.02em
+    +m
+        font-size: 0.9rem
+
+=button-s
+    font-size: 0.8rem
+    font-weight: 600
+    line-height: calc(32/20)
+    letter-spacing: -.02em
+
+    
+// scroll-bar
+=smooth-scroll-bar
+  &::-webkit-scrollbar 
+      width: 5px
+      height: 2px
+  &::-webkit-scrollbar-track 
+      background-color: $n3
+      border-radius: 10px
+      +dark
+        background-color: $n6
+  &::-webkit-scrollbar-thumb 
+      background: $orange
+      border-radius: 10px
+  &::-webkit-scrollbar-thumb:hover 
+      background: darken($orange, 10)
+
+=hide-scroll-bar
+  &::-webkit-scrollbar 
+      width: 0
+      height: 0
+
+// theme
+=dark
+    @at-root :global(.dark-mode) &
+        @content
+
+=dark-body
+    @at-root .dark-mode
+        @content
+
+=dark-common
+    @at-root .dark-mode &
+        @content
