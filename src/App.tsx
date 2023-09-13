@@ -1,139 +1,30 @@
 import React from 'react';
 import './styles/app.sass';
-import { ToastContainer } from 'react-toastify';
-import AppButton from 'components/Button';
-
+import { Routes, Route } from 'react-router-dom';
+import Layout from 'Layout';
+import Home from 'Pages/Home';
 const App = () => {
   return (
-    <div className="App">
-      <ToastContainer
-        position="top-center"
-        autoClose={3000}
-        hideProgressBar={false}
-        newestOnTop
-        closeOnClick
-        rtl={false}
-        draggable
-        pauseOnHover
-      />
-
-      <div className="d-flex">
-        <div className="nav-bar-container">
-          <AppButton title="App Buttons designs" color="green" icon="plus-circle" />
-        </div>
-        <div className="navigator-container">
-          <h1>Application Buttons</h1>
-          <div
-            style={{ width: '80%', margin: 'auto' }}
-            className="d-flex justify-content-between"
-          >
-            <div>
-              <h4>Primary</h4>
-              <div className="pt-10 pb-10">
-                <AppButton icon="plus-circle" title="Impostazioni generali" color="green" />
-              </div>
-              <div className="pt-10 pb-10">
-                <AppButton title="Impostazioni generali" color="blue" />
-              </div>
-              <div className="pt-10 pb-10">
-                <AppButton icon="plus-circle" title="Impostazioni generali" color="red" />
-              </div>
-              <div className="pt-10 pb-10">
-                <AppButton title="Impostazioni generali" color="orange" />
-              </div>
-              <div className="pt-10 pb-10">
-                <AppButton title="Impostazioni generali" color="green" isLoading />
-              </div>
-            </div>
-            <div>
-              <h4>Secondary</h4>
-              <div className="pt-10 pb-10">
-                <AppButton title="Impostazioni generali" color="green" secondary />
-              </div>
-              <div className="pt-10 pb-10">
-                <AppButton
-                  icon="plus-circle"
-                  title="Impostazioni generali"
-                  color="blue"
-                  secondary
-                />
-              </div>
-              <div className="pt-10 pb-10">
-                <AppButton title="Impostazioni generali" color="red" secondary />
-              </div>
-              <div className="pt-10 pb-10">
-                <AppButton
-                  icon="plus-circle"
-                  title="Impostazioni generali"
-                  color="orange"
-                  secondary
-                />
-              </div>
-              <div className="pt-10 pb-10">
-                <AppButton
-                  icon="plus-circle"
-                  title="Impostazioni generali"
-                  color="green"
-                  secondary
-                  isLoading
-                />
-              </div>
-            </div>
-            <div>
-              <h4>Stroke</h4>
-              <div className="pt-10 pb-10">
-                <AppButton
-                  icon="plus-circle"
-                  title="Impostazioni generali"
-                  color="green"
-                  stroke
-                />
-              </div>
-              <div className="pt-10 pb-10">
-                <AppButton title="Impostazioni generali" color="blue" stroke />
-              </div>
-              <div className="pt-10 pb-10">
-                <AppButton
-                  icon="plus-circle"
-                  title="Impostazioni generali"
-                  color="red"
-                  stroke
-                />
-              </div>
-              <div className="pt-10 pb-10">
-                <AppButton title="Impostazioni generali" color="orange" stroke />
-              </div>
-              <div className="pt-10 pb-10">
-                <AppButton title="Impostazioni generali" color="orange" stroke isLoading />
-              </div>
-            </div>
-            <div>
-              <h4>Text</h4>
-              <div className="pt-10 pb-10">
-                <AppButton
-                  icon="plus-circle"
-                  title="Impostazioni generali"
-                  color="green"
-                  text
-                />
-              </div>
-              <div className="pt-10 pb-10">
-                <AppButton title="Impostazioni generali" color="blue" text />
-              </div>
-              <div className="pt-10 pb-10">
-                <AppButton icon="plus-circle" title="Impostazioni generali" color="red" text />
-              </div>
-              <div className="pt-10 pb-10">
-                <AppButton title="Impostazioni generali" color="orange" text />
-              </div>
-              <div className="pt-10 pb-10">
-                <AppButton title="Impostazioni generali" color="orange" text isLoading />
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+    <Routes>
+      <Route path="/" element={<Layout />}>
+        <Route index element={<Home />} />
+        <Route path="/icons" element={<Home />} />
+        <Route path="/forms" element={<Home />} />
+        <Route path="/items" element={<Home />} />
+        <Route path="/d1-item1" element={<Home />} />
+        <Route path="/d1-item2" element={<Home />} />
+        <Route path="/d2-item1" element={<Home />} />
+        <Route path="/d2-item2" element={<Home />} />
+        <Route path="/d3-item1" element={<Home />} />
+        <Route path="/d3-item2" element={<Home />} />
+        <Route path="/d4-item1" element={<Home />} />
+        <Route path="/d4-item2" element={<Home />} />
+        {/* Using path="*"" means "match anything", so this route
+            acts like a catch-all for URLs that we don't have explicit
+            routes for. */}
+        {/* <Route path="*" element={<NoMatch />} /> */}
+      </Route>
+    </Routes>
   );
 };
 

@@ -1,7 +1,7 @@
 import { toast } from 'react-toastify';
 
-export const errorHandler = (error: any) => {
-  toast(error.response?.data?.message || error.message, {
+export const errorHandler = (error: { message: string }) => {
+  toast(error.message, {
     type: 'error',
   });
 };

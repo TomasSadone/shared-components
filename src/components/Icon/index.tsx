@@ -1,5 +1,4 @@
 import cn from 'classnames';
-
 import { icons } from 'constants/svgIcons';
 
 type IconProps = {

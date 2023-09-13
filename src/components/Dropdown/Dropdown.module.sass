@@ -1,0 +1,89 @@
+@import ../../styles/helpers
+
+.dropdown
+    margin-bottom: 8px
+
+.head
+    cursor: pointer
+    width: fit-content
+    margin: 0 auto
+    display: flex
+    padding: 8px 12px
+    align-items: center
+    gap: 12px
+    align-self: stretch
+    min-width: 250px
+    border-radius: 6px
+    +title1
+    color: $g7
+    svg
+        fill: $g7
+
+.body
+    transition: all .2s
+    +title1
+    color: $g7
+    display: none
+    &.visible
+        display: block 
+
+.item
+    display: block
+    padding: 8px 12px 8px 48px
+    border-radius: 6px
+    min-width: 250px
+    color: $g8
+    margin-top: 8px
+
+.title_container
+    display: flex
+    align-items: center
+    gap: 8px
+    margin-right: auto
+
+.chevron
+    transition: all .2s
+    &.active
+        transform: rotate(180deg)
+
+.green
+    background: $green
+    color: $n1 !important
+    transition: all .2s
+    svg
+        fill: $n1 !important
+
+.blue
+    background: $blue
+    color: $n1 !important
+    transition: background .2s
+    svg
+        fill: $n1 !important
+
+.orange
+    background: $orange
+    color: $n1 !important
+    svg
+        fill: $n1 !important
+
+.red
+    background: $red
+    color: $n1 !important
+    svg
+        fill: $n1 !important
+
+.secondary_green
+    background: $green_secondary
+    cursor: default
+
+.secondary_blue
+    background: $blue_secondary
+    cursor: default
+
+.secondary_orange
+    background: $orange_secondary
+    cursor: default
+
+.secondary_red
+    background: $red_secondary
+    cursor: default

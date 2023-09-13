@@ -4,9 +4,11 @@ import Icon from 'components/Icon';
 import styles from './Button.module.sass';
 import cn from 'classnames';
 import Loader from 'components/Loader';
+import { AppColors } from 'types/MainTypes';
+
 interface IAppButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   title: string;
-  color: 'orange' | 'green' | 'red' | 'blue';
+  color: AppColors;
   icon?: keyof typeof icons;
   secondary?: boolean;
   stroke?: boolean;
