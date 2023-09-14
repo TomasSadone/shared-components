@@ -19,6 +19,14 @@ const Items = () => (
       <Badge text="linkedin" color="orange" />
       <Badge text="plus-circle" />
     </div>
+    <div style={{ margin: '40px 0' }} className="d-flex justify-content-between">
+      <Badge text="add" color="pink" stroke />
+      <Badge text="chevron" color="red" stroke />
+      <Badge text="google" color="blue" stroke />
+      <Badge text="horn" color="green" stroke />
+      <Badge text="linkedin" color="orange" stroke />
+      <Badge text="plus-circle" stroke />
+    </div>
   </div>
 );
 

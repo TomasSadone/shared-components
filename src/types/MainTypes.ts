@@ -13,3 +13,7 @@ export type DropdownItem = {
   icon: keyof typeof icons;
   items: { link: string; title: string }[];
 };
+export type SelectOptions = {
+  label: string;
+  value: string;
+};

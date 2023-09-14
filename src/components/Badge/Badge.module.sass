@@ -20,28 +20,32 @@
 
 .pink
     color: #C11574
-    border: 1px solid #FCCEEE
+    &.stroke
+        border: 1px solid #FCCEEE
     background: #FDF2FA
     &.dot
         &::before
             background: #C11574
 .red
     color: $red
-    border: 1px solid $red_secondary
+    &.stroke
+        border: 1px solid $red_secondary
     background: $red_secondary_light
     &.dot
         &::before
             background: $red
 .blue
     color: $blue
-    border: 1px solid $blue_secondary
+    &.stroke
+        border: 1px solid $blue_secondary
     background: $blue_secondary_light
     &.dot
         &::before
             background: $blue
 .green
     color: $primary_700
-    border: 1px solid $primary_100
+    &.stroke
+        border: 1px solid $primary_100
     background: $success_50
     &.dot
         &::before
@@ -49,7 +53,8 @@
 
 .orange
     color: $orange
-    border: 1px solid $orange_secondary
+    &.stroke
+        border: 1px solid $orange_secondary
     background: $orange_secondary_light
     &.dot
         &::before
@@ -57,7 +62,8 @@
             
 .default
     color: $g7
-    border: 1px solid $g3
+    &.stroke
+        border: 1px solid $g3
     background: $g2
     &.dot
         &::before

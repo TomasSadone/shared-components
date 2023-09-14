@@ -5,14 +5,14 @@ import Layout from 'Layout';
 import Home from 'Pages/Home';
 import Icons from 'Pages/Icons';
 import Items from 'Pages/Items';
-
+import Forms from 'Pages/Forms';
 const App = () => {
   return (
     <Routes>
       <Route path="/" element={<Layout />}>
         <Route index element={<Home />} />
         <Route path="/icons" element={<Icons />} />
-        <Route path="/forms" element={<Home />} />
+        <Route path="/forms" element={<Forms />} />
         <Route path="/items" element={<Items />} />
         <Route path="/d1-item1" element={<Home />} />
         <Route path="/d1-item2" element={<Home />} />

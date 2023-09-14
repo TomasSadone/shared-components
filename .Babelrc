@@ -8,7 +8,8 @@
           "utils": "./src/utils",
           "types": "./src/types",
           "styles": "./src/styles",
-          "constants": "./src/constants"
+          "constants": "./src/constants",
+          "hooks": "./src/hooks"
         }
       }
     ]
