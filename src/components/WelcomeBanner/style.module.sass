@@ -1,0 +1,76 @@
+$color-main: #00b27a
+$color-main-text: #1d2939
+$color-secondary: #101828
+$color-secondary-text: #667085
+$gray-200: #eaecf0
+
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p 
+    margin-block-end: 0
+    margin-block-start: 0
+
+
+.container 
+    font-family: 'Poppins', sans-serif
+    box-shadow: 0px 1px 2px 0px rgba(16, 24, 40, 0.06), 0px 1px 3px 0px rgba(16, 24, 40, 0.1)
+    border-radius: 8px
+    background-color: white
+    border: 1px solid var($gray-200, #eaecf0)
+    padding-block: 20px
+    margin-inline: auto
+
+
+.content 
+    max-width: 95%
+    margin-inline: auto
+    text-align: center
+
+
+@media (min-width: 780px) 
+    .container 
+        padding-block: 40px
+    
+    .content 
+        max-width: 65%
+    
+
+
+.img 
+    margin-bottom: 16px
+
+
+.heading 
+    margin-bottom: 10px
+    font-weight: 500
+    color: var($color-main)
+    font-size: clamp(24px, 3vw, 36px)
+    text-wrap: balance
+
+
+.secondary .heading 
+    color: var($color-secondary)
+    font-size: 16px
+    font-weight: 600
+
+
+.p 
+    color: var($color-main-text)
+    max-width: 75%
+    margin-inline: auto
+    margin-bottom: 24px
+
+
+.secondary .p 
+    color: var($color-secondary-text)
+    font-size: 14px
+
+
+.content button 
+    width: 100%
+
