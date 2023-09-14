@@ -3,14 +3,17 @@ import './styles/app.sass';
 import { Routes, Route } from 'react-router-dom';
 import Layout from 'Layout';
 import Home from 'Pages/Home';
+import Icons from 'Pages/Icons';
+import Items from 'Pages/Items';
+
 const App = () => {
   return (
     <Routes>
       <Route path="/" element={<Layout />}>
         <Route index element={<Home />} />
-        <Route path="/icons" element={<Home />} />
+        <Route path="/icons" element={<Icons />} />
         <Route path="/forms" element={<Home />} />
-        <Route path="/items" element={<Home />} />
+        <Route path="/items" element={<Items />} />
         <Route path="/d1-item1" element={<Home />} />
         <Route path="/d1-item2" element={<Home />} />
         <Route path="/d2-item1" element={<Home />} />

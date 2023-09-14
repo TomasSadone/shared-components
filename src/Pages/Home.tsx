@@ -1,8 +1,9 @@
 import AppButton from 'components/Button';
+import IconButton from 'components/IconButton';
 
 const Home = () => (
   <div>
-    <h1>Application Buttons</h1>
+    <h1 style={{ margin: '50px 0' }}>Application Buttons</h1>
     <div style={{ width: '80%', margin: 'auto' }} className="d-flex justify-content-between">
       <div>
         <h4>Primary</h4>
@@ -85,6 +86,27 @@ const Home = () => (
         </div>
         <div className="pt-10 pb-10">
           <AppButton title="Impostazioni generali" color="orange" text isLoading />
+        </div>
+      </div>
+      <div>
+        <h4>Icon</h4>
+        <div className="pt-10 pb-10">
+          <IconButton icon="plus-circle" />
+        </div>
+        <div className="pt-10 pb-10">
+          <IconButton icon="plus-circle" color="green" />
+        </div>
+        <div className="pt-10 pb-10">
+          <IconButton icon="plus-circle" color="blue" />
+        </div>
+        <div className="pt-10 pb-10">
+          <IconButton icon="plus-circle" color="red" />
+        </div>
+        <div className="pt-10 pb-10">
+          <IconButton icon="plus-circle" color="orange" />
+        </div>
+        <div className="pt-10 pb-10">
+          <IconButton icon="plus-circle" color="green" isLoading />
         </div>
       </div>
     </div>
