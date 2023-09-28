@@ -1,8 +1,7 @@
 import cn from 'classnames';
 import type { FC } from 'react';
-
 import styles from './RadioButton.module.sass';
-import { useForm } from 'react-hook-form';
+import { Controller, useFormContext } from 'react-hook-form';
 
 export type RadioButtonProps = {
   className?: string;
@@ -10,6 +9,7 @@ export type RadioButtonProps = {
   value: string;
   name: string;
   reverse?: boolean;
+  disabled?: boolean;
 };
 export const RadioButton: FC<RadioButtonProps> = ({
   className,
@@ -17,22 +17,36 @@ export const RadioButton: FC<RadioButtonProps> = ({
   reverse,
   name,
   label,
+  disabled,
 }) => {
-  const { register } = useForm();
+  const { control } = useFormContext();
 
   return (
-    <div style={{ padding: '0 10px' }} className="d-flex">
-      <label
-        className={cn(styles.checkbox, className, {
-          [styles.reverse as string]: reverse,
-        })}
-      >
-        <input className={styles.input} {...register(name)} type="radio" value={value} />
-        <span className={styles.inner}>
-          <span className={styles.tick} />
-        </span>
-      </label>
-      <span className={styles.text}>{label}</span>
-    </div>
+    <Controller
+      name={name}
+      control={control}
+      render={({ field: { onChange, value: radioValue } }) => (
+        <div style={{ padding: '0 10px' }} className="d-flex">
+          <label
+            className={cn(styles.checkbox, className, {
+              [styles.reverse as string]: reverse,
+            })}
+          >
+            <input
+              disabled={disabled}
+              className={styles.input}
+              type="radio"
+              value={value}
+              onChange={onChange}
+              checked={radioValue === value}
+            />
+            <span className={styles.inner}>
+              <span className={styles.tick} />
+            </span>
+          </label>
+          <span className={styles.text}>{label}</span>
+        </div>
+      )}
+    />
   );
 };
