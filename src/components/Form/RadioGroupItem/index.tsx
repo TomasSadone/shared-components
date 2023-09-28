@@ -9,7 +9,7 @@ type Props = {
   extraOptions?: RadioButtonProps[];
 } & RadioButtonProps;
 
-const CheckboxGroupItem = ({
+const RadioGroupItem = ({
   description,
   moreInformation,
   moreInformationOnClick,
@@ -38,4 +38,4 @@ const CheckboxGroupItem = ({
   );
 };
 
-export default CheckboxGroupItem;
+export default RadioGroupItem;
