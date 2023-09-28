@@ -1,5 +1,5 @@
 import ControlledCheckbox from 'components/Form/Checkbox';
-import CheckboxGroupItem from 'components/Form/CheckboxGroupItem';
+import RadioGroupItem from 'components/Form/RadioGroupItem';
 import ControlledDropdown from 'components/Form/Dropdown/ControlledDropdown';
 import Input from 'components/Form/Input';
 import RadioButton from 'components/Form/RadioButton';
@@ -87,7 +87,7 @@ const Forms = () => {
           <RadioButton name="radio" label="some text" value="some text2" />
           <RadioButton name="radio" label="some text" value="some text3" />
 
-          <CheckboxGroupItem
+          <RadioGroupItem
             description="Invia una mail ai tuoi clienti per mostrare le offerte che hai pensato per loro"
             label="Comunicare offerte e sconti"
             name="scegliObiettivo"
@@ -99,7 +99,7 @@ const Forms = () => {
             ]}
             moreInformation="Mas info"
           />
-          <CheckboxGroupItem
+          <RadioGroupItem
             description="Invia una mail ai tuoi clienti per mostrare le offerte che hai pensato per loro"
             label="Comunicare offerte e sconti"
             name="scegliObiettivo"
@@ -111,7 +111,7 @@ const Forms = () => {
             // ]}
             // moreInformation="Mas info"
           />
-          <CheckboxGroupItem
+          <RadioGroupItem
             description="Invia una mail ai tuoi clienti per mostrare le offerte che hai pensato per loro"
             label="Comunicare offerte e sconti"
             name="scegliObiettivo"
