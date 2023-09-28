@@ -1,4 +1,5 @@
 import ControlledCheckbox from 'components/Form/Checkbox';
+import CheckboxGroupItem from 'components/Form/CheckboxGroupItem';
 import ControlledDropdown from 'components/Form/Dropdown/ControlledDropdown';
 import Input from 'components/Form/Input';
 import RadioButton from 'components/Form/RadioButton';
@@ -7,6 +8,9 @@ import { FormProvider, useForm } from 'react-hook-form';
 
 const Forms = () => {
   const formMethods = useForm();
+  const watchAll = formMethods.watch();
+
+  console.log(watchAll);
 
   return (
     <div>
@@ -82,6 +86,43 @@ const Forms = () => {
           <RadioButton name="radio" label="some text" value="some text1" />
           <RadioButton name="radio" label="some text" value="some text2" />
           <RadioButton name="radio" label="some text" value="some text3" />
+
+          <CheckboxGroupItem
+            description="Invia una mail ai tuoi clienti per mostrare le offerte che hai pensato per loro"
+            label="Comunicare offerte e sconti"
+            name="scegliObiettivo"
+            value="oferteESconti"
+            extraOptions={[
+              { label: 'extra1', name: 'extraOptions', value: 'extra1' },
+              { label: 'extra2', name: 'extraOptions', value: 'extra2' },
+              { label: 'extra3', name: 'extraOptions', value: 'extra3' },
+            ]}
+            moreInformation="Mas info"
+          />
+          <CheckboxGroupItem
+            description="Invia una mail ai tuoi clienti per mostrare le offerte che hai pensato per loro"
+            label="Comunicare offerte e sconti"
+            name="scegliObiettivo"
+            value="otro"
+            // extraOptions={[
+            //   { label: 'extra1', name: 'extraOptions', value: 'extra1' },
+            //   { label: 'extra2', name: 'extraOptions', value: 'extra2' },
+            //   { label: 'extra3', name: 'extraOptions', value: 'extra3' },
+            // ]}
+            // moreInformation="Mas info"
+          />
+          <CheckboxGroupItem
+            description="Invia una mail ai tuoi clienti per mostrare le offerte che hai pensato per loro"
+            label="Comunicare offerte e sconti"
+            name="scegliObiettivo"
+            value="otro2"
+            // extraOptions={[
+            //   { label: 'extra1', name: 'extraOptions', value: 'extra1' },
+            //   { label: 'extra2', name: 'extraOptions', value: 'extra2' },
+            //   { label: 'extra3', name: 'extraOptions', value: 'extra3' },
+            // ]}
+            // moreInformation="Mas info"
+          />
         </div>
       </FormProvider>
     </div>
