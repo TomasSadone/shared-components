@@ -104,22 +104,6 @@ const Forms = () => {
             leftIcon={<Icon name="search" size={18} />}
             wrapperStyle={{ marginBottom: 10 }}
           />
-          <Tooltip hoverItem={<Icon name="add" />}>
-            <h1>Aca poponer lo que quieras</h1>
-            <p>Un par de cosas</p>
-            <h1>Aca poponer lo que quieras</h1>
-            <p>Un par de cosas</p>
-            <h1>Aca poponer lo que quieras</h1>
-            <p>Un par de cosas</p>
-            <h1>Aca poponer lo que quieras</h1>
-            <p>Un par de cosas</p>
-            <h1>Aca poponer lo que quieras</h1>
-            <p>Un par de cosas</p>
-            <h1>Aca poponer lo que quieras</h1>
-            <p>Un par de cosas</p>
-            <h1>Aca poponer lo que quieras</h1>
-            <p>Un par de cosas</p>
-          </Tooltip>
           <ControlledCheckbox name="checkbox" label="some text" />
           <ControlledCheckbox name="checkbox1" label="some text" checked />
 
