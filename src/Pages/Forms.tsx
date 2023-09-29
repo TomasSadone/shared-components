@@ -105,22 +105,6 @@ const Forms = () => {
             leftIcon={<Icon name="search" size={18} />}
             wrapperStyle={{ marginBottom: 10 }}
           />
-          <Tooltip hoverItem={<Icon name="add" />}>
-            <h1>Aca poponer lo que quieras</h1>
-            <p>Un par de cosas</p>
-            <h1>Aca poponer lo que quieras</h1>
-            <p>Un par de cosas</p>
-            <h1>Aca poponer lo que quieras</h1>
-            <p>Un par de cosas</p>
-            <h1>Aca poponer lo que quieras</h1>
-            <p>Un par de cosas</p>
-            <h1>Aca poponer lo que quieras</h1>
-            <p>Un par de cosas</p>
-            <h1>Aca poponer lo que quieras</h1>
-            <p>Un par de cosas</p>
-            <h1>Aca poponer lo que quieras</h1>
-            <p>Un par de cosas</p>
-          </Tooltip>
           <ControlledCheckbox name="checkbox" label="some text" />
           <ControlledCheckbox name="checkbox1" label="some text" checked />
 
@@ -149,11 +133,11 @@ const Forms = () => {
             moreInformationOnClick={(str) => console.log(str)}
           />
           <Textarea name="mytextarea" />
-          <AppDropzone
-            clickText="Click to look for files"
+          <Dropzone
+            clickText="Click para buscar archivos"
             acceptedFilesText="JPG, PNG, PDF"
-            dropText="or drop them here"
-            textWhenDropReject="File type not compatible"
+            dropText="o arrastralos aqui"
+            textWhenDropReject="No no dijo pipo"
             textWhenDropping="drop it like is hot"
             handleFiles={handleFiles}
           />
@@ -163,68 +147,8 @@ const Forms = () => {
             }}
             selected={selected}
           />
-          <div style={{ marginTop: '1rem', display: 'grid', gap: '1rem' }}>
-            <div>
-              <AuthCodeInput placeholder="0" onChange={handleOnChange} />
-            </div>
-            <div>
-              <AuthCodeInput size="md" placeholder="0" onChange={handleOnChange} />
-            </div>
-            <div>
-              <AuthCodeInput size="lg" placeholder="0" onChange={handleOnChange} />
-            </div>
-            <div>
-              <AuthCodeInput error placeholder="0" onChange={handleOnChange} />
-            </div>
-            <div>
-              <AuthCodeInput success placeholder="0" onChange={handleOnChange} />
-            </div>
-            <div>
-              <AuthCodeInput disabled placeholder="0" onChange={handleOnChange} />
-            </div>
-
-            <div>
-              <AuthCodeInputLabel>Label</AuthCodeInputLabel>
-              <AuthCodeInput error size="lg" placeholder="0" onChange={handleOnChange} />
-              <AuthCodeInputParragraph>
-                Non hai ricevuto un codice? Fare click per inviare nuovamente.
-              </AuthCodeInputParragraph>
-              <AuthCodeInputParragraph error>
-                Il codice di accesso che hai inseritonon corrisponde a quello inviato al tuo
-                telefono.
-              </AuthCodeInputParragraph>
-            </div>
-          </div>
         </div>
-        <TitleSubtitleLabel
-          title="Scegli le liste"
-          subtitle="lorem ipsum dolor sit amet, consectetur adipiscing elit."
-        />
-        <Textarea name="mytextarea" />
-        <ControlledDropdown
-          dropdownId="mydropdown"
-          name="abcdefg"
-          options={[
-            { label: 'opcion', value: 'opcion' },
-            { label: 'opcion1', value: 'opcion1' },
-            { label: 'opcion2', value: 'opcion2' },
-          ]}
-        />
-        <AppDropzone
-          clickText="Click para buscar archivos"
-          acceptedFilesText="JPG, PNG, PDF"
-          dropText="o arrastralos aqui"
-          textWhenDropReject="No no dijo pipo"
-          textWhenDropping="drop it like is hot"
-          handleFiles={handleFiles}
-        />
       </FormProvider>
-      <Toggle
-        onClick={() => {
-          setSelected(!selected);
-        }}
-        selected={selected}
-      />
     </div>
   );
 };
