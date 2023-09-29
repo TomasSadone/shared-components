@@ -11,6 +11,7 @@ import Dropzone from 'components/Form/Dropzone/index';
 import { FileRejection, DropEvent } from 'react-dropzone';
 import Toggle from 'components/Form/Toggle';
 import { useState } from 'react';
+import Tooltip from 'components/Tooltip';
 
 const Forms = () => {
   const formMethods = useForm();
@@ -96,6 +97,22 @@ const Forms = () => {
             leftIcon={<Icon name="search" size={18} />}
             wrapperStyle={{ marginBottom: 10 }}
           />
+          <Tooltip hoverItem={<Icon name="add" />}>
+            <h1>Aca poponer lo que quieras</h1>
+            <p>Un par de cosas</p>
+            <h1>Aca poponer lo que quieras</h1>
+            <p>Un par de cosas</p>
+            <h1>Aca poponer lo que quieras</h1>
+            <p>Un par de cosas</p>
+            <h1>Aca poponer lo que quieras</h1>
+            <p>Un par de cosas</p>
+            <h1>Aca poponer lo que quieras</h1>
+            <p>Un par de cosas</p>
+            <h1>Aca poponer lo que quieras</h1>
+            <p>Un par de cosas</p>
+            <h1>Aca poponer lo que quieras</h1>
+            <p>Un par de cosas</p>
+          </Tooltip>
           <ControlledCheckbox name="checkbox" label="some text" />
           <ControlledCheckbox name="checkbox1" label="some text" checked />
 
@@ -108,9 +125,6 @@ const Forms = () => {
             label="Comunicare offerte e sconti"
             name="scegliObiettivo"
             value="oferteESconti"
-            //si le vas a pasar extra options le tenes que pasar el selectedvalue
-            // selectedValue={watchAll.scegliObiettivo}
-
             extraOptions={[
               { label: 'extra1', name: 'extraOptions', value: 'extra1' },
               { label: 'extra2', name: 'extraOptions', value: 'extra2' },
@@ -122,24 +136,7 @@ const Forms = () => {
             description="Invia una mail ai tuoi clienti per mostrare le offerte che hai pensato per loro"
             label="Comunicare offerte e sconti"
             name="scegliObiettivo"
-            value="otro"
-            // extraOptions={[
-            //   { label: 'extra1', name: 'extraOptions', value: 'extra1' },
-            //   { label: 'extra2', name: 'extraOptions', value: 'extra2' },
-            //   { label: 'extra3', name: 'extraOptions', value: 'extra3' },
-            // ]}
-            moreInformation="Mas info"
-          />
-          <RadioGroupItem
-            description="Invia una mail ai tuoi clienti per mostrare le offerte che hai pensato per loro"
-            label="Comunicare offerte e sconti"
-            name="scegliObiettivo"
             value="otro2"
-            // extraOptions={[
-            //   { label: 'extra1', name: 'extraOptions', value: 'extra1' },
-            //   { label: 'extra2', name: 'extraOptions', value: 'extra2' },
-            //   { label: 'extra3', name: 'extraOptions', value: 'extra3' },
-            // ]}
             moreInformation="Mas info"
             moreInformationOnClick={(str) => console.log(str)}
           />
