@@ -7,7 +7,7 @@ type Props = {
   hoverItem: ReactNode;
 };
 
-export const Tooltip = ({ children, hoverItem }: Props) => {
+const Tooltip = ({ children, hoverItem }: Props) => {
   const [coords, setCoords] = useState({});
   const tooltipRef = useRef<HTMLDivElement>(null);
   const handleMouseEnter = (e: React.MouseEvent<HTMLSpanElement>) => {
