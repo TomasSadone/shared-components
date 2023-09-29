@@ -12,10 +12,11 @@ import {
 } from '../../';
 import { useState } from 'react';
 import { FormProvider, useForm } from 'react-hook-form';
-import { Textarea } from '../../';
-import { AppDropzone } from '../../';
-import { Toggle } from '../../';
+import Textarea from 'components/Form/Textarea';
+import Dropzone from 'components/Form/Dropzone/index';
 import { FileRejection, DropEvent } from 'react-dropzone';
+import Toggle from 'components/Form/Toggle';
+import { useState } from 'react';
 
 const Forms = () => {
   const formMethods = useForm();
