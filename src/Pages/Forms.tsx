@@ -116,6 +116,9 @@ const Forms = () => {
             label="Comunicare offerte e sconti"
             name="scegliObiettivo"
             value="oferteESconti"
+            //si le vas a pasar extra options le tenes que pasar el selectedvalue
+            // selectedValue={watchAll.scegliObiettivo}
+
             extraOptions={[
               { label: 'extra1', name: 'extraOptions', value: 'extra1' },
               { label: 'extra2', name: 'extraOptions', value: 'extra2' },
@@ -179,7 +182,35 @@ const Forms = () => {
             </div>
           </div>
         </div>
+        <TitleSubtitleLabel
+          title="Scegli le liste"
+          subtitle="lorem ipsum dolor sit amet, consectetur adipiscing elit."
+        />
+        <Textarea name="mytextarea" />
+        <ControlledDropdown
+          dropdownId="mydropdown"
+          name="abcdefg"
+          options={[
+            { label: 'opcion', value: 'opcion' },
+            { label: 'opcion1', value: 'opcion1' },
+            { label: 'opcion2', value: 'opcion2' },
+          ]}
+        />
+        <Dropzone
+          clickText="Click para buscar archivos"
+          acceptedFilesText="JPG, PNG, PDF"
+          dropText="o arrastralos aqui"
+          textWhenDropReject="No no dijo pipo"
+          textWhenDropping="drop it like is hot"
+          handleFiles={handleFiles}
+        />
       </FormProvider>
+      <Toggle
+        onClick={() => {
+          setSelected(!selected);
+        }}
+        selected={selected}
+      />
     </div>
   );
 };
