@@ -117,6 +117,9 @@ const Forms = () => {
             label="Comunicare offerte e sconti"
             name="scegliObiettivo"
             value="oferteESconti"
+            //si le vas a pasar extra options le tenes que pasar el selectedvalue
+            // selectedValue={watchAll.scegliObiettivo}
+
             extraOptions={[
               { label: 'extra1', name: 'extraOptions', value: 'extra1' },
               { label: 'extra2', name: 'extraOptions', value: 'extra2' },
