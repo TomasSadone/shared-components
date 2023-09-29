@@ -3,6 +3,7 @@ import { SelectOptions } from 'types/MainTypes';
 import { ValidationRules } from 'utils/formValidator';
 import Dropdown from '.';
 import { CSSProperties } from 'react';
+import { icons } from 'constants/svgIcons';
 
 interface IProps {
   name: string;
@@ -11,6 +12,7 @@ interface IProps {
   options: SelectOptions[];
   placeHolder?: string;
   containerStyle?: CSSProperties;
+  optionIcon?: keyof typeof icons;
 }
 const ControlledDropdown: React.FC<IProps> = ({
   name,
@@ -19,6 +21,7 @@ const ControlledDropdown: React.FC<IProps> = ({
   options,
   placeHolder,
   containerStyle,
+  optionIcon,
 }) => {
   const formContext = useFormContext();
   const { control } = formContext;
@@ -32,6 +35,7 @@ const ControlledDropdown: React.FC<IProps> = ({
       control={control}
       render={({ field: { onChange, value } }) => (
         <Dropdown
+          optionIcon={optionIcon}
           dropDownId={dropdownId}
           items={options}
           selectedItem={value}

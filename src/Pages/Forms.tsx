@@ -5,12 +5,28 @@ import Input from 'components/Form/Input';
 import RadioButton from 'components/Form/RadioButton';
 import Icon from 'components/Icon';
 import { FormProvider, useForm } from 'react-hook-form';
+import TitleSubtitleLabel from 'components/TitleSubtitleLabel';
+import Textarea from 'components/Form/Textarea';
+import Dropzone from 'components/Form/Dropzone/index';
+import { FileRejection, DropEvent } from 'react-dropzone';
+import Toggle from 'components/Form/Toggle';
+import { useState } from 'react';
 
 const Forms = () => {
   const formMethods = useForm();
   const watchAll = formMethods.watch();
 
+  const handleFiles = (
+    acceptedFiles: File[],
+    fileRejections: FileRejection[],
+    event: DropEvent,
+  ) => {
+    console.log(acceptedFiles);
+  };
+
   console.log(watchAll);
+
+  const [selected, setSelected] = useState(false);
 
   return (
     <div>
@@ -92,6 +108,9 @@ const Forms = () => {
             label="Comunicare offerte e sconti"
             name="scegliObiettivo"
             value="oferteESconti"
+            //si le vas a pasar extra options le tenes que pasar el selectedvalue
+            // selectedValue={watchAll.scegliObiettivo}
+
             extraOptions={[
               { label: 'extra1', name: 'extraOptions', value: 'extra1' },
               { label: 'extra2', name: 'extraOptions', value: 'extra2' },
@@ -109,7 +128,7 @@ const Forms = () => {
             //   { label: 'extra2', name: 'extraOptions', value: 'extra2' },
             //   { label: 'extra3', name: 'extraOptions', value: 'extra3' },
             // ]}
-            // moreInformation="Mas info"
+            moreInformation="Mas info"
           />
           <RadioGroupItem
             description="Invia una mail ai tuoi clienti per mostrare le offerte che hai pensato per loro"
@@ -121,10 +140,39 @@ const Forms = () => {
             //   { label: 'extra2', name: 'extraOptions', value: 'extra2' },
             //   { label: 'extra3', name: 'extraOptions', value: 'extra3' },
             // ]}
-            // moreInformation="Mas info"
+            moreInformation="Mas info"
+            moreInformationOnClick={(str) => console.log(str)}
           />
         </div>
+        <TitleSubtitleLabel
+          title="Scegli le liste"
+          subtitle="lorem ipsum dolor sit amet, consectetur adipiscing elit."
+        />
+        <Textarea name="mytextarea" />
+        <ControlledDropdown
+          dropdownId="mydropdown"
+          name="abcdefg"
+          options={[
+            { label: 'opcion', value: 'opcion' },
+            { label: 'opcion1', value: 'opcion1' },
+            { label: 'opcion2', value: 'opcion2' },
+          ]}
+        />
+        <Dropzone
+          clickText="Click para buscar archivos"
+          acceptedFilesText="JPG, PNG, PDF"
+          dropText="o arrastralos aqui"
+          textWhenDropReject="No no dijo pipo"
+          textWhenDropping="drop it like is hot"
+          handleFiles={handleFiles}
+        />
       </FormProvider>
+      <Toggle
+        onClick={() => {
+          setSelected(!selected);
+        }}
+        selected={selected}
+      />
     </div>
   );
 };
