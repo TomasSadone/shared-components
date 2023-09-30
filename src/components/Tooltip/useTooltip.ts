@@ -8,11 +8,18 @@ const useTooltip = () => {
     const rect = e.currentTarget.getBoundingClientRect();
     const spaceAbove = rect.top;
     const spaceBelow = window.innerHeight - rect.bottom;
+
+    const spaceLeft = rect.left;
+    const spaceRight = window.innerWidth - rect.right;
+
     const contentHeight = tooltipRef.current?.clientHeight
       ? tooltipRef.current?.clientHeight
       : 100;
+    const contentWidth = tooltipRef.current?.clientWidth
+      ? tooltipRef.current?.clientWidth
+      : 100;
     const coordsToSet = {
-      left: rect.x,
+      left: spaceRight > spaceLeft ? rect.x : rect.x - contentWidth,
       top:
         spaceAbove > spaceBelow
           ? spaceAbove - contentHeight - 10
