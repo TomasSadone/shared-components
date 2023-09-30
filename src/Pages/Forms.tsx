@@ -10,6 +10,7 @@ import Dropzone from 'components/Form/Dropzone/index';
 import { FileRejection, DropEvent } from 'react-dropzone';
 import Toggle from 'components/Form/Toggle';
 import { useState } from 'react';
+import Tooltip from 'components/Tooltip';
 
 const Forms = () => {
   const formMethods = useForm();
@@ -124,10 +125,10 @@ const Forms = () => {
           />
           <Textarea name="mytextarea" />
           <Dropzone
-            clickText="Click para buscar archivos"
+            clickText="Click to look for files"
             acceptedFilesText="JPG, PNG, PDF"
-            dropText="o arrastralos aqui"
-            textWhenDropReject="No no dijo pipo"
+            dropText="or drop them here"
+            textWhenDropReject="File type not compatible"
             textWhenDropping="drop it like is hot"
             handleFiles={handleFiles}
           />
