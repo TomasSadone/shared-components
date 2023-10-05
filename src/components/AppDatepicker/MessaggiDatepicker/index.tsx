@@ -1,15 +1,16 @@
-import React, { forwardRef, useRef, useState } from 'react';
+import { forwardRef, useRef, useState } from 'react';
 import AppDatepicker from '..';
 import AppButton from 'components/Button';
 import ReactDatePicker from 'react-datepicker';
-import Input from 'components/Form/Input';
 
 type Props = {
   onConfirm: (date: Date) => void;
   confirmedDate: Date;
+  cancelText: string;
+  confirmText: string;
+  openText: string;
 };
 
-//quizas hacer traduccion aca
 const CustomButton = forwardRef<HTMLButtonElement, { text: string; onClick: () => void }>(
   ({ text, onClick }, ref) => (
     <button onClick={onClick} ref={ref} className="button green secondary">
@@ -18,7 +19,13 @@ const CustomButton = forwardRef<HTMLButtonElement, { text: string; onClick: () =
   ),
 );
 
-const MessaggiDatePicker = ({ onConfirm, confirmedDate }: Props) => {
+const MessaggiDatePicker = ({
+  onConfirm,
+  confirmedDate,
+  cancelText,
+  confirmText,
+  openText,
+}: Props) => {
   const [selectedDate, setSelectedDate] = useState<Date>(new Date());
 
   const onChange = (date: Date) => setSelectedDate(date);
@@ -39,13 +46,13 @@ const MessaggiDatePicker = ({ onConfirm, confirmedDate }: Props) => {
     <AppDatepicker
       onCalendarClose={onCancel}
       ref={datePickerRef}
-      customInput={<CustomButton onClick={openModal} text="Programma" />}
+      customInput={<CustomButton onClick={openModal} text={openText} />}
       onChange={onChange}
       selected={selectedDate}
     >
       <div style={{ display: 'flex', gap: '12px', justifyContent: 'end' }}>
-        <AppButton onClick={onCancel} color="green" title="Indietro" stroke />
-        <AppButton onClick={onConfirmHandler} color="green" title="Conferma" />
+        <AppButton onClick={onCancel} color="green" title={cancelText} stroke />
+        <AppButton onClick={onConfirmHandler} color="green" title={confirmText} />
       </div>
     </AppDatepicker>
   );
