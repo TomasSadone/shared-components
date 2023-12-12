@@ -6,7 +6,7 @@ import cn from 'classnames';
 import Loader from 'components/Loader';
 import { AppColors } from 'types/MainTypes';
 
-interface IAppButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
+export interface IAppButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   title: string;
   color: AppColors;
   icon?: keyof typeof icons;
