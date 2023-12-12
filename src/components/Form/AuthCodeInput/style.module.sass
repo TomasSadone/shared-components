@@ -1,0 +1,55 @@
+@use '../../../styles/helpers' 
+
+.authInput 
+    aspect-ratio: 1
+    color: helpers.$g5
+    background-color: white
+
+    border: 1px solid helpers.$g3
+    border-radius: 8px
+    box-shadow: 0px 1px 2px 0px rgba(16, 24, 40, 0.05)
+    text-align: center
+    font-weight: 500
+    font-size: 48px
+    &::placeholder
+        color: helpers.$g3
+    &:-ms-input-placeholder
+        color: helpers.$g3
+    &::-ms-input-placeholder
+        color: helpers.$g3
+    &.sm
+        width: 64px
+    &.md
+        width: 80px
+    &.lg 
+        width: 96px
+        font-size: 60px
+
+    &.success
+        color: helpers.$primary_500
+        border: 1px solid helpers.$primary_200
+        &:focus 
+            outline: 4px solid helpers.$primary_100
+    &.error
+        color: helpers.$error_500
+        border: 1px solid helpers.$error_200
+        &:focus 
+            outline: 4px solid helpers.$error_100
+    &:disabled
+        border: 1px solid helpers.$g3
+        background: helpers.$g05
+        color: helpers.$g2
+        &::placeholder
+            color: #EAECF0
+        &:-ms-input-placeholder
+            color: #EAECF0
+        &::-ms-input-placeholder
+            color: #EAECF0
+
+
+.authContainer
+    display: flex
+    gap: 12px
+    &.sm
+        gap: 8px
+

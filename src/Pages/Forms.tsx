@@ -1,12 +1,20 @@
+import AuthCodeInput from 'components/Form/AuthCodeInput';
+import AuthCodeInputLabel from 'components/Form/AuthCodeInput/AuthCodeInputLabel';
+import AuthCodeInputParragraph from 'components/Form/AuthCodeInput/AuthCodeInputParragraph';
 import ControlledCheckbox from 'components/Form/Checkbox';
 import ControlledDropdown from 'components/Form/Dropdown/ControlledDropdown';
 import Input from 'components/Form/Input';
 import RadioButton from 'components/Form/RadioButton';
 import Icon from 'components/Icon';
+import { useState } from 'react';
 import { FormProvider, useForm } from 'react-hook-form';
 
 const Forms = () => {
   const formMethods = useForm();
+  const [result, setResult] = useState('');
+  const handleOnChange = (res: string) => {
+    setResult(res);
+  };
 
   return (
     <div>
@@ -82,6 +90,39 @@ const Forms = () => {
           <RadioButton name="radio" label="some text" value="some text1" />
           <RadioButton name="radio" label="some text" value="some text2" />
           <RadioButton name="radio" label="some text" value="some text3" />
+
+          <div style={{ marginTop: '1rem', display: 'grid', gap: '1rem' }}>
+            <div>
+              <AuthCodeInput placeholder="0" onChange={handleOnChange} />
+            </div>
+            <div>
+              <AuthCodeInput size="md" placeholder="0" onChange={handleOnChange} />
+            </div>
+            <div>
+              <AuthCodeInput size="lg" placeholder="0" onChange={handleOnChange} />
+            </div>
+            <div>
+              <AuthCodeInput error placeholder="0" onChange={handleOnChange} />
+            </div>
+            <div>
+              <AuthCodeInput success placeholder="0" onChange={handleOnChange} />
+            </div>
+            <div>
+              <AuthCodeInput disabled placeholder="0" onChange={handleOnChange} />
+            </div>
+
+            <div>
+              <AuthCodeInputLabel>Label</AuthCodeInputLabel>
+              <AuthCodeInput error size="lg" placeholder="0" onChange={handleOnChange} />
+              <AuthCodeInputParragraph>
+                Non hai ricevuto un codice? Fare click per inviare nuovamente.
+              </AuthCodeInputParragraph>
+              <AuthCodeInputParragraph error>
+                Il codice di accesso che hai inseritonon corrisponde a quello inviato al tuo
+                telefono.
+              </AuthCodeInputParragraph>
+            </div>
+          </div>
         </div>
       </FormProvider>
     </div>
