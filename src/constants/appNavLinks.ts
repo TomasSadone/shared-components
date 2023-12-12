@@ -32,6 +32,12 @@ export const navBar: (DropdownItem | MenuItem)[] = [
     icon: 'plus-circle',
   },
   {
+    link: '/tables',
+    title: 'Tables',
+    color: 'blue',
+    icon: 'plus-circle',
+  },
+  {
     title: 'Dropdown1',
     color: 'green',
     icon: 'plus-circle',

@@ -1,4 +1,4 @@
-import Icon from 'components/Icon';
+import Icon, { IconProps } from 'components/Icon';
 import styles from './IconButton.module.sass';
 import { AppColors } from 'types/MainTypes';
 import { icons } from 'constants/svgIcons';
@@ -7,10 +7,11 @@ import Loader from 'components/Loader';
 
 const IconButton: React.FC<{
   icon: keyof typeof icons;
+  iconProps?: Omit<IconProps, 'name' | 'size'>;
   onClick?: () => void;
   color?: AppColors;
   isLoading?: boolean;
-}> = ({ icon, onClick, color, isLoading }) => (
+}> = ({ icon, onClick, color, isLoading, iconProps }) => (
   <button
     disabled={isLoading}
     onClick={onClick}
@@ -19,7 +20,7 @@ const IconButton: React.FC<{
     {isLoading ? (
       <Loader color={color} useColor className={styles.loader} />
     ) : (
-      <Icon name={icon} size={20} />
+      <Icon {...iconProps} name={icon} size={20} />
     )}
   </button>
 );

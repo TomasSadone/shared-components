@@ -4,7 +4,6 @@ import style from './style.module.sass';
 type Props = {
   children: ReactNode;
   fullWidth: boolean;
-  //   childDesign?: 'white' | 'underline' | 'underlineFilled';
 };
 
 const HorizontalTabs = ({ children, fullWidth }: Props) => (
