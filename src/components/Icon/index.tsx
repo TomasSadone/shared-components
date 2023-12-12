@@ -1,15 +1,30 @@
 import cn from 'classnames';
 import { icons } from 'constants/svgIcons';
-
-type IconProps = {
+export type IconProps = {
   name: keyof typeof icons;
   size?: number;
   className?: string;
   fill?: string;
   viewBox?: string;
   onClick?: () => void;
+  stroke?: string;
+  strokeLinecap?: 'butt' | 'round' | 'square' | 'inherit';
+  strokeLinejoin?: 'round' | 'inherit' | 'miter' | 'bevel';
+  strokeWidth?: string;
 };
-const Icon: React.FC<IconProps> = ({ name, size, className, fill, viewBox, onClick }) => {
+
+const Icon: React.FC<IconProps> = ({
+  name,
+  size,
+  className,
+  fill,
+  viewBox,
+  onClick,
+  stroke,
+  strokeLinecap,
+  strokeLinejoin,
+  strokeWidth,
+}) => {
   return (
     <svg
       className={cn(className)}
@@ -17,15 +32,29 @@ const Icon: React.FC<IconProps> = ({ name, size, className, fill, viewBox, onCli
       height={size || 16}
       viewBox={viewBox || '0 0 16 16'}
       fill={fill}
-      stroke="10"
+      //   stroke="10"
       onClick={onClick}
     >
       {Array.isArray(icons[name]) ? (
         (icons[name] as { path: string; fill?: string }[]).map(({ path, fill: pathFill }) => (
-          <path stroke="10" key={path} d={path} fill={pathFill} />
+          <path
+            stroke={stroke || '10'}
+            strokeLinecap={strokeLinecap}
+            strokeLinejoin={strokeLinejoin}
+            strokeWidth={strokeWidth}
+            key={path}
+            fill={pathFill}
+            d={path}
+          />
         ))
       ) : (
-        <path d={icons[name] as string} />
+        <path
+          stroke={stroke || '10'}
+          strokeWidth={strokeWidth}
+          strokeLinejoin={strokeLinejoin}
+          strokeLinecap={strokeLinecap}
+          d={icons[name] as string}
+        />
       )}
     </svg>
   );

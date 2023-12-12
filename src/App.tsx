@@ -6,6 +6,7 @@ import Home from 'Pages/Home';
 import Icons from 'Pages/Icons';
 import Items from 'Pages/Items';
 import Forms from 'Pages/Forms';
+import Links from 'Pages/Links';
 const App = () => {
   return (
     <Routes>
@@ -14,6 +15,7 @@ const App = () => {
         <Route path="/icons" element={<Icons />} />
         <Route path="/forms" element={<Forms />} />
         <Route path="/items" element={<Items />} />
+        <Route path="/links" element={<Links />} />
         <Route path="/d1-item1" element={<Home />} />
         <Route path="/d1-item2" element={<Home />} />
         <Route path="/d2-item1" element={<Home />} />

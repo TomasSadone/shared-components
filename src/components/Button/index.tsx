@@ -1,6 +1,6 @@
 import { ButtonHTMLAttributes } from 'react';
 import { icons } from 'constants/svgIcons';
-import Icon from 'components/Icon';
+import Icon, { IconProps } from 'components/Icon';
 import styles from './Button.module.sass';
 import cn from 'classnames';
 import Loader from 'components/Loader';
@@ -10,6 +10,7 @@ export interface IAppButtonProps extends ButtonHTMLAttributes<HTMLButtonElement>
   title: string;
   color: AppColors;
   icon?: keyof typeof icons;
+  iconProps?: Omit<IconProps, 'name' | 'size'>;
   secondary?: boolean;
   stroke?: boolean;
   text?: boolean;
@@ -19,6 +20,7 @@ const AppButton: React.FC<IAppButtonProps> = ({
   title,
   color,
   icon,
+  iconProps,
   secondary,
   stroke,
   text,
@@ -32,7 +34,7 @@ const AppButton: React.FC<IAppButtonProps> = ({
   >
     {icon && (
       <div className={styles.icon_container}>
-        <Icon name={icon} size={20} />
+        <Icon {...iconProps} name={icon} size={20} />
       </div>
     )}
     {title}
