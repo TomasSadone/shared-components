@@ -1,0 +1,55 @@
+@use '../../styles/helpers'
+
+.pagination 
+    display: flex
+    gap: 12px
+    width: 100%
+    color: helpers.$g7
+    align-items: center
+    &.text
+        > *:not(:nth-child(2n))
+            color: helpers.$g5
+    &.outline
+        > *:not(:nth-child(2n))
+            color: helpers.$g7
+            &:hover
+                background-color: darken(helpers.$g3, 0.9)
+    &.default
+        justify-content: space-between
+        &.rounded
+            button
+                border-radius: 100px
+    &.minimal
+        &.left
+            > div
+                margin-right: auto
+                order: -1
+        &.right
+            > div
+                margin-left: auto
+                order: 1
+        &.center
+            justify-content: space-between
+            > div
+                order: 0
+    &.group
+        gap: 0
+        align-items: stretch
+        [data-active="true"]
+            background-color: helpers.$g1
+            color: helpers.$g7
+        button
+            border-radius: 0
+            border: 1px solid #EAECF0
+            border-right: 0
+        > :first-child
+            border-radius: 8px 0px 0px 8px
+        > :last-child
+            border-radius: 0px 8px 8px 0px
+            border: 1px solid #EAECF0
+        &.right
+            justify-content: end
+        &.left
+            justify-content: start
+        &.center
+            justify-content: center

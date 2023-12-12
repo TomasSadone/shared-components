@@ -1,0 +1,11 @@
+@use '../../../../styles/helpers'
+
+.tRow
+    border-collapse: collapse
+    &.border
+        border-block: 1px solid #EAECF0
+    &.intermitent
+        &:nth-child(odd)
+            background-color: helpers.$g05
+    &.always
+        background-color: helpers.$g05

@@ -1,0 +1,41 @@
+@use '../../../../styles/helpers'
+@import '../../../Badge/Badge.module.sass'
+
+.badges
+    display: flex
+    gap: 4px
+    cursor: default
+    align-items: center
+
+[class^="badge"] > p
+    white-space: nowrap
+    max-width: 18ch
+    overflow: hidden
+    text-overflow: ellipsis
+
+.extraBadgesContainer
+    position: relative
+
+.extraBadgesIndicator
+    color: helpers.$g7
+    margin-left: 8px
+    border-radius: 16px
+    padding: 2px 10px
+    background: helpers.$g1
+    mix-blend-mode: multiply
+
+.tooltip
+    opacity: 0
+    pointer-events: none
+    position: absolute
+    z-index: 99
+    padding: 12px
+    border-radius: 8px
+    display: grid
+    gap: 4px
+    justify-items: start
+    &.show
+        opacity: 1
+        pointer-events: auto
+        background-color: white
+        box-shadow: 0px 4px 6px -2px rgba(16, 24, 40, 0.03), 0px 12px 16px -4px rgba(16, 24, 40, 0.08)

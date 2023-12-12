@@ -14,7 +14,7 @@ const Badge: React.FC<{
       [styles.stroke]: stroke,
     })}
   >
-    {text}
+    <p>{text}</p>
   </div>
 );
 
