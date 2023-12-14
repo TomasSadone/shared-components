@@ -1,5 +1,5 @@
 {
-  "name": "@aigotsrl/rc_shared_components_frontend",
+  "name": "rc_shared_components_frontend",
   "version": "0.1.2",
   "dependencies": {
     "@types/node": "^16.7.13",
