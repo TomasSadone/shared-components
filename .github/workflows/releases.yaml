@@ -48,9 +48,6 @@ jobs:
 
       - name: Get latest version
         run: |
-          latest_version=$(npm view @aigotsrl/rc_shared_components_frontend version)
-          npm version --no-git-tag-version "$latest_version"
-          npm version --no-git-tag-version prerelease
           npm version patch
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPM_AUTH_TOKEN}}
