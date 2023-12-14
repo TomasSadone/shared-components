@@ -29,6 +29,7 @@ jobs:
         run: |
           echo -e "//registry.npmjs.org/:_auth=${{secrets.NPM_AUTH_TOKEN}}\nemail=${{secrets.EMAIL}}\nalways-auth=true" >> ~/.npmrc
           npm version patch --no-git-tag-version 
+          npm init --scope=@aigotsrl
           npm publish
       
 
