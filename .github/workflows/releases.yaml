@@ -43,7 +43,7 @@ jobs:
           node-version: '20'
 
       - name: Set up .npmrc
-        run: echo -e "_auth=${{ secrets.NPM_PUBLISH_KEY }}\nemail=${secrets.EMAIL}\nalways-auth=true" >> ~/.npmrc
+        run: echo -e "_auth=${{secrets.NPM_PUBLISH_KEY}}\nemail=${{secrets.EMAIL}}\nalways-auth=true" >> ~/.npmrc
 
 
       - name: Get latest version
