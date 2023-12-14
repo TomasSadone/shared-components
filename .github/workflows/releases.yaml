@@ -31,7 +31,7 @@ jobs:
           latest_version=$(npm view @aigotsrl/rc_shared_components_frontend version)
           npm version --no-git-tag-version "$latest_version"
           npm init --scope=@aigotsrl --yes
-          npm publish
+          npm publish --access public
       
 
         
