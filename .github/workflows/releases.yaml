@@ -48,7 +48,7 @@ jobs:
 
       - name: Get latest version
         run: |
-          npm version patch
+          npm version --no-git-tag-version patch
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPM_AUTH_TOKEN}}
 
