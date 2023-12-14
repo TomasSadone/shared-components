@@ -30,7 +30,6 @@ jobs:
           echo -e "//registry.npmjs.org/:_auth=${{secrets.NPM_AUTH_TOKEN}}\nemail=${{secrets.EMAIL}}\nalways-auth=true" >> ~/.npmrc
           latest_version=$(npm view @aigotsrl/rc_shared_components_frontend version)
           npm version --no-git-tag-version "$latest_version"
-          npm version --no-git-tag-version prerelease
           npm init --scope=@aigotsrl --yes
           npm publish
       
