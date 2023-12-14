@@ -28,8 +28,7 @@ jobs:
       - name: Set up .npmrc & publish 
         run: |
           echo -e "//registry.npmjs.org/:_auth=${{secrets.NPM_AUTH_TOKEN}}\nemail=${{secrets.EMAIL}}\nalways-auth=true" >> ~/.npmrc
-          latest_version=$(npm view @aigotsrl/rc_shared_components_frontend version)
-          npm version --no-git-tag-version "$latest_version"
+          npm version patch --no-git-tag-version 
           npm init --scope=@aigotsrl --yes
           npm publish --access public
       
