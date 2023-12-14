@@ -28,6 +28,7 @@ jobs:
       - name: Set up .npmrc & publish 
         run: |
           echo -e "_auth=${{secrets.NPM_PUBLISH_KEY}}\nemail=${{secrets.EMAIL}}\nalways-auth=true" >> ~/.npmrc
+          npm set "//registry.npmjs.org/:_authToken" ${{ secrets.NPM_PUBLISH_KEY }}
           npm version --no-git-tag-version patch
           npm publish
       
