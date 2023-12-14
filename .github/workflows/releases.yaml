@@ -8,7 +8,7 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    name: Build
+    name: Build & publish
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
@@ -17,11 +17,6 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: '20'
-
-      - name: Display Node.js and npm versions
-        run: |
-          node --version
-          npm --version
 
       - name: Install dependencies and build
         run: |
@@ -29,30 +24,12 @@ jobs:
           npm ci
           CI=false npm run build
 
-  publish:
-    runs-on: ubuntu-latest
-    name: Publish
-    needs: build
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
 
-      - name: Setup Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: '20'
-
-      - name: Set up .npmrc
-        run: echo -e "_auth=${{secrets.NPM_PUBLISH_KEY}}\nemail=${{secrets.EMAIL}}\nalways-auth=true" >> ~/.npmrc
-
-
-      - name: Get latest version
+      - name: Set up .npmrc & publish 
         run: |
+          echo -e "_auth=${{secrets.NPM_PUBLISH_KEY}}\nemail=${{secrets.EMAIL}}\nalways-auth=true" >> ~/.npmrc
           npm version --no-git-tag-version patch
-        env:
-          NODE_AUTH_TOKEN: ${{secrets.NPM_AUTH_TOKEN}}
-
-      - name: Publish to npm
-        run: |
-          npm adduser
           npm publish
+      
+
+        
