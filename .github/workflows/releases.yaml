@@ -45,7 +45,7 @@ jobs:
       - name: Set up .npmrc
         run: |
           echo "//registry.npmjs.org/:_authToken=\${secrets.NPM_AUTH_TOKEN}" >> ~/.npmrc
-          echo "email=${secrets.EMAIL}" >> ~/.npmrc
+          echo "email=\"${secrets.EMAIL}\"" >> ~/.npmrc
           echo "always-auth=true" >> ~/.npmrc
 
       - name: Get latest version
