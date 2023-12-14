@@ -1,0 +1,60 @@
+name: Publish and Build
+
+on:
+  push:
+    branches:
+      - develop
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    name: Build
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '14'
+
+      - name: Display Node.js and npm versions
+        run: |
+          node --version
+          npm --version
+
+      - name: Install dependencies and build
+        run: |
+          npm ci
+          npm run build
+
+  publish:
+    runs-on: ubuntu-latest
+    name: Publish
+    needs: build
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '14'
+
+      - name: Set up .npmrc
+        run: |
+          echo "//registry.npmjs.org/:_authToken=\${secrets.NPM_AUTH_TOKEN}" >> ~/.npmrc
+          echo "email=${secrets.EMAIL}" >> ~/.npmrc
+          echo "always-auth=true" >> ~/.npmrc
+
+      - name: Get latest version
+        run: |
+          latest_version=$(npm view @aigotsrl/rc_shared_components_frontend version)
+          npm version --no-git-tag-version "$latest_version"
+          npm version --no-git-tag-version prerelease
+          npm version patch
+        env:
+          NODE_AUTH_TOKEN: ${{secrets.NPM_AUTH_TOKEN}}
+
+      - name: Publish to npm
+        run: npm publish

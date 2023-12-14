@@ -1,13 +1,13 @@
 {
-  "name": "rc_shared_components_frontend",
-  "version": "0.1.1",
-  "private": true,
+  "name": "@aigotsrl/rc_shared_components_frontend",
+  "version": "0.1.2",
   "dependencies": {
     "@types/node": "^16.7.13",
     "@types/react": "^18.0.0",
     "@types/react-dom": "^18.0.0",
     "classnames": "^2.3.2",
     "libphonenumber-js": "^1.10.42",
+    "npmrc": "^1.1.1",
     "react": "^18.2.0",
     "react-auth-code-input": "^3.2.1",
     "react-dom": "^18.2.0",
@@ -75,5 +75,17 @@
     "ts-loader": "^9.4.4",
     "webpack": "5.88.1",
     "webpack-cli": "^5.1.4"
-  }
+  },
+  "description": "In this repo will live the components that will be shared between all the project.\r The suggested structure is:",
+  "main": "src/index.tsx",
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/AiGotsrl/RC-Shared-Components-Frontend.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AiGotsrl/RC-Shared-Components-Frontend/issues"
+  },
+  "homepage": "https://github.com/AiGotsrl/RC-Shared-Components-Frontend#readme"
 }
