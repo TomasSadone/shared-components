@@ -39,7 +39,7 @@ jobs:
           repository: "Aigotsrl/RC-Shared-Components-Frontend"
           ref: develop
           token: ${{ secrets.GITHUB_TOKEN }}
-          persist-credentials: true
+          persist-credentials: false
           fetch-depth: 0
 
       - name: Changes to Package.json
