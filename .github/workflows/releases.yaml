@@ -9,8 +9,8 @@ jobs:
   build:
     runs-on: ubuntu-latest
     outputs:
-      VERSION: ${{ build.steps.outputs.VERSION }}
-      PATH: ${{ build.steps.outputs.PATH }}
+      VERSION: ${{ steps.outputs.VERSION }}
+      PATH: ${{ steps.outputs.PATH }}
     permissions:
       contents: read
       id-token: write
