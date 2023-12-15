@@ -32,11 +32,27 @@ jobs:
           fetch-depth: 0
       - name: version
         run: |
-          VERSION=$(npm version patch)
+          VERSION="$(npm version patch)"
           echo ::set-output name=VERSION::$VERSION
+          PATH=="package.json"
+          echo ::set-output name=PATH::$PATH
+
       - name: Changes to Helm Chart
         run: |
           sed -Ei 's!(\s*"version"\:) (.*)!\1 ${{ steps.outputs.VERSION}}!i' ${{ steps.outputs.PATH }}
+
+      - name: Commit files
+        run: |
+          git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git commit -m "[CI] ${GITHUB_REPOSITORY} - ${GITHUB_WORKFLOW}: ${{ steps.outputs.VERSION }}" -a
+
+      - name: Push changes
+        uses: ad-m/github-push-action@v0.6.0
+        with:
+          github_token: ${{ steps.secrets.outputs.GITHUB_TOKEN }}
+          branch: main
+          repository: "Aigotsrl/RC-Shared-Components-Frontend"
 
       - run: npm publish --access public
         env:
