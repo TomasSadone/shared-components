@@ -32,7 +32,7 @@ jobs:
           fetch-depth: 0
       - name: version
         run: |
-          VERSION="$(npm version patch)"
+          VERSION="$(npm version patch --no-git-tag-version)"
           echo ::set-output name=VERSION::$VERSION
           PATH=="package.json"
           echo ::set-output name=PATH::$PATH
