@@ -32,6 +32,7 @@ jobs:
           fetch-depth: 0
       - name: version
         run: |
+          echo -e "//registry.npmjs.org/:_auth=${{secrets.NPM_AUTH_TOKEN}}\nemail=${{secrets.EMAIL}}\nalways-auth=true" >> .npmrc
           VERSION="$(npm version patch --no-git-tag-version)"
           echo ::set-output name=VERSION::$VERSION
           PATH=="package.json"
