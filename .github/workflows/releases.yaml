@@ -22,6 +22,14 @@ jobs:
           registry-url: 'https://registry.npmjs.org'
       - run: npm install -g npm
       - run: npm ci
+      - name: version
+        run: |
+          CI=false npm run build
+          echo -e "//registry.npmjs.org/:_auth=${{secrets.NPM_AUTH_TOKEN}}\nemail=${{secrets.EMAIL}}\nalways-auth=true" >> .npmrc
+          VERSION="$(npm version patch --no-git-tag-version)"
+          echo ::set-output name=VERSION::$VERSION
+          PATH=="package.json"
+          echo ::set-output name=PATH::$PATH
       - name: Checkout
         uses: actions/checkout@v3
         with:
@@ -30,13 +38,6 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
           persist-credentials: false
           fetch-depth: 0
-      - name: version
-        run: |
-          echo -e "//registry.npmjs.org/:_auth=${{secrets.NPM_AUTH_TOKEN}}\nemail=${{secrets.EMAIL}}\nalways-auth=true" >> .npmrc
-          VERSION="$(npm version patch --no-git-tag-version)"
-          echo ::set-output name=VERSION::$VERSION
-          PATH=="package.json"
-          echo ::set-output name=PATH::$PATH
 
       - name: Changes to Helm Chart
         run: |
