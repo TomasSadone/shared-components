@@ -42,7 +42,7 @@ jobs:
           persist-credentials: false
           fetch-depth: 0
 
-      - name: Changes to Helm Chart
+      - name: Changes to Package.json
         run: |
           sed -Ei 's!(\s*"version"\:) (.*)!\1 ${{ steps.env.outputs.VERSION}}!i' ${{ steps.env.outputs.PATH }}
 
@@ -50,7 +50,7 @@ jobs:
         run: |
           git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
-          git commit -m "[CI] ${GITHUB_REPOSITORY} - ${GITHUB_WORKFLOW}: ${{ steps.outputs.VERSION }}" -a
+          git commit -m "[CI] ${GITHUB_REPOSITORY} - ${GITHUB_WORKFLOW}: ${{ steps.env.outputs.VERSION }}" -a
 
       - name: Push changes
         uses: ad-m/github-push-action@v0.6.0
