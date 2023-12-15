@@ -1,4 +1,4 @@
-import AppButton from 'components/Button';
+import { AppButton } from 'components/Button';
 import IconButton from 'components/IconButton';
 
 const Home = () => (

@@ -1,4 +1,4 @@
-import AppButton from 'components/Button';
+import { AppButton } from 'components/Button';
 import HorizontalTabs from '..';
 import HorizontalTabsLink from '../HorizontalTabsLink';
 import style from './style.module.sass';

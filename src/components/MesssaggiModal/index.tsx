@@ -1,4 +1,4 @@
-import AppButton, { IAppButtonProps } from 'components/Button';
+import { AppButton, IAppButtonProps } from 'components/Button';
 import Modal from 'components/Modal';
 import styles from './style.module.sass';
 import { ReactNode } from 'react';
