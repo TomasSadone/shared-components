@@ -23,6 +23,7 @@ jobs:
       - run: npm install -g npm
       - run: npm ci
       - name: version
+        id: env
         run: |
           CI=false npm run build
           echo -e "//registry.npmjs.org/:_auth=${{secrets.NPM_AUTH_TOKEN}}\nemail=${{secrets.EMAIL}}\nalways-auth=true" >> .npmrc
@@ -41,7 +42,7 @@ jobs:
 
       - name: Changes to Helm Chart
         run: |
-          sed -Ei 's!(\s*"version"\:) (.*)!\1 ${{ build.outputs.VERSION}}!i' ${{ build.outputs.PATH }}
+          sed -Ei 's!(\s*"version"\:) (.*)!\1 ${{ steps.env.outputs.VERSION}}!i' ${{ steps.env.outputs.PATH }}
 
       - name: Commit files
         run: |
