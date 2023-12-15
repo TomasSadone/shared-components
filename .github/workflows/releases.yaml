@@ -8,6 +8,9 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    outputs:
+      VERSION: ${{ build.steps.outputs.VERSION }}
+      PATH: ${{ build.steps.outputs.PATH }}
     permissions:
       contents: read
       id-token: write
@@ -19,6 +22,22 @@ jobs:
           registry-url: 'https://registry.npmjs.org'
       - run: npm install -g npm
       - run: npm ci
+      - name: Checkout
+        uses: actions/checkout@v3
+        with:
+          repository: "Aigotsrl/RC-Shared-Components-Frontend"
+          ref: main
+          token: ${{ steps.secrets.outputs.GITHUB_TOKEN }}
+          persist-credentials: false
+          fetch-depth: 0
+      - name: version
+        run: |
+          VERSION=$(npm version patch)
+          echo ::set-output name=VERSION::$VERSION
+      - name: Changes to Helm Chart
+        run: |
+          sed -Ei 's!(\s*"version"\:) (.*)!\1 ${{ build.steps.outputs.VERSION}}!i' ${{ build.steps.outputs.PATH }}
+
       - run: npm publish --access public
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
