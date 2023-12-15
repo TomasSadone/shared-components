@@ -41,7 +41,7 @@ jobs:
 
       - name: Changes to Helm Chart
         run: |
-          sed -Ei 's!(\s*"version"\:) (.*)!\1 ${{ steps.outputs.VERSION}}!i' ${{ steps.outputs.PATH }}
+          sed -Ei 's!(\s*"version"\:) (.*)!\1 ${{ build.outputs.VERSION}}!i' ${{ build.outputs.PATH }}
 
       - name: Commit files
         run: |
