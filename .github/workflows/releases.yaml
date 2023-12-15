@@ -39,7 +39,7 @@ jobs:
           repository: "Aigotsrl/RC-Shared-Components-Frontend"
           ref: develop
           token: ${{ secrets.GITHUB_TOKEN }}
-          persist-credentials: false
+          persist-credentials: true
           fetch-depth: 0
 
       - name: Changes to Package.json
@@ -51,13 +51,7 @@ jobs:
           git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
           git commit -m "[CI] ${GITHUB_REPOSITORY} - ${GITHUB_WORKFLOW}: ${{ steps.env.outputs.VERSION }}" -a
-
-      - name: Push changes
-        uses: ad-m/github-push-action@v0.6.0
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          branch: develop
-          repository: "Aigotsrl/RC-Shared-Components-Frontend"
+          git push origin develop
 
       - run: npm publish --access public
         env:
