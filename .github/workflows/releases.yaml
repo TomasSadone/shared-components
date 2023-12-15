@@ -36,7 +36,7 @@ jobs:
           echo ::set-output name=VERSION::$VERSION
       - name: Changes to Helm Chart
         run: |
-          sed -Ei 's!(\s*"version"\:) (.*)!\1 ${{ build.steps.outputs.VERSION}}!i' ${{ build.steps.outputs.PATH }}
+          sed -Ei 's!(\s*"version"\:) (.*)!\1 ${{ steps.outputs.VERSION}}!i' ${{ steps.outputs.PATH }}
 
       - run: npm publish --access public
         env:
