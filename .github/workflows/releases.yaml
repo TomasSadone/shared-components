@@ -37,7 +37,7 @@ jobs:
         uses: actions/checkout@v3
         with:
           repository: "Aigotsrl/RC-Shared-Components-Frontend"
-          ref: develop
+          ref: main
           token: ${{ secrets.GITHUB_TOKEN }}
           persist-credentials: false
           fetch-depth: 0
@@ -51,7 +51,13 @@ jobs:
           git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
           git commit -m "[CI] ${GITHUB_REPOSITORY} - ${GITHUB_WORKFLOW}: ${{ steps.env.outputs.VERSION }}" -a
-          git push origin develop
+      
+      - name: Push changes
+        uses: ad-m/github-push-action@v0.6.0
+        with:
+          github_token: ${{ steps.secrets.outputs.GITHUB_TOKEN }}
+          branch: main
+          repository: "Aigotsrl/RC-Shared-Components-Frontend"
 
       - run: npm publish --access public
         env:
