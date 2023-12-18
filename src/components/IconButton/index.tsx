@@ -3,7 +3,7 @@ import styles from './IconButton.module.sass';
 import { AppColors } from 'types/MainTypes';
 import { icons } from 'constants/svgIcons';
 import cn from 'classnames';
-import Loader from 'components/Loader';
+import { Loader } from '../../../';
 
 const IconButton: React.FC<{
   icon: keyof typeof icons;

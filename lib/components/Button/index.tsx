@@ -1,10 +1,10 @@
 import { ButtonHTMLAttributes } from 'react';
-import { icons } from 'constants/svgIcons';
-import Icon, { IconProps } from 'components/Icon';
+import { icons } from '../../constants/svgIcons';
+import { Icon, IconProps } from '../Icon';
 import styles from './Button.module.sass';
 import cn from 'classnames';
-import Loader from 'components/Loader';
-import { AppColors } from 'types/MainTypes';
+import { Loader } from '../Loader';
+import { AppColors } from '../../types/MainTypes';
 
 export interface IAppButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   title: string;
@@ -18,7 +18,7 @@ export interface IAppButtonProps extends ButtonHTMLAttributes<HTMLButtonElement>
   text?: boolean;
   isLoading?: boolean;
 }
-export const AppButton: React.FC<IAppButtonProps> = ({
+export const AppButton = ({
   title,
   color,
   icon,
@@ -30,7 +30,7 @@ export const AppButton: React.FC<IAppButtonProps> = ({
   text,
   isLoading,
   ...buttonProps
-}) => (
+}: IAppButtonProps) => (
   <button
     disabled={isLoading}
     className={cn('button', color, { secondary, stroke, text })}

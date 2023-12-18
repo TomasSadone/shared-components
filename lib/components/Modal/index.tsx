@@ -1,5 +1,6 @@
 import { ReactNode } from 'react';
-import './style.sass';
+import './styles.sass';
+export type Test = 'string';
 
 type Props = {
   open: boolean;
@@ -7,7 +8,7 @@ type Props = {
   children?: ReactNode;
 };
 
-const Modal = ({ children, open, setOpen }: Props) => {
+export const Modal = ({ children, open, setOpen }: Props) => {
   const handleOutsideClick = () => {
     setOpen && setOpen(false);
   };
@@ -22,5 +23,3 @@ const Modal = ({ children, open, setOpen }: Props) => {
     </>
   );
 };
-
-export default Modal;

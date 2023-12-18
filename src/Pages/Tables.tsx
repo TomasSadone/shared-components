@@ -5,7 +5,7 @@ import TableContent from 'components/Table/TableContent';
 import ActionIcons from 'components/Table/components/ActionIcons';
 import MultipleBadges, { BadgeProps } from 'components/Table/components/MultipleBadges';
 import Text from 'components/Table/components/Text';
-import { AppButton } from 'components/Button';
+import { AppButton } from '../../';
 import Pagination from 'components/Pagination';
 
 export const Tables = () => {

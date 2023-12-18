@@ -6,7 +6,7 @@ type Props = {
   hr?: 'green' | 'blue' | 'red' | 'orange';
 };
 
-const Header = ({ title, paragraph, hr }: Props) => {
+export const Header = ({ title, paragraph, hr }: Props) => {
   return (
     <div>
       <h1 className={style.title}>{title}</h1>
@@ -15,5 +15,3 @@ const Header = ({ title, paragraph, hr }: Props) => {
     </div>
   );
 };
-
-export default Header;

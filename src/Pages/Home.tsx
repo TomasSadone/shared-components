@@ -1,8 +1,11 @@
-import { AppButton } from 'components/Button';
 import IconButton from 'components/IconButton';
+import { Header, Modal, AppButton } from '../../';
 
 const Home = () => (
   <div>
+    <Modal open={false}>
+      <Header title="Probando" hr="orange"></Header>
+    </Modal>
     <h1 style={{ margin: '50px 0' }}>Application Buttons</h1>
     <div style={{ width: '80%', margin: 'auto' }} className="d-flex justify-content-between">
       <div>

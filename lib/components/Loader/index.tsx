@@ -7,12 +7,10 @@ type LoaderProps = {
   color?: 'red' | 'green' | 'blue' | 'orange';
   useColor?: boolean;
 };
-const Loader: FC<LoaderProps> = ({ className, color, useColor }) => (
+export const Loader: FC<LoaderProps> = ({ className, color, useColor }) => (
   <div
     className={cn(styles.loader, className, {
       [styles[`loader_${useColor ? color : 'white'}`] as string]: !!color,
     })}
   />
 );
-
-export default Loader;
