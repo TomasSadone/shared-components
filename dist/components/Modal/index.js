@@ -1,4 +1,4 @@
-import "../../assets/index.css";
+import "../../assets/index8.css";
 import { jsx as o, Fragment as d } from "react/jsx-runtime";
 const s = ({ children: i, open: l, setOpen: a }) => /* @__PURE__ */ o(d, { children: /* @__PURE__ */ o("div", { onClick: () => {
   a && a(!1);

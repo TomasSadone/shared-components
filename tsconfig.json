@@ -26,5 +26,5 @@
       "hooks/*": ["./hooks/*"]
     }
   },
-  "include": ["src", "lib"]
+  "include": ["src", "lib", "dist/Pagination"]
 }

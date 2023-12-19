@@ -1,5 +1,5 @@
 import Icon from 'components/Icon';
-import FeaturedIcon from 'components/Icon/FeaturedIcon';
+import FeaturedIcon from '../../lib/components/Icon/FeaturedIcon';
 
 const Icons = () => (
   <div>

@@ -3,7 +3,7 @@ import TData from 'components/Table/TableContent/TData';
 import TRow from 'components/Table/TableContent/TRow';
 import TableContent from 'components/Table/TableContent';
 import ActionIcons from 'components/Table/components/ActionIcons';
-import MultipleBadges, { BadgeProps } from 'components/Table/components/MultipleBadges';
+import MultipleBadges, { BadgeProps } from '../../lib/components/MultipleBadges';
 import Text from 'components/Table/components/Text';
 import { AppButton } from '../../';
 import Pagination from 'components/Pagination';

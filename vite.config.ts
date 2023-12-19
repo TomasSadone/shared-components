@@ -31,6 +31,8 @@ export default defineConfig({
         'libphonenumber-js',
         'react-auth-code-input',
         'react-hook-form',
+        'react-router-dom',
+        'react-dom',
         'react-toastify',
         'react/jsx-runtime',
       ],
