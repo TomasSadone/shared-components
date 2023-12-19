@@ -1,4 +1,4 @@
-import Badge from 'components/Badge';
+import Badge from '../../../../../lib/components/Badge';
 import style from './style.module.sass';
 import { AppColors } from 'types/MainTypes';
 import { createPortal } from 'react-dom';

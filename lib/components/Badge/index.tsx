@@ -1,8 +1,8 @@
 import cn from 'classnames';
 import styles from './Badge.module.sass';
-import { AppColors } from 'types/MainTypes';
+import { AppColors } from '../../types/MainTypes';
 
-const Badge: React.FC<{
+export const Badge: React.FC<{
   text: string;
   withDot?: boolean;
   color?: AppColors | 'pink';
@@ -17,5 +17,3 @@ const Badge: React.FC<{
     <p>{text}</p>
   </div>
 );
-
-export default Badge;
