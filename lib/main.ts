@@ -1,3 +1,5 @@
+import './styles/app.sass';
+
 export { Modal } from './components/Modal';
 export { Header } from './components/Header';
 export { AppButton } from './components/Button';
