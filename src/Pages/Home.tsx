@@ -1,5 +1,4 @@
-import IconButton from '../../lib/components/IconButton';
-import { Header, Modal, AppButton } from '../../';
+import { Header, Modal, AppButton, IconButton } from '../../';
 
 const Home = () => (
   <div>

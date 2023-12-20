@@ -1,11 +1,13 @@
-import AuthCodeInput from 'components/Form/AuthCodeInput';
-import AuthCodeInputLabel from 'components/Form/AuthCodeInput/AuthCodeInputLabel';
-import AuthCodeInputParragraph from 'components/Form/AuthCodeInput/AuthCodeInputParragraph';
-import ControlledCheckbox from 'components/Form/Checkbox';
-import ControlledDropdown from 'components/Form/Dropdown/ControlledDropdown';
-import Input from 'components/Form/Input';
-import RadioButton from 'components/Form/RadioButton';
-import Icon from 'components/Icon';
+import {
+  AuthCodeInput,
+  AuthCodeInputLabel,
+  AuthCodeInputParragraph,
+  ControlledCheckbox,
+  ControlledDropdown,
+  Input,
+  RadioButton,
+  Icon,
+} from '../../';
 import { useState } from 'react';
 import { FormProvider, useForm } from 'react-hook-form';
 

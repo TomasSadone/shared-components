@@ -1,9 +1,8 @@
-import Dropdown from 'components/Dropdown';
-import MenuItem from 'components/MenuItem';
+import { Dropdown, MenuItem } from '../../';
 import { Outlet } from 'react-router-dom';
 import React from 'react';
 import { navBar } from 'constants/appNavLinks';
-import { DropdownItem, MenuItem as MenuItemType } from 'types/MainTypes';
+import { DropdownItem as DropdownItemType, MenuItem as MenuItemType } from 'types/MainTypes';
 
 const Layout = () => {
   const renderNavBar = React.useCallback(() => {
@@ -11,7 +10,7 @@ const Layout = () => {
       <div className="nav-bar-container">
         {navBar.map((item) => {
           if ((item as MenuItemType).link) return <MenuItem {...(item as MenuItemType)} />;
-          else return <Dropdown {...(item as DropdownItem)} />;
+          else return <Dropdown {...(item as DropdownItemType)} />;
         })}
       </div>
     );
