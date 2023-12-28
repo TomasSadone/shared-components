@@ -1,16 +1,15 @@
 import { AppColors } from 'types/MainTypes';
-import Icon from '.';
+import Icon, { IconProps } from '.';
 import styles from './Icons.module.sass';
-import { icons } from 'constants/svgIcons';
 import cn from 'classnames';
 
-const FeaturedIcon: React.FC<{
-  color: AppColors;
-  name: keyof typeof icons;
-  viewBox?: string;
-}> = ({ color, name, viewBox }) => (
+type Props = IconProps & {
+  color?: AppColors | 'gray';
+};
+
+const FeaturedIcon: React.FC<Props> = ({ color = 'gray', name, viewBox, ...props }) => (
   <div className={cn(styles[`wrapper_${color}`])}>
-    <Icon className={styles.layout} name={name} size={24} viewBox={viewBox} />
+    <Icon className={styles.layout} name={name} size={24} viewBox={viewBox} {...props} />
   </div>
 );
 

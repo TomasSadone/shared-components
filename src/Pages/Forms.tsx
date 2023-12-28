@@ -2,15 +2,33 @@ import AuthCodeInput from 'components/Form/AuthCodeInput';
 import AuthCodeInputLabel from 'components/Form/AuthCodeInput/AuthCodeInputLabel';
 import AuthCodeInputParragraph from 'components/Form/AuthCodeInput/AuthCodeInputParragraph';
 import ControlledCheckbox from 'components/Form/Checkbox';
+import RadioGroupItem from 'components/Form/RadioGroupItem';
 import ControlledDropdown from 'components/Form/Dropdown/ControlledDropdown';
 import Input from 'components/Form/Input';
 import RadioButton from 'components/Form/RadioButton';
 import Icon from 'components/Icon';
 import { useState } from 'react';
 import { FormProvider, useForm } from 'react-hook-form';
+import Textarea from 'components/Form/Textarea';
+import Dropzone from 'components/Form/Dropzone/index';
+import { FileRejection, DropEvent } from 'react-dropzone';
+import Toggle from 'components/Form/Toggle';
 
 const Forms = () => {
   const formMethods = useForm();
+  const watchAll = formMethods.watch();
+
+  const handleFiles = (
+    acceptedFiles: File[],
+    fileRejections: FileRejection[],
+    event: DropEvent,
+  ) => {
+    console.log(acceptedFiles);
+  };
+
+  console.log(watchAll);
+
+  const [selected, setSelected] = useState(false);
   const [result, setResult] = useState('');
   const handleOnChange = (res: string) => {
     setResult(res);
@@ -91,6 +109,41 @@ const Forms = () => {
           <RadioButton name="radio" label="some text" value="some text2" />
           <RadioButton name="radio" label="some text" value="some text3" />
 
+          <RadioGroupItem
+            description="Invia una mail ai tuoi clienti per mostrare le offerte che hai pensato per loro"
+            label="Comunicare offerte e sconti"
+            name="scegliObiettivo"
+            value="oferteESconti"
+            extraOptions={[
+              { label: 'extra1', name: 'extraOptions', value: 'extra1' },
+              { label: 'extra2', name: 'extraOptions', value: 'extra2' },
+              { label: 'extra3', name: 'extraOptions', value: 'extra3' },
+            ]}
+            moreInformation="Mas info"
+          />
+          <RadioGroupItem
+            description="Invia una mail ai tuoi clienti per mostrare le offerte che hai pensato per loro"
+            label="Comunicare offerte e sconti"
+            name="scegliObiettivo"
+            value="otro2"
+            moreInformation="Mas info"
+            moreInformationOnClick={(str) => console.log(str)}
+          />
+          <Textarea name="mytextarea" />
+          <Dropzone
+            clickText="Click to look for files"
+            acceptedFilesText="JPG, PNG, PDF"
+            dropText="or drop them here"
+            textWhenDropReject="File type not compatible"
+            textWhenDropping="drop it like is hot"
+            handleFiles={handleFiles}
+          />
+          <Toggle
+            onClick={() => {
+              setSelected(!selected);
+            }}
+            selected={selected}
+          />
           <div style={{ marginTop: '1rem', display: 'grid', gap: '1rem' }}>
             <div>
               <AuthCodeInput placeholder="0" onChange={handleOnChange} />
