@@ -1,18 +1,20 @@
-import AuthCodeInput from 'components/Form/AuthCodeInput';
-import AuthCodeInputLabel from 'components/Form/AuthCodeInput/AuthCodeInputLabel';
-import AuthCodeInputParragraph from 'components/Form/AuthCodeInput/AuthCodeInputParragraph';
-import ControlledCheckbox from 'components/Form/Checkbox';
-import RadioGroupItem from 'components/Form/RadioGroupItem';
-import ControlledDropdown from 'components/Form/Dropdown/ControlledDropdown';
-import Input from 'components/Form/Input';
-import RadioButton from 'components/Form/RadioButton';
-import Icon from 'components/Icon';
+import {
+  AuthCodeInput,
+  AuthCodeInputLabel,
+  AuthCodeInputParragraph,
+  ControlledCheckbox,
+  ControlledDropdown,
+  Input,
+  RadioButton,
+  Icon,
+  RadioGroupItem,
+} from '../../';
 import { useState } from 'react';
 import { FormProvider, useForm } from 'react-hook-form';
-import Textarea from 'components/Form/Textarea';
-import Dropzone from 'components/Form/Dropzone/index';
+import { Textarea } from '../../';
+import { AppDropzone } from '../../';
+import { Toggle } from '../../';
 import { FileRejection, DropEvent } from 'react-dropzone';
-import Toggle from 'components/Form/Toggle';
 
 const Forms = () => {
   const formMethods = useForm();
@@ -130,7 +132,7 @@ const Forms = () => {
             moreInformationOnClick={(str) => console.log(str)}
           />
           <Textarea name="mytextarea" />
-          <Dropzone
+          <AppDropzone
             clickText="Click to look for files"
             acceptedFilesText="JPG, PNG, PDF"
             dropText="or drop them here"

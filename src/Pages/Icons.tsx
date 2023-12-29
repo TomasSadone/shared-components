@@ -1,5 +1,4 @@
-import Icon from 'components/Icon';
-import FeaturedIcon from 'components/Icon/FeaturedIcon';
+import { FeaturedIcon, Icon } from '../../';
 
 const Icons = () => (
   <div>

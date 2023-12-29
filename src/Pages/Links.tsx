@@ -1,5 +1,4 @@
-import HorizontalTabs from 'components/HorizontalTabs';
-import HorizontalTabsLink from 'components/HorizontalTabs/HorizontalTabsLink';
+import { HorizontalTabs, HorizontalTabsLink } from '../../';
 
 const tabs = [
   { to: '/links', text: 'My details' },

@@ -1,12 +1,15 @@
-import Table from 'components/Table';
-import TData from 'components/Table/TableContent/TData';
-import TRow from 'components/Table/TableContent/TRow';
-import TableContent from 'components/Table/TableContent';
-import ActionIcons from 'components/Table/components/ActionIcons';
-import MultipleBadges, { BadgeProps } from 'components/Table/components/MultipleBadges';
-import Text from 'components/Table/components/Text';
-import AppButton from 'components/Button';
-import Pagination from 'components/Pagination';
+import {
+  Table,
+  TData,
+  TRow,
+  TableContent,
+  ActionIcons,
+  MultipleBadges,
+  Text,
+  AppButton,
+  Pagination,
+} from '../../';
+import { BadgeProps } from '../../lib/components/MultipleBadges';
 
 export const Tables = () => {
   const badges: BadgeProps[] = [

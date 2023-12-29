@@ -1,0 +1,64 @@
+@import '../../../styles/helpers'
+
+.checkbox
+    margin: auto 0
+    display: block
+    position: relative
+    user-select: none 
+    cursor: pointer
+    -webkit-tap-highlight-color: rgba(0,0,0,0)
+    &.reverse
+        .inner
+            flex-direction: row-reverse
+        .text
+            padding: 0 16px 0 0
+
+.input
+    position: absolute
+    top: 0
+    left: 0
+    opacity: 0 
+    &:checked + .inner 
+        .tick
+            background: $primary_50
+            border-color: $primary_500
+            &:before
+                opacity: 1
+
+.inner
+    display: flex
+
+.tick
+    position: relative
+    flex-shrink: 0
+    transition: all .2s
+    width: 16px
+    height: 16px
+    padding: 2px
+    border-radius: 50%
+    border: 1px solid $g3
+    &:hover
+        background: $primary_50
+        border-color: $primary_500 !important
+    &:before
+        content: ""
+        position: absolute
+        top: 50%
+        left: 50%
+        transform: translate(-50%,-50%)
+        width: 8px
+        height: 8px
+        border-radius: 50%
+        background: $primary_500
+        opacity: 0 
+        transition: opacity .2s
+
+.text
+    font-size: 14px
+    font-style: normal
+    font-weight: 400
+    line-height: 20px
+    margin-left: 8px
+    color: $g6
+    +Poppins
+  

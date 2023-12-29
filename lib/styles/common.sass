@@ -1,0 +1,96 @@
+// common styles
+@import ./helpers
+
+body
+    min-width: 375px
+    overflow: hidden
+    background: $n2
+    +Poppins
+    +base-font
+    -webkit-font-smoothing: antialiased
+    -moz-osx-font-smoothing: grayscale
+    letter-spacing: -.01em
+    color: $n7
+    +dark-body
+        background: $n8
+        color: $n1
+
+a
+    text-decoration: none
+
+svg,
+img
+    vertical-align: middle
+
+button
+    background: none
+
+button,
+input,
+textarea
+    +Poppins
+
+.desktop
+    &-hide
+        +d
+            display: none !important
+    &-show
+        display: none !important
+        +d
+            display: block !important
+    &-text-right
+        +d
+            text-align: right
+
+.tablet
+    &-hide
+        +t
+            display: none !important
+    &-show
+        display: none !important
+        +t
+            display: block !important
+            
+.mobile
+    &-hide
+        +m
+            display: none !important
+    &-show
+        display: none !important
+        +m
+            display: block !important
+
+.error-message
+    color: $red
+    font-size: 12px
+    margin-left: 15px
+    
+
+.d-flex
+    display: flex
+
+.justify-content-center
+    justify-content: center
+
+.align-center
+    align-items: center
+
+.fill-available
+    width: -webkit-fill-available
+
+.justify-content-between
+    justify-content: space-between
+
+.cursor-pointer
+    cursor: pointer
+
+.m-auto
+    margin: auto
+
+.full-width
+    width: 100%
+
+.pt-10
+    padding-top: 10px
+.pb-10
+    padding-bottom: 10px
