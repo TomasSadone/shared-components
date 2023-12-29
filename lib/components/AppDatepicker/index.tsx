@@ -1,14 +1,12 @@
-import DatePicker, { registerLocale } from 'react-datepicker';
+import DatePicker, { registerLocale, ReactDatePickerProps } from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import './style.sass';
-import { ReactDatePickerProps } from 'react-datepicker';
-
 import es from 'date-fns/locale/es';
 import it from 'date-fns/locale/it';
 import en from 'date-fns/locale/en-US';
 import { forwardRef } from 'react';
 
-const AppDatepicker = forwardRef<DatePicker, ReactDatePickerProps>(
+export const AppDatepicker = forwardRef<DatePicker, ReactDatePickerProps>(
   ({ ...DatePickerProps }: ReactDatePickerProps, ref) => {
     //add more languages in the same way if needed
     const languages: { [key: string]: Locale } = {
@@ -33,5 +31,3 @@ const AppDatepicker = forwardRef<DatePicker, ReactDatePickerProps>(
     );
   },
 );
-
-export default AppDatepicker;

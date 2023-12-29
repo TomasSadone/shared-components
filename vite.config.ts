@@ -10,12 +10,12 @@ export default defineConfig({
   plugins: [react(), dts({ include: ['lib'], copyDtsFiles: true }), libInjectCss()],
   resolve: {
     alias: {
-      components: '/src/components',
-      utils: '/src/utils',
-      types: '/src/types',
-      styles: '/src/styles',
-      constants: '/src/constants',
-      hooks: '/src/hooks',
+      components: '/lib/components',
+      utils: '/lib/utils',
+      types: '/lib/types',
+      styles: '/lib/styles',
+      constants: '/lib/constants',
+      hooks: '/lib/hooks',
     },
   },
   build: {

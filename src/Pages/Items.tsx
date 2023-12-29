@@ -1,5 +1,4 @@
-import MessaggiDatePicker from 'components/AppDatepicker/MessaggiDatepicker';
-import { Badge } from '../../';
+import { Badge, MessaggiDatePicker } from '../../';
 import { useState } from 'react';
 
 const Items = () => (
