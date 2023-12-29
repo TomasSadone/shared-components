@@ -8,6 +8,7 @@ import { useOnOutsideClick } from '../../../hooks/useOnOutsideClick';
 
 type DropdownProps = {
   icon?: keyof typeof icons;
+  optionIcon?: keyof typeof icons;
   iconViewBox?: string;
   dropDownId: string;
   placeHolder?: string;
@@ -19,6 +20,7 @@ type DropdownProps = {
 
 export const Dropdown: React.FC<DropdownProps> = ({
   icon,
+  optionIcon,
   iconViewBox,
   items,
   dropDownId,
@@ -57,6 +59,7 @@ export const Dropdown: React.FC<DropdownProps> = ({
               [styles.active]: item.value === selectedItem?.value,
             })}
           >
+            {optionIcon && <Icon name={optionIcon} />}
             {item.label}
           </div>
         ))}

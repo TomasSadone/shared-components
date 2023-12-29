@@ -4,7 +4,7 @@ import type { FC } from 'react';
 import styles from './RadioButton.module.sass';
 import { useForm } from 'react-hook-form';
 
-type RadioButtonProps = {
+export type RadioButtonProps = {
   className?: string;
   label: string;
   value: string;

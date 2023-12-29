@@ -7,12 +7,30 @@ import {
   Input,
   RadioButton,
   Icon,
+  RadioGroupItem,
 } from '../../';
 import { useState } from 'react';
 import { FormProvider, useForm } from 'react-hook-form';
+import { Textarea } from '../../';
+import { AppDropzone } from '../../';
+import { Toggle } from '../../';
+import { FileRejection, DropEvent } from 'react-dropzone';
 
 const Forms = () => {
   const formMethods = useForm();
+  const watchAll = formMethods.watch();
+
+  const handleFiles = (
+    acceptedFiles: File[],
+    fileRejections: FileRejection[],
+    event: DropEvent,
+  ) => {
+    console.log(acceptedFiles);
+  };
+
+  console.log(watchAll);
+
+  const [selected, setSelected] = useState(false);
   const [result, setResult] = useState('');
   const handleOnChange = (res: string) => {
     setResult(res);
@@ -93,6 +111,41 @@ const Forms = () => {
           <RadioButton name="radio" label="some text" value="some text2" />
           <RadioButton name="radio" label="some text" value="some text3" />
 
+          <RadioGroupItem
+            description="Invia una mail ai tuoi clienti per mostrare le offerte che hai pensato per loro"
+            label="Comunicare offerte e sconti"
+            name="scegliObiettivo"
+            value="oferteESconti"
+            extraOptions={[
+              { label: 'extra1', name: 'extraOptions', value: 'extra1' },
+              { label: 'extra2', name: 'extraOptions', value: 'extra2' },
+              { label: 'extra3', name: 'extraOptions', value: 'extra3' },
+            ]}
+            moreInformation="Mas info"
+          />
+          <RadioGroupItem
+            description="Invia una mail ai tuoi clienti per mostrare le offerte che hai pensato per loro"
+            label="Comunicare offerte e sconti"
+            name="scegliObiettivo"
+            value="otro2"
+            moreInformation="Mas info"
+            moreInformationOnClick={(str) => console.log(str)}
+          />
+          <Textarea name="mytextarea" />
+          <AppDropzone
+            clickText="Click to look for files"
+            acceptedFilesText="JPG, PNG, PDF"
+            dropText="or drop them here"
+            textWhenDropReject="File type not compatible"
+            textWhenDropping="drop it like is hot"
+            handleFiles={handleFiles}
+          />
+          <Toggle
+            onClick={() => {
+              setSelected(!selected);
+            }}
+            selected={selected}
+          />
           <div style={{ marginTop: '1rem', display: 'grid', gap: '1rem' }}>
             <div>
               <AuthCodeInput placeholder="0" onChange={handleOnChange} />
