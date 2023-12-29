@@ -1,6 +1,6 @@
 import { forwardRef, useRef, useState } from 'react';
-import AppDatepicker from '..';
-import AppButton from 'components/Button';
+import { AppDatepicker } from '..';
+import { AppButton } from '../../Button';
 import ReactDatePicker from 'react-datepicker';
 
 type Props = {
@@ -19,7 +19,7 @@ const CustomButton = forwardRef<HTMLButtonElement, { text: string; onClick: () =
   ),
 );
 
-const MessaggiDatePicker = ({
+export const MessaggiDatePicker = ({
   onConfirm,
   confirmedDate,
   cancelText,
@@ -57,5 +57,3 @@ const MessaggiDatePicker = ({
     </AppDatepicker>
   );
 };
-
-export default MessaggiDatePicker;

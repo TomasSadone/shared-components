@@ -3,18 +3,14 @@ import { HorizontalTabs } from '../';
 import { HorizontalTabsLink } from '../HorizontalTabsLink';
 import style from './style.module.sass';
 
-//edit "to" with real url when implementing the component
-const tabs = [
-  { to: '/links', text: 'Messaggi colletivi' },
-  { to: '/', text: 'Chat con i clienti' },
-  { to: '/', text: 'Messaggi Automatici' },
-];
-
 type Props = {
   olderMessages?: boolean;
+  tabs: { to: string; text: string }[];
 };
 
-const MessaggiHorizontalTabs = ({ olderMessages }: Props) => (
+//todo: dynamic button text
+
+export const MessaggiHorizontalTabs = ({ olderMessages, tabs }: Props) => (
   <div className={style.container}>
     <HorizontalTabs fullWidth={false}>
       {tabs.map((tab) => (
@@ -44,5 +40,3 @@ const MessaggiHorizontalTabs = ({ olderMessages }: Props) => (
     </div>
   </div>
 );
-
-export default MessaggiHorizontalTabs;
