@@ -8,6 +8,7 @@ import {
   RadioButton,
   Icon,
   RadioGroupItem,
+  TitleSubtitleLabel,
 } from '../../';
 import { useState } from 'react';
 import { FormProvider, useForm } from 'react-hook-form';
@@ -193,7 +194,7 @@ const Forms = () => {
             { label: 'opcion2', value: 'opcion2' },
           ]}
         />
-        <Dropzone
+        <AppDropzone
           clickText="Click para buscar archivos"
           acceptedFilesText="JPG, PNG, PDF"
           dropText="o arrastralos aqui"
