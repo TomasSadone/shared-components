@@ -1,4 +1,3 @@
-import { HTMLFactory } from 'react';
 import style from './style.module.sass';
 
 type Props = {
