@@ -3,7 +3,7 @@ name: Publish and Build
 on:
   push:
     branches:
-      - develop
+      - main
 
 jobs:
   build:
@@ -21,43 +21,27 @@ jobs:
           node-version: '18.x'
           registry-url: 'https://registry.npmjs.org'
       - run: npm install -g npm
-      - run: npm ci
+      
       - name: version
         id: env
         run: |
-          CI=false npm run build
           echo -e "//registry.npmjs.org/:_auth=${{secrets.NPM_AUTH_TOKEN}}\nemail=${{secrets.EMAIL}}\nalways-auth=true" >> .npmrc
           VERSION=$(npm version patch --no-git-tag-version)
           VERSION="${VERSION:1}"
           echo ::set-output name=VERSION::$VERSION
           PATH="package.json"
           echo ::set-output name=PATH::$PATH
-
-      - name: Checkout
-        uses: actions/checkout@v3
-        with:
-          repository: "Aigotsrl/RC-Shared-Components-Frontend"
-          ref: main
-          token: ${{ secrets.GITHUB_TOKEN }}
-          persist-credentials: false
-          fetch-depth: 0
+      
 
       - name: Changes to Package.json
         run: |
-          sed -Ei 's!(\s*"version"\:) (.*)!\1 ${{ steps.env.outputs.VERSION}}!i' ${{ steps.env.outputs.PATH }}
+          sed -Ei 's!(\s*"version"\:) (.*)!\1 "${{ steps.env.outputs.VERSION}}",!i' ${{ steps.env.outputs.PATH }}
 
-      - name: Commit files
-        run: |
-          git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git config --local user.name "github-actions[bot]"
-          git commit -m "[CI] ${GITHUB_REPOSITORY} - ${GITHUB_WORKFLOW}: ${{ steps.env.outputs.VERSION }}" -a
+      - run: npm ci
+      - run: |
+          CI=false npm run build
+
       
-      - name: Push changes
-        uses: ad-m/github-push-action@v0.6.0
-        with:
-          github_token: ${{ steps.secrets.outputs.GITHUB_TOKEN }}
-          branch: main
-          repository: "Aigotsrl/RC-Shared-Components-Frontend"
 
       - run: npm publish --access public
         env:
