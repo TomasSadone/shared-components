@@ -1,7 +1,13 @@
-import { Header, Modal, AppButton, IconButton } from '../../';
+import { Header, Modal, AppButton, IconButton, BackgroundCard } from '../../';
+import { ColorSchemeViewer } from '../../lib/components/Editor/ColorSchemeViewer';
 
 const Home = () => (
   <div>
+    <div style={{ width: '20%' }}>
+      <BackgroundCard padding={6}>
+        <ColorSchemeViewer colors={['#567FD0', '#DFE7F6', '#DE3923', '#727F93']} />
+      </BackgroundCard>
+    </div>
     <Modal open={false}>
       <Header title="Probando" hr="orange"></Header>
     </Modal>
