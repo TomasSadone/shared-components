@@ -78,7 +78,7 @@ Then, to import, you have to navigate to the root folder. That is it, if you hav
 
 ## Usage/Examples
 
-Here you are going to find some explanation/examples of how to use the library when installed using `npm i @aigotsrl/rc_shared_compoents_frontend`
+Here you are going to find some explanation/examples of how to use the library when installed using `yarn add @aigotsrl/rc_shared_components_frontend`
 
 ### Form components
 
