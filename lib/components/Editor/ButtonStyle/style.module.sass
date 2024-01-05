@@ -1,0 +1,30 @@
+@use '.././.././../styles/helpers'
+
+.card
+    overflow: hidden
+    display: flex
+    justify-content: space-around
+
+.button
+    flex-grow: 1
+    padding: 10px 32px
+    display: grid
+    place-content: center
+    &.selected
+        background-color: helpers.$primary_25
+        .shape
+            outline: 2px solid helpers.$primary_500 
+
+.shape
+    aspect-ratio: 1 
+    width: 15px
+    outline: 2px solid helpers.$g5
+
+.squared
+    border-radius: .1px  
+
+.rounded
+    border-radius: 4px
+
+.circle
+    border-radius: 100px
