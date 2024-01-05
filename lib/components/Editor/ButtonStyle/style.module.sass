@@ -10,6 +10,10 @@
     padding: 10px 32px
     display: grid
     place-content: center
+
+    &:not(:first-child)
+        border-left:1px solid helpers.$g3
+
     &.selected
         background-color: helpers.$primary_25
         .shape
