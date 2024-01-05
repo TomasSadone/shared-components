@@ -11,7 +11,6 @@ import {
   Pagination,
 } from '../../';
 import { BadgeProps } from '../../lib/components/MultipleBadges';
-import { ButtonStyle } from '../../lib/components/Editor/ButtonStyle';
 
 export const Tables = () => {
   const badges: BadgeProps[] = [
@@ -31,106 +30,98 @@ export const Tables = () => {
     },
   ];
 
-  const [shape, setShape] = useState<'circle' | 'rounded' | 'squared' | null>(null);
-
   return (
-    <div>
-      <ButtonStyle
-        selected={shape}
-        onSelect={(shape: 'circle' | 'rounded' | 'squared' | null) => setShape(shape)}
-      />
-      <Table>
-        <div style={{ display: 'grid', gap: '1rem', padding: '1rem', justifyItems: 'start' }}>
-          <h1>Table title</h1>
-          <p>table description</p>
-          <AppButton title="Some button" color="green" />
-          <AppButton title="Other button" color="green" />
-          <p>Any content</p>
-        </div>
+    <Table>
+      <div style={{ display: 'grid', gap: '1rem', padding: '1rem', justifyItems: 'start' }}>
+        <h1>Table title</h1>
+        <p>table description</p>
+        <AppButton title="Some button" color="green" />
+        <AppButton title="Other button" color="green" />
+        <p>Any content</p>
+      </div>
 
-        <TableContent>
-          <thead>
-            <TRow border={false} darkerBackground="never">
-              <TData location="head">Header</TData>
-              <TData location="head">Header</TData>
-              <TData location="head">Header</TData>
-              <TData location="head">Header</TData>
-            </TRow>
-          </thead>
-          <tbody>
-            <TRow darkerBackground="intermitent">
-              <TData>
-                <Text text="Tomas Sadone" isLeadText supportingText="tomas.sadone@aigot.com" />
-              </TData>
-              <TData>
-                <Text text="+54 9567194018" />
-              </TData>
-              <TData>
-                <MultipleBadges badges={badges} />
-              </TData>
-              <TData>
-                <ActionIcons
-                  icons={[
-                    { name: 'add', onClick: () => null },
-                    { name: 'plus-circle', onClick: () => null },
-                  ]}
-                />
-              </TData>
-            </TRow>
-            <TRow darkerBackground="intermitent">
-              <TData>
-                <Text text="Tomas Sadone" isLeadText supportingText="tomas.sadone@aigot.com" />
-              </TData>
-              <TData>
-                <Text text="+54 9567194018" />
-              </TData>
-              <TData>
-                <MultipleBadges badges={badges} />
-              </TData>
-              <TData>
-                <ActionIcons
-                  icons={[
-                    { name: 'add', onClick: () => null },
-                    { name: 'plus-circle', onClick: () => null },
-                  ]}
-                />
-              </TData>
-            </TRow>
-            <TRow darkerBackground="intermitent">
-              <TData>
-                <Text text="Tomas Sadone" isLeadText supportingText="tomas.sadone@aigot.com" />
-              </TData>
-              <TData>
-                <Text text="+54 9567194018" />
-              </TData>
-              <TData>
-                <MultipleBadges badges={badges} />
-              </TData>
-              <TData>
-                <ActionIcons
-                  icons={[
-                    { name: 'add', onClick: () => null },
-                    { name: 'plus-circle', onClick: () => null },
-                  ]}
-                />
-              </TData>
-            </TRow>
-          </tbody>
-        </TableContent>
-        <div style={{ display: 'grid', gap: '1rem', padding: '1rem', justifyItems: 'start' }}>
-          <Pagination
-            handleNextPage={() => null}
-            handlePrevPage={() => null}
-            handlePageSelection={(number: number) => null}
-            page={3}
-            totalPages={10}
-            prevNextButtons="text"
-            type="default"
-            align="center"
-            numbers="square"
-          />
-        </div>
-      </Table>
-    </div>
+      <TableContent>
+        <thead>
+          <TRow border={false} darkerBackground="never">
+            <TData location="head">Header</TData>
+            <TData location="head">Header</TData>
+            <TData location="head">Header</TData>
+            <TData location="head">Header</TData>
+          </TRow>
+        </thead>
+        <tbody>
+          <TRow darkerBackground="intermitent">
+            <TData>
+              <Text text="Tomas Sadone" isLeadText supportingText="tomas.sadone@aigot.com" />
+            </TData>
+            <TData>
+              <Text text="+54 9567194018" />
+            </TData>
+            <TData>
+              <MultipleBadges badges={badges} />
+            </TData>
+            <TData>
+              <ActionIcons
+                icons={[
+                  { name: 'add', onClick: () => null },
+                  { name: 'plus-circle', onClick: () => null },
+                ]}
+              />
+            </TData>
+          </TRow>
+          <TRow darkerBackground="intermitent">
+            <TData>
+              <Text text="Tomas Sadone" isLeadText supportingText="tomas.sadone@aigot.com" />
+            </TData>
+            <TData>
+              <Text text="+54 9567194018" />
+            </TData>
+            <TData>
+              <MultipleBadges badges={badges} />
+            </TData>
+            <TData>
+              <ActionIcons
+                icons={[
+                  { name: 'add', onClick: () => null },
+                  { name: 'plus-circle', onClick: () => null },
+                ]}
+              />
+            </TData>
+          </TRow>
+          <TRow darkerBackground="intermitent">
+            <TData>
+              <Text text="Tomas Sadone" isLeadText supportingText="tomas.sadone@aigot.com" />
+            </TData>
+            <TData>
+              <Text text="+54 9567194018" />
+            </TData>
+            <TData>
+              <MultipleBadges badges={badges} />
+            </TData>
+            <TData>
+              <ActionIcons
+                icons={[
+                  { name: 'add', onClick: () => null },
+                  { name: 'plus-circle', onClick: () => null },
+                ]}
+              />
+            </TData>
+          </TRow>
+        </tbody>
+      </TableContent>
+      <div style={{ display: 'grid', gap: '1rem', padding: '1rem', justifyItems: 'start' }}>
+        <Pagination
+          handleNextPage={() => null}
+          handlePrevPage={() => null}
+          handlePageSelection={(number: number) => null}
+          page={3}
+          totalPages={10}
+          prevNextButtons="text"
+          type="default"
+          align="center"
+          numbers="square"
+        />
+      </div>
+    </Table>
   );
 };
