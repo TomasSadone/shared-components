@@ -4,7 +4,7 @@ import style from './style.module.sass';
 type Props = {
   children: React.ReactNode;
   padding?: number;
-  className: string;
+  className?: string;
 } & React.DetailedHTMLProps<React.HTMLAttributes<HTMLDivElement>, HTMLDivElement>;
 
 export const BackgroundCard = ({ children, padding = 12, className, ...rest }: Props) => (
