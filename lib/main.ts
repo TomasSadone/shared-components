@@ -40,3 +40,4 @@ export { UnderlineButton } from './components/UnderlineButton';
 export { BackgroundCard } from './components/Editor/BackgroundCard';
 export { BGCardWithButton } from './components/Editor/BGCardWithButton';
 export { ColorSchemeViewer } from './components/Editor/ColorSchemeViewer';
+export { BannerDisposition } from './components/Editor/BannerDisposition';

@@ -9,6 +9,7 @@ import {
   AppButton,
   Pagination,
 } from '../../';
+import { BannerDisposition } from '../../lib/components/Editor/BannerDisposition';
 import { BadgeProps } from '../../lib/components/MultipleBadges';
 
 export const Tables = () => {
@@ -31,6 +32,18 @@ export const Tables = () => {
 
   return (
     <Table>
+      <BannerDisposition
+        textImageDisposition="front and back"
+        button={<AppButton title="select" color="blue" stroke />}
+      />
+      <BannerDisposition
+        textImageDisposition="side to side"
+        button={<AppButton title="select" color="blue" stroke />}
+      />
+      <BannerDisposition
+        textImageDisposition="up and bottom"
+        button={<AppButton title="select" color="blue" stroke />}
+      />
       <div style={{ display: 'grid', gap: '1rem', padding: '1rem', justifyItems: 'start' }}>
         <h1>Table title</h1>
         <p>table description</p>
