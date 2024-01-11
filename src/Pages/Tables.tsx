@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import {
   Table,
   TData,
@@ -9,6 +10,7 @@ import {
   AppButton,
   Pagination,
 } from '../../';
+import { Accordion } from '../../lib/components/Accordion';
 import { BadgeProps } from '../../lib/components/MultipleBadges';
 
 export const Tables = () => {
@@ -29,15 +31,19 @@ export const Tables = () => {
     },
   ];
 
+  const [open, setOpen] = useState(false);
+
   return (
     <Table>
-      <div style={{ display: 'grid', gap: '1rem', padding: '1rem', justifyItems: 'start' }}>
-        <h1>Table title</h1>
-        <p>table description</p>
-        <AppButton title="Some button" color="green" />
-        <AppButton title="Other button" color="green" />
-        <p>Any content</p>
-      </div>
+      <Accordion text="prueba" open={open} handleOpen={setOpen}>
+        <div style={{ display: 'grid', gap: '1rem', padding: '1rem', justifyItems: 'start' }}>
+          <h1>Table title</h1>
+          <p>table description</p>
+          <AppButton title="Some button" color="green" />
+          <AppButton title="Other button" color="green" />
+          <p>Any content</p>
+        </div>
+      </Accordion>
 
       <TableContent>
         <thead>
