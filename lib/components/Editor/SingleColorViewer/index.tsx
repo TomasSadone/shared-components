@@ -10,7 +10,7 @@ type Props = {
   tooltipChildren: ReactNode;
 };
 
-const SingleColorViewer = ({ tooltipChildren, color, text }: Props) => {
+export const SingleColorViewer = ({ tooltipChildren, color, text }: Props) => {
   return (
     <div className={style.container}>
       <Color className={style.colorSquare} hexCode={color} />
@@ -38,5 +38,3 @@ const SingleColorViewer = ({ tooltipChildren, color, text }: Props) => {
     </div>
   );
 };
-
-export default SingleColorViewer;
