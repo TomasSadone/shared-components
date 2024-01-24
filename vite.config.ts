@@ -35,6 +35,8 @@ export default defineConfig({
         'react-dom',
         'react-toastify',
         'react/jsx-runtime',
+        'react-dropzone',
+        'react-colorful',
       ],
       input: Object.fromEntries(
         glob

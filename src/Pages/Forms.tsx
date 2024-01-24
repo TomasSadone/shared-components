@@ -15,6 +15,7 @@ import { Textarea } from '../../';
 import { AppDropzone } from '../../';
 import { Toggle } from '../../';
 import { FileRejection, DropEvent } from 'react-dropzone';
+import { ColorSchemeViewer, Tooltip } from '../../lib/main';
 
 const Forms = () => {
   const formMethods = useForm();
@@ -35,10 +36,19 @@ const Forms = () => {
   const handleOnChange = (res: string) => {
     setResult(res);
   };
-
   return (
     <div>
       <h1 style={{ margin: '50px 0' }}>Application Form Elements</h1>
+      <Tooltip trigger="click" hoverItem={<span>hover</span>}>
+        <div style={{ display: 'grid', gap: '4px' }}>
+          <div style={{ minWidth: '300px' }}>
+            <ColorSchemeViewer colors={['#FF6978', '#FFFCF9', '#B1EDE8', '#6D435A']} />
+          </div>
+          <div style={{ minWidth: '300px' }}>
+            <ColorSchemeViewer colors={['#FF6978', '#FFFCF9', '#B1EDE8', '#6D435A']} />
+          </div>
+        </div>
+      </Tooltip>
       <FormProvider {...formMethods}>
         <div style={{ margin: '40px 0' }}>
           <ControlledDropdown
