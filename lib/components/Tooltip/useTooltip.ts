@@ -1,10 +1,24 @@
-import { useRef, useState } from 'react';
-import style from './style.module.sass';
+import { useRef, useState, MouseEvent, useEffect } from 'react';
 
 const useTooltip = () => {
   const [coords, setCoords] = useState({});
+  const [isVisible, setIsVisible] = useState(false);
   const tooltipRef = useRef<HTMLDivElement>(null);
-  const handleMouseEnter = (e: React.MouseEvent<HTMLSpanElement>) => {
+
+  const handleScroll = () => {
+    setIsVisible(false);
+  };
+  useEffect(() => {
+    if (isVisible) {
+      document.addEventListener('scroll', handleScroll, { once: true, capture: true });
+    }
+  }, [handleScroll]);
+
+  const onToggle = (e: MouseEvent<HTMLDivElement>) => {
+    if (e.type === 'mouseleave' || (e.type === 'click' && isVisible)) {
+      setIsVisible(false);
+      return;
+    }
     const rect = e.currentTarget.getBoundingClientRect();
     const spaceAbove = rect.top;
     const spaceBelow = window.innerHeight - rect.bottom;
@@ -18,6 +32,7 @@ const useTooltip = () => {
     const contentWidth = tooltipRef.current?.clientWidth
       ? tooltipRef.current?.clientWidth
       : 100;
+
     const coordsToSet = {
       left: spaceRight > spaceLeft ? rect.x : rect.x - contentWidth,
       top:
@@ -27,14 +42,13 @@ const useTooltip = () => {
     };
 
     setCoords(coordsToSet);
-
-    tooltipRef.current?.classList.add(style['show']);
+    setIsVisible(true);
   };
-  const handleMouseLeave = () => tooltipRef.current?.classList.remove(style['show']);
 
   return {
-    handleMouseEnter,
-    handleMouseLeave,
+    isVisible,
+    setIsVisible,
+    onToggle,
     coords,
     tooltipRef,
   };

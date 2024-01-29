@@ -1,21 +1,15 @@
 import { useEffect } from 'react';
 
-export const useOnOutsideClick = (
-  elementId: string,
-  setIsVisible?: (visible: boolean) => void,
-  visible?: boolean,
-) => {
+export function useOnOutsideClick(
+  refs: React.RefObject<HTMLElement>[],
+  onClickOut: () => void,
+) {
   useEffect(() => {
-    if (!visible) return;
-    const ignoreClickOnMeElement = document.getElementById(elementId);
-
-    document.addEventListener('click', (event) => {
-      const isClickInsideElement =
-        event.target && ignoreClickOnMeElement?.contains(event.target as Node);
-
-      if (event.button === 0 && !isClickInsideElement && setIsVisible) {
-        setIsVisible(!visible);
-      }
-    });
-  });
-};
+    const onClick = ({ target }: any) => {
+      const isClickInside = refs.some((ref) => ref.current?.contains(target));
+      if (!isClickInside) onClickOut();
+    };
+    document.addEventListener('click', onClick);
+    return () => document.removeEventListener('click', onClick);
+  }, []);
+}

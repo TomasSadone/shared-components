@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import {
   Table,
   TData,
@@ -8,8 +9,12 @@ import {
   Text,
   AppButton,
   Pagination,
+  SingleColorViewer,
+  FormDropdown,
 } from '../../';
+import { ColorPicker } from '../../lib/components/Editor/ColorPicker';
 import { BadgeProps } from '../../lib/components/MultipleBadges';
+import { Tooltip } from '../../lib/main';
 
 export const Tables = () => {
   const badges: BadgeProps[] = [
@@ -28,6 +33,7 @@ export const Tables = () => {
       withDot: false,
     },
   ];
+  const [color, setColor] = useState('#fff');
 
   return (
     <Table>

@@ -16,7 +16,7 @@ export const SingleColorViewer = ({ tooltipChildren, color, text }: Props) => {
       <Color className={style.colorSquare} hexCode={color} />
       <div className={style.colorInfo}>
         <span className={style.colorTitle}>{text}</span>
-        <span>{color}</span>
+        <span>{color.toUpperCase()}</span>
       </div>
       <Tooltip
         children={tooltipChildren}

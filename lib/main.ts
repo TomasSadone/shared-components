@@ -41,3 +41,5 @@ export { BackgroundCard } from './components/Editor/BackgroundCard';
 export { BGCardWithButton } from './components/Editor/BGCardWithButton';
 export { ColorSchemeViewer } from './components/Editor/ColorSchemeViewer';
 export { SingleColorViewer } from './components/Editor/SingleColorViewer';
+export { ColorPicker } from './components/Editor/ColorPicker';
+export { EyeDropper } from './components/Editor/EyeDropper';
