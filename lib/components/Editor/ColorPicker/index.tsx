@@ -1,9 +1,8 @@
 import { HexColorInput, HexColorPicker } from 'react-colorful';
 import { BackgroundCard } from '../BackgroundCard';
-import './style.sass';
-import { IconButton } from '../../IconButton';
 import useEyeDropper from '../../../hooks/useEyeDropper';
 import { EyeDropper } from '../EyeDropper';
+import './style.sass';
 
 type Props = {
   color: string;
