@@ -1,4 +1,4 @@
-import { BackgroundCard, Icon } from '../../main';
+import { BackgroundCard, Icon } from '../../../main';
 import style from './style.module.sass';
 
 type Props = {
