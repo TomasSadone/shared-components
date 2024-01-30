@@ -4,14 +4,23 @@ import { AppColors } from '../../types/MainTypes';
 import { icons } from '../../constants/svgIcons';
 import cn from 'classnames';
 import { Loader } from '../Loader';
+import { ButtonHTMLAttributes } from 'react';
 
-export const IconButton: React.FC<{
+type Props = {
   icon: keyof typeof icons;
   iconProps?: Omit<IconProps, 'name' | 'size'>;
   onClick?: () => void;
   color?: AppColors;
   isLoading?: boolean;
-}> = ({ icon, onClick, color, isLoading, iconProps }) => (
+} & ButtonHTMLAttributes<HTMLButtonElement>;
+
+export const IconButton: React.FC<Props> = ({
+  icon,
+  onClick,
+  color,
+  isLoading,
+  iconProps,
+}) => (
   <button
     disabled={isLoading}
     onClick={onClick}
