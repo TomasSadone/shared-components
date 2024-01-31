@@ -1,7 +1,7 @@
 import { Dropdown, MenuItem } from '../../';
 import { Outlet } from 'react-router-dom';
 import React from 'react';
-import { navBar } from 'constants/appNavLinks';
+import { navBar } from '../constants/appNavLinks';
 import { DropdownItem as DropdownItemType, MenuItem as MenuItemType } from 'types/MainTypes';
 
 const Layout = () => {

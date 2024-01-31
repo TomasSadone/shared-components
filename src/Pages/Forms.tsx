@@ -8,6 +8,7 @@ import {
   RadioButton,
   Icon,
   RadioGroupItem,
+  TitleSubtitleLabel,
 } from '../../';
 import { useState } from 'react';
 import { FormProvider, useForm } from 'react-hook-form';
@@ -179,7 +180,35 @@ const Forms = () => {
             </div>
           </div>
         </div>
+        <TitleSubtitleLabel
+          title="Scegli le liste"
+          subtitle="lorem ipsum dolor sit amet, consectetur adipiscing elit."
+        />
+        <Textarea name="mytextarea" />
+        <ControlledDropdown
+          dropdownId="mydropdown"
+          name="abcdefg"
+          options={[
+            { label: 'opcion', value: 'opcion' },
+            { label: 'opcion1', value: 'opcion1' },
+            { label: 'opcion2', value: 'opcion2' },
+          ]}
+        />
+        <AppDropzone
+          clickText="Click para buscar archivos"
+          acceptedFilesText="JPG, PNG, PDF"
+          dropText="o arrastralos aqui"
+          textWhenDropReject="No no dijo pipo"
+          textWhenDropping="drop it like is hot"
+          handleFiles={handleFiles}
+        />
       </FormProvider>
+      <Toggle
+        onClick={() => {
+          setSelected(!selected);
+        }}
+        selected={selected}
+      />
     </div>
   );
 };
