@@ -7,7 +7,7 @@ import useMultipleBadges from './useMultipleBadges';
 export type BadgeProps = {
   text: string;
   withDot?: boolean;
-  color?: AppColors;
+  color?: AppColors | 'pink';
   stroke?: boolean;
 };
 export type MultipleBadgesProps = {
