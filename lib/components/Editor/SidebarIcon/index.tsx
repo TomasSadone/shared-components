@@ -1,4 +1,4 @@
-import { Icon, IconProps } from '../Icon';
+import { Icon, IconProps } from '../../Icon';
 import style from './style.module.sass';
 
 type Props = {
