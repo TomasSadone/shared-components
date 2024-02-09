@@ -1,4 +1,4 @@
-import { Header, Modal, AppButton, IconButton } from '../../';
+import { Header, Modal, AppButton, IconButton, BackgroundCard } from '../../';
 
 const Home = () => (
   <div>
