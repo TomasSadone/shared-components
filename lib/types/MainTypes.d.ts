@@ -17,3 +17,19 @@ export type SelectOptions = {
   label: string;
   value: string;
 };
+export type FontTypes =
+  | 'Abril Fatface'
+  | 'Amatic SC'
+  | 'Arimo'
+  | 'Bebas Neue'
+  | 'Caveat Brush'
+  | 'Dancing Script'
+  | 'Itim'
+  | 'Josefine Sans'
+  | 'Londrina Shadow'
+  | 'Pacifico'
+  | 'Playfair Display'
+  | 'Poppins'
+  | 'Signika'
+  | 'Tenor Sans'
+  | 'Tinos';
