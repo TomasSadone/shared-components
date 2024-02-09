@@ -35,5 +35,7 @@ export { Tooltip } from './components/Tooltip';
 export { UnderlineButton } from './components/UnderlineButton';
 export { Toolbar } from './components/Editor/Toolbar';
 export { BackgroundCard } from './components/Editor/BackgroundCard';
+export { BGCardWithButton } from './components/Editor/BGCardWithButton';
+export { ColorSchemeViewer } from './components/Editor/ColorSchemeViewer';
 export { AppDatepicker } from './components/AppDatepicker';
 export { MessaggiDatePicker } from './components/AppDatepicker/MessaggiDatepicker';
