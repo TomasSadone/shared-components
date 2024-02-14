@@ -1,7 +1,7 @@
 import React from 'react';
 import style from './style.module.sass';
 
-type Props = {
+export type Props = {
   children: React.ReactNode;
   padding?: number;
 };
