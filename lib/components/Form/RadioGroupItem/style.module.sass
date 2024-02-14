@@ -1,7 +1,5 @@
 @use '../../../styles/helpers'
 
-@value text, tick from '../RadioButton/RadioButton.module.sass'
-
 .groupItem
     padding: 16px
     border-radius: 8px
@@ -43,5 +41,14 @@
     padding: 18px 30px
     display: flex 
     gap: 12px
-    .text
+
+.radioButtonGroupItem
+    > span
+        font-weight: 500
+    &:has(input:checked)
+        > span
+            color: helpers.$primary_800
+
+.extraOptionsItem
+    > span
         color: helpers.$g7

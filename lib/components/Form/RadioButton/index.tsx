@@ -26,9 +26,9 @@ export const RadioButton: FC<RadioButtonProps> = ({
       name={name}
       control={control}
       render={({ field: { onChange, value: radioValue } }) => (
-        <div style={{ padding: '0 10px' }} className="d-flex">
+        <div className={cn('d-flex', className)}>
           <label
-            className={cn(styles.checkbox, className, {
+            className={cn(styles.checkbox, {
               [styles.reverse as string]: reverse,
             })}
           >

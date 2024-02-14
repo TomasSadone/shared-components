@@ -18,8 +18,8 @@ import { Toggle } from '../../';
 import { FileRejection, DropEvent } from 'react-dropzone';
 
 const Forms = () => {
-  const watchAll = formMethods.watch();
   const formMethods = useForm();
+  const watchAll = formMethods.watch();
 
   const handleFiles = (
     acceptedFiles: File[],

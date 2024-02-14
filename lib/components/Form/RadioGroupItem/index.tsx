@@ -25,7 +25,10 @@ export const RadioGroupItem = ({
 }: Props) => (
   <div tabIndex={0}>
     <div className={`${style.groupItem}`}>
-      <RadioButton {...radioButtonProps} />
+      <RadioButton
+        {...radioButtonProps}
+        className={[radioButtonProps.className, style.radioButtonGroupItem].join(' ')}
+      />
       <p>{description}</p>
       {moreInformation && moreInformationOnClick && (
         <UnderlineButton
@@ -39,7 +42,11 @@ export const RadioGroupItem = ({
     {extraOptions && (
       <div className={style.extraOptions}>
         {extraOptions.map((option) => (
-          <RadioButton key={option.value} {...option} />
+          <RadioButton
+            key={option.value}
+            className={[option.className, style.extraOptionsItem].join(' ')}
+            {...option}
+          />
         ))}
       </div>
     )}
