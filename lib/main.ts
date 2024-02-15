@@ -36,6 +36,7 @@ export { TitleSubtitleLabel } from './components/TitleSubtitleLabel';
 export { Tooltip } from './components/Tooltip';
 export { UnderlineButton } from './components/UnderlineButton';
 export { BackgroundCard } from './components/Editor/BackgroundCard';
+export { EditorImage } from './components/Editor/EditorImage';
 export { BGCardWithButton } from './components/Editor/BGCardWithButton';
 export { ColorSchemeViewer } from './components/Editor/ColorSchemeViewer';
 export { FontFamilyViewer } from './components/Editor/FontFamilyViewer';
