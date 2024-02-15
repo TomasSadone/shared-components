@@ -19,6 +19,8 @@ export { AuthCodeInputLabel } from './components/Form/AuthCodeInput/AuthCodeInpu
 export { AuthCodeInputParragraph } from './components/Form/AuthCodeInput/AuthCodeInputParragraph';
 export { ControlledCheckbox } from './components/Form/Checkbox';
 export { Checkbox } from './components/Form/Checkbox/Checkbox';
+export { RadioButton } from './components/Form/RadioButton';
+export { RadioGroupItem } from './components/Form/RadioGroupItem';
 export { Dropdown as FormDropdown } from './components/Form/Dropdown';
 export { ControlledDropdown } from './components/Form/Dropdown/ControlledDropdown';
 export { Input } from './components/Form/Input';
@@ -40,3 +42,5 @@ export { ColorSchemeViewer } from './components/Editor/ColorSchemeViewer';
 export { FontFamilyViewer } from './components/Editor/FontFamilyViewer';
 export { AppDatepicker } from './components/AppDatepicker';
 export { MessaggiDatePicker } from './components/AppDatepicker/MessaggiDatepicker';
+export { HorizontalTabs } from './components/HorizontalTabs';
+export { HorizontalTabsLink } from './components/HorizontalTabs/HorizontalTabsLink';
