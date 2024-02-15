@@ -36,6 +36,7 @@ export { TitleSubtitleLabel } from './components/TitleSubtitleLabel';
 export { Tooltip } from './components/Tooltip';
 export { UnderlineButton } from './components/UnderlineButton';
 export { BackgroundCard } from './components/Editor/BackgroundCard';
+export { ButtonStyle } from './components/Editor/ButtonStyle';
 export { Accordion } from './components/Accordion';
 export { EditorImage } from './components/Editor/EditorImage';
 export { BGCardWithButton } from './components/Editor/BGCardWithButton';
@@ -45,4 +46,3 @@ export { AppDatepicker } from './components/AppDatepicker';
 export { MessaggiDatePicker } from './components/AppDatepicker/MessaggiDatepicker';
 export { HorizontalTabs } from './components/HorizontalTabs';
 export { HorizontalTabsLink } from './components/HorizontalTabs/HorizontalTabsLink';
-

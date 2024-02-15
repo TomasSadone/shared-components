@@ -7,8 +7,12 @@ export type Props = {
   className?: string;
 } & React.DetailedHTMLProps<React.HTMLAttributes<HTMLDivElement>, HTMLDivElement>;
 
-export const BackgroundCard = ({ children, padding = 12, className }: Props) => (
-  <div style={{ padding: `${padding}px` }} className={[style.card, className].join(' ')}>
+export const BackgroundCard = ({ children, padding = 12, className, ...rest }: Props) => (
+  <div
+    style={{ padding: `${padding}px` }}
+    className={[className, style.card].join(' ')}
+    {...rest}
+  >
     {children}
   </div>
 );
