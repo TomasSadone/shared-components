@@ -39,7 +39,7 @@ export const Dropdown: React.FC<DropdownProps> = ({
         </div>
         <Icon
           className={cn(styles.chevron, { [styles.active]: visible })}
-          name="chevron"
+          name="chevron-down"
           size={20}
         />
       </div>

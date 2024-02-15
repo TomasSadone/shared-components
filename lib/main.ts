@@ -37,6 +37,7 @@ export { Tooltip } from './components/Tooltip';
 export { UnderlineButton } from './components/UnderlineButton';
 export { Toolbar } from './components/Editor/Toolbar';
 export { BackgroundCard } from './components/Editor/BackgroundCard';
+export { PositionSelector } from './components/Editor/PositionSelector';
 export { ButtonStyle } from './components/Editor/ButtonStyle';
 export { Accordion } from './components/Accordion';
 export { EditorImage } from './components/Editor/EditorImage';
