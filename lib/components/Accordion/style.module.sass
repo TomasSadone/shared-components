@@ -1,0 +1,21 @@
+.card
+    display: flex
+    justify-content: space-between
+    align-items: center
+    
+.chevron
+    transition: all .2s
+    &.open
+        transform: rotate(180deg)
+
+.children
+    display: grid
+    grid-template-rows: 0fr 
+    transition: grid-template-rows 500ms
+
+.children >*
+    overflow: hidden
+
+.children 
+    &.open
+        grid-template-rows: 1fr 
