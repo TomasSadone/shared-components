@@ -1,0 +1,54 @@
+@use '../../../styles/helpers'
+
+.groupItem
+    padding: 16px
+    border-radius: 8px
+    border: 1px solid #EAECF0
+    background-color: white
+    transition: all .2s
+    &:hover:not(:has(input:disabled))
+        border: 1px solid helpers.$primary_200
+        .tick
+            background: helpers.$primary_50
+            border-color: helpers.$primary_500 !important
+    &:has(input:disabled)
+        background: helpers.$g05
+    &:has(input:checked)
+        border: 1px solid helpers.$primary_200
+    &:has(input:checked)
+        background: helpers.$primary_50
+        .text
+            color: helpers.$primary_800
+        p
+            color: helpers.$primary_500
+    div
+        padding: 0 !important
+        .text
+            font-weight: 500
+    > p
+        margin-left: 24px
+        color: helpers.$g5
+        font-weight: 400
+        font-size: 14px
+        line-height: 20px
+
+.moreInformation
+    margin-left: 24px
+    margin-top: 8px
+    font-size: 12px
+
+.extraOptions
+    padding: 18px 30px
+    display: flex 
+    gap: 12px
+
+.radioButtonGroupItem
+    > span
+        font-weight: 500
+    &:has(input:checked)
+        > span
+            color: helpers.$primary_800
+
+.extraOptionsItem
+    > span
+        color: helpers.$g7

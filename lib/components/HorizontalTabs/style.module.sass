@@ -1,0 +1,15 @@
+@use '../../styles/helpers'
+
+.horizontalTabs
+    display: flex
+    gap: 8px
+    &.underline
+        border-bottom: 1px solid #EAECF0
+    &.container
+        padding: 6px
+        border-radius: 8px
+        background-color: helpers.$g05
+    &.fullWidth
+        text-align: center
+        & > a
+            flex-basis: 100%
