@@ -13,7 +13,7 @@ export const Accordion = ({ text, children, handleOpen, open }: Props) => {
     <div onClick={() => handleOpen(!open)}>
       <BackgroundCard className={style.card}>
         <p>{text}</p>
-        <Icon className={`${style.chevron} ${open && style.open}`} name="chevron" />
+        <Icon className={`${style.chevron} ${open && style.open}`} name="chevron-down" />
       </BackgroundCard>
       <div className={`${style.children} ${open && style.open}`}>
         <div>{children}</div>
