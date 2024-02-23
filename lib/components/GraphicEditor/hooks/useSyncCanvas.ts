@@ -1,0 +1,24 @@
+import { useSyncExternalStore } from 'react';
+
+type StoreValues<Type, Arr extends Array<keyof Type>> = {
+  [Str in Arr[number]]: Type[Str];
+};
+
+const useSyncCanvas = <
+  Store extends { [key: string]: any },
+  Values extends Array<keyof Store>,
+>(
+  subscribe: (onStoreChange: () => void) => () => void,
+  values: Values,
+  store: Store,
+): StoreValues<Store, Values> => {
+  const getSnapshots = values.map((value) => () => store[value]);
+  const statefulValues = getSnapshots.reduce((obj, getSnapshot, i) => {
+    // eslint-disable-next-line
+    obj[values[i]] = useSyncExternalStore(subscribe, getSnapshot);
+    return obj;
+  }, {} as StoreValues<Store, Values>);
+  return statefulValues;
+};
+
+export default useSyncCanvas;

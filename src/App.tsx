@@ -8,6 +8,7 @@ import Items from './Pages/Items';
 import Forms from './Pages/Forms';
 import Links from './Pages/Links';
 import { Tables } from './Pages/Tables';
+import Test from './Pages/Test';
 
 const App = () => {
   return (
@@ -28,6 +29,8 @@ const App = () => {
           <Route path="/d3-item2" element={<Home />} />
           <Route path="/d4-item1" element={<Home />} />
           <Route path="/d4-item2" element={<Home />} />
+          <Route path="/test" element={<Test />} />
+
           {/* Using path="*"" means "match anything", so this route
             acts like a catch-all for URLs that we don't have explicit
             routes for. */}

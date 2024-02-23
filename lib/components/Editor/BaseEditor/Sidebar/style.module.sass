@@ -1,0 +1,19 @@
+@use '../../../../styles/helpers'
+
+.sidebar
+    background-color: white 
+    
+.button
+    width: 100%
+    display: block
+    padding: 24px
+    display: flex
+    gap: 4px
+    flex-direction: column
+    align-items: center
+    margin-inline: auto
+    &.selected
+        background-color: helpers.$g1
+        &::after
+            content: ''
+
