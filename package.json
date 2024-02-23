@@ -1,6 +1,6 @@
 {
   "name": "@aigotsrl/rc_shared_components_frontend",
-  "version": "0.1.4",
+  "version": "0.1.11",
   "type": "module",
   "dependencies": {
     "@types/react": "^18.0.0",
