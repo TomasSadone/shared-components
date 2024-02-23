@@ -1,8 +1,7 @@
 import { ButtonHTMLAttributes } from 'react';
 import { icons } from '../../constants/svgIcons';
 import { Icon, IconProps } from '../Icon';
-import styles from './Button.module.sass';
-import cn from 'classnames';
+import styles from './style.module.sass';
 import { Loader } from '../Loader';
 import { AppColors } from '../../types/MainTypes';
 
@@ -33,7 +32,9 @@ export const AppButton = ({
 }: IAppButtonProps) => (
   <button
     disabled={isLoading}
-    className={cn('button', color, { secondary, stroke, text })}
+    className={`${styles.button} ${styles[color]} ${secondary && styles.secondary} ${
+      stroke && styles.stroke
+    } ${text && styles.text}`}
     {...buttonProps}
   >
     {icon && (
