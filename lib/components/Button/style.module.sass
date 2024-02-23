@@ -1,0 +1,122 @@
+@use '../../styles/helpers'
+    
+.button
+  display: inline-flex
+  justify-content: center
+  align-items: center
+  padding: 10px 16px
+  border-radius: 8px
+  @include helpers.button-s
+  
+  
+  text-align: center
+  color: helpers.$n1
+  transition: all .2s
+  &.stroke
+    background: helpers.$n
+    border: 1px solid helpers.$g3
+    svg
+      fill: helpers.$n9
+    color: helpers.$n9
+    &:hover
+      background: helpers.$n9
+      color: helpers.$n
+      svg
+        fill: helpers.$n
+      &:disabled
+        background: transparent
+      
+  &.text
+    background: transparent
+    color: helpers.$g7
+    svg
+      fill: helpers.$g7
+    &:hover
+      background: transparent
+      color: helpers.$n9
+      svg
+        fill: helpers.$n9
+  &:disabled
+    opacity: .5
+    cursor: default
+    pointer-events: none
+
+
+.orange
+  background: helpers.$orange
+  svg
+    fill: helpers.$n1
+  &:hover
+    background: darken(helpers.$orange, 10)
+    &:disabled
+      background: helpers.$orange
+  &.secondary
+    background: helpers.$orange_secondary
+    color: helpers.$orange
+    svg
+      fill: helpers.$orange
+    &:hover
+      background: darken(helpers.$orange_secondary, 10)
+      &:disabled
+        background: helpers.$orange_secondary
+
+.green
+  background: helpers.$green
+  svg
+    fill: helpers.$n1
+  &:hover
+    background: darken(helpers.$green, 10)
+    &:disabled
+      background: helpers.$green
+  &.secondary
+    background: helpers.$green_secondary
+    color: helpers.$green
+    svg
+      fill: helpers.$green
+    &:hover
+      background: darken(helpers.$green_secondary, 10)
+      &:disabled
+        background: helpers.$green_secondary
+
+.red
+  background: helpers.$red
+  svg
+    fill: helpers.$n1
+  &:hover
+    background: darken(helpers.$red, 10)
+    &:disabled
+      background: helpers.$red
+  &.secondary
+    background: helpers.$red_secondary
+    color: helpers.$red
+    svg
+      fill: helpers.$red
+    &:hover
+      background: darken(helpers.$red_secondary, 10) 
+      &:disabled
+        background: helpers.$red_secondary
+
+.blue
+  background: helpers.$blue
+  svg
+    fill: helpers.$n1
+  &:hover
+    background: darken(helpers.$blue, 10)
+    &:disabled
+      background: helpers.$blue
+  &.secondary
+    background: helpers.$blue_secondary
+    color: helpers.$blue
+    svg
+      fill: helpers.$blue
+    &:hover
+      background: darken(helpers.$blue_secondary, 10)  
+      &:disabled
+        background: helpers.$blue_secondary
+
+
+.icon_container
+    margin-right: 8px
+
+.end_icon_container
+    margin-left: 8px
