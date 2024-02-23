@@ -1,0 +1,101 @@
+@use '../../../styles/helpers'
+
+.card
+    background-color: helpers.$g2 
+
+.layoutContainer
+    height: 96px
+    border-radius: 8px
+
+.buttonContainer
+    padding: 12px
+    display: block
+    margin-left: auto
+
+.textContainer
+    display: flex
+    flex-direction: column
+    justify-content: space-around
+
+.sideToSide
+    padding: 12px
+    display: flex
+    justify-content: space-between
+    background-color: #fff  
+    .img
+        width: 72px
+        aspect-ratio: 1
+        background-color: helpers.$g4
+
+.frontAndBack
+    position: relative
+    background-color: lighten(helpers.$g4, 30)
+
+    > * 
+        position: absolute
+        left: 50%
+    .textContainer
+        top: 0
+        bottom: 0
+        transform: translate(-50%, -0%)
+        align-items:  center
+    .img
+        top: 50%
+        transform: translate(-50%, -50%)
+        svg
+            height: 46px
+            width: 46px
+
+.upAndBottom
+    padding: 12px
+    height: auto
+    .textContainer
+        align-items: center
+        height: 32px
+        margin-bottom: 4px
+    .img
+        width: 100%
+        height: 72px
+        background-color: helpers.$g4
+
+.img
+    border-radius: 5px
+    position: relative
+    min-height: 24px
+    min-width: 24px
+    > * 
+        position: absolute
+        left: 50%
+        top: 50%
+        transform:  translate(-50%, -50%)
+
+.heading
+    width: 32px
+    height: 7px
+    background-color: helpers.$g3
+
+.paragraph
+    position: relative
+    z-index: 10
+    width: 70px
+    height: 15px
+    span, span:before, span:after
+        content: ''
+        position: absolute
+        left: 0
+        display: block
+        text-indent: -9999px
+        background-color: helpers.$g3
+        height: 3px
+        width: 100%
+    span:before
+        top: 6px
+    span
+        top: 0px
+    span:after
+        top: 12px
+
+.footer
+    width: 32px
+    height: 14px
+    background-color: helpers.$g4

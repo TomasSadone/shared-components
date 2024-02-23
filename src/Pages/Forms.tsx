@@ -3,11 +3,13 @@ import {
   AuthCodeInputLabel,
   AuthCodeInputParragraph,
   ControlledCheckbox,
+  Checkbox,
   ControlledDropdown,
   Input,
-  RadioButton,
+  //   RadioButton,
   Icon,
-  RadioGroupItem,
+  //   RadioGroupItem,
+  TitleSubtitleLabel,
 } from '../../';
 import { useState } from 'react';
 import { FormProvider, useForm } from 'react-hook-form';
@@ -38,6 +40,7 @@ const Forms = () => {
   };
   return (
     <div>
+      <Checkbox value={true} onChange={() => null} />
       <h1 style={{ margin: '50px 0' }}>Application Form Elements</h1>
       <Tooltip trigger="click" hoverItem={<span>hover</span>}>
         <div style={{ display: 'grid', gap: '4px' }}>
@@ -117,11 +120,11 @@ const Forms = () => {
           <ControlledCheckbox name="checkbox" label="some text" />
           <ControlledCheckbox name="checkbox1" label="some text" checked />
 
-          <RadioButton name="radio" label="some text" value="some text1" />
+          {/* <RadioButton name="radio" label="some text" value="some text1" />
           <RadioButton name="radio" label="some text" value="some text2" />
-          <RadioButton name="radio" label="some text" value="some text3" />
+          <RadioButton name="radio" label="some text" value="some text3" /> */}
 
-          <RadioGroupItem
+          {/* <RadioGroupItem
             description="Invia una mail ai tuoi clienti per mostrare le offerte che hai pensato per loro"
             label="Comunicare offerte e sconti"
             name="scegliObiettivo"
@@ -140,7 +143,7 @@ const Forms = () => {
             value="otro2"
             moreInformation="Mas info"
             moreInformationOnClick={(str) => console.log(str)}
-          />
+          /> */}
           <Textarea name="mytextarea" />
           <AppDropzone
             clickText="Click to look for files"
@@ -189,7 +192,35 @@ const Forms = () => {
             </div>
           </div>
         </div>
+        <TitleSubtitleLabel
+          title="Scegli le liste"
+          subtitle="lorem ipsum dolor sit amet, consectetur adipiscing elit."
+        />
+        <Textarea name="mytextarea" />
+        <ControlledDropdown
+          dropdownId="mydropdown"
+          name="abcdefg"
+          options={[
+            { label: 'opcion', value: 'opcion' },
+            { label: 'opcion1', value: 'opcion1' },
+            { label: 'opcion2', value: 'opcion2' },
+          ]}
+        />
+        <AppDropzone
+          clickText="Click para buscar archivos"
+          acceptedFilesText="JPG, PNG, PDF"
+          dropText="o arrastralos aqui"
+          textWhenDropReject="No no dijo pipo"
+          textWhenDropping="drop it like is hot"
+          handleFiles={handleFiles}
+        />
       </FormProvider>
+      <Toggle
+        onClick={() => {
+          setSelected(!selected);
+        }}
+        selected={selected}
+      />
     </div>
   );
 };

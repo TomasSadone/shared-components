@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import {
   Table,
   TData,
@@ -9,10 +10,15 @@ import {
   AppButton,
   Pagination,
 } from '../../';
-import { BadgeProps } from '../../lib/components/MultipleBadges';
+import { AppColors } from '../../lib/types/MainTypes';
 
 export const Tables = () => {
-  const badges: BadgeProps[] = [
+  const badges: {
+    text: string;
+    withDot?: boolean;
+    color?: AppColors | 'pink';
+    stroke?: boolean;
+  }[] = [
     { text: 'Cliente VIP', color: 'green', withDot: false },
     { text: 'Cliente Fedele', color: 'blue', withDot: false },
     {
