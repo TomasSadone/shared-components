@@ -4,7 +4,7 @@ import styles from './Loader.module.sass';
 
 type LoaderProps = {
   className?: string;
-  color?: 'red' | 'green' | 'blue' | 'orange';
+  color?: 'red' | 'green' | 'blue' | 'orange' | 'white';
   useColor?: boolean;
 };
 export const Loader: FC<LoaderProps> = ({ className, color, useColor }) => (

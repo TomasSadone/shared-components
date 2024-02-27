@@ -1,7 +1,7 @@
 import { useSyncExternalStore } from 'react';
 
-type StoreValues<Type, Arr extends Array<keyof Type>> = {
-  [Str in Arr[number]]: Type[Str];
+type StoreValues<Obj, Arr extends Array<keyof Obj>> = {
+  [Str in Arr[number]]: Obj[Str];
 };
 
 const useSyncCanvas = <

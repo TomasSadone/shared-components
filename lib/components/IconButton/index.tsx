@@ -7,7 +7,7 @@ import { Loader } from '../Loader';
 
 export const IconButton: React.FC<{
   icon: keyof typeof icons;
-  iconProps?: Omit<IconProps, 'name' | 'size'>;
+  iconProps?: Omit<IconProps, 'name'>;
   onClick?: () => void;
   color?: AppColors;
   isLoading?: boolean;
@@ -20,7 +20,7 @@ export const IconButton: React.FC<{
     {isLoading ? (
       <Loader color={color} useColor className={styles.loader} />
     ) : (
-      <Icon {...iconProps} name={icon} size={20} />
+      <Icon {...iconProps} name={icon} size={iconProps?.size || 20} />
     )}
   </button>
 );

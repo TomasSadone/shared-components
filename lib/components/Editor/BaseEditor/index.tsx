@@ -9,14 +9,14 @@ type ReactNode = React.ReactNode;
 type Props = {
   ActionsBarChildren: ReactNode;
   ToolsBarChildren?: ReactNode;
-  SidebarProps: TSidebarProps;
+  Sidebar: ReactNode;
   SidemenuChildren?: ReactNode;
   children: ReactNode;
 };
 export const Editor = ({
   ActionsBarChildren,
   ToolsBarChildren,
-  SidebarProps,
+  Sidebar,
   SidemenuChildren,
   children,
 }: Props) => {
@@ -24,7 +24,7 @@ export const Editor = ({
     <div className={style.editor}>
       <ActionsBar>{ActionsBarChildren}</ActionsBar>
       <div className={style.layout}>
-        <Sidebar {...SidebarProps} />
+        {Sidebar}
         <Sidemenu>{SidemenuChildren}</Sidemenu>
         <div className={style.toolbarAndEditor}>
           <Toolsbar>{ToolsBarChildren}</Toolsbar>

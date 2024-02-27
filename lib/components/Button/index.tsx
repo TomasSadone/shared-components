@@ -7,11 +7,11 @@ import { AppColors } from '../../types/MainTypes';
 
 export interface IAppButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   title: string;
-  color: AppColors;
+  color: AppColors | 'white';
   icon?: keyof typeof icons;
   endIcon?: keyof typeof icons;
-  iconProps?: Omit<IconProps, 'name' | 'size'>;
-  endIconProps?: Omit<IconProps, 'name' | 'size'>;
+  iconProps?: Omit<IconProps, 'name'>;
+  endIconProps?: Omit<IconProps, 'name'>;
   secondary?: boolean;
   stroke?: boolean;
   text?: boolean;
@@ -39,13 +39,13 @@ export const AppButton = ({
   >
     {icon && (
       <div className={styles.icon_container}>
-        <Icon {...iconProps} name={icon} size={20} />
+        <Icon {...iconProps} name={icon} size={iconProps?.size || 20} />
       </div>
     )}
     {title}
     {endIcon && (
       <div className={styles.end_icon_container}>
-        <Icon {...endIconProps} name={endIcon} size={20} />
+        <Icon {...endIconProps} name={endIcon} size={endIconProps?.size || 20} />
       </div>
     )}
     {isLoading && <Loader color={stroke || text ? undefined : color} useColor={secondary} />}
