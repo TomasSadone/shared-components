@@ -1,17 +1,12 @@
 import { forwardRef, useEffect } from 'react';
 import { fabric } from 'fabric';
-import { useAtom } from 'jotai';
 import { Editor } from '../Editor/BaseEditor';
 import { Canvas } from './Components/Canvas';
 import { ActionsBar } from './Components/ActionsBar';
 import { Sidebar } from './Components/Sidebar';
 import { Toolbar } from './Components/Toolbars';
 import { useCanvasContext } from './CanvasContext/CanvasContext';
-import {
-  ToolbarsSections,
-  handleSetSelectedItemTypeAtom,
-  handleSetSelectedSectionAtom,
-} from './CanvasContext/atoms/atoms';
+import { ToolbarsSections, useSectionsStore } from './CanvasContext/atoms/atoms';
 import { Sidemenu } from './Components/Sidemenus';
 
 export type Props = {
@@ -35,12 +30,13 @@ if (document) {
 
 export const GraphicEditor = forwardRef(({ onSave, onExit }: Props, ref) => {
   const canvasInstanceRef = useCanvasContext();
-  const [, setSelectedSection] = useAtom(handleSetSelectedSectionAtom);
-  const [, setSelectedItemType] = useAtom(handleSetSelectedItemTypeAtom);
+  //   TODO ver si me traigo las dos funciones desestructuradas, si se rerenderiza el editor en cambio de estado
+  console.log('render');
+  const setSelectedSection = useSectionsStore((store) => store.setSelectedSection);
+  const setSelectedItemType = useSectionsStore((store) => store.setSelectedItemType);
   const setSectionAndItemType = (section: Exclude<ToolbarsSections, 'canvas'>) => {
     setSelectedSection(section);
     setSelectedItemType(section);
-    console.log('seteando type:', section);
   };
 
   useEffect(() => {
@@ -55,7 +51,6 @@ export const GraphicEditor = forwardRef(({ onSave, onExit }: Props, ref) => {
 
   function handleMouseDown(e: fabric.IEvent<Event>) {
     if (!e.target || !e.target?.type) {
-      console.log('seteando type:', 'canvas');
       setSelectedItemType('canvas');
       return;
     }
@@ -69,7 +64,6 @@ export const GraphicEditor = forwardRef(({ onSave, onExit }: Props, ref) => {
 
   function handleSectionCleared() {
     //TODO: cerrar threepoints menu
-    console.log('sectioncleared');
     setSelectedItemType('');
   }
 

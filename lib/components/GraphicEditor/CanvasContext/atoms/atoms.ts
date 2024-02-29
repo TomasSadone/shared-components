@@ -1,4 +1,5 @@
 import { atom } from 'jotai';
+import { create } from 'zustand';
 
 // SELECTED SECTIONS / ITEM TYPE ATOMS:
 type Sections = '' | 'images' | 'text' | 'elements' | 'layers' | 'uploads' | 'canvas';
@@ -26,3 +27,18 @@ export const handleSetSelectedItemTypeAtom = atom(
     }
   },
 );
+
+type SectionsState = {
+  selectedSection: SidemenusSections;
+  selectedItemType: ToolbarsSections;
+  setSelectedSection: (section: SidemenusSections) => void;
+  setSelectedItemType: (itemType: ToolbarsSections) => void;
+};
+
+export const useSectionsStore = create<SectionsState>()((set) => ({
+  selectedSection: '',
+  selectedItemType: '',
+  setSelectedSection: (section) => set((state) => ({ ...state, selectedSection: section })),
+  setSelectedItemType: (itemType) =>
+    set((state) => ({ ...state, selectedItemType: itemType })),
+}));

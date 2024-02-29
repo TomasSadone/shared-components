@@ -1,10 +1,5 @@
-import { useAtom } from 'jotai';
 import { Sidebar as BaseSidebar } from '../../../Editor/BaseEditor/Sidebar';
-import {
-  SidemenusSections,
-  handleSetSelectedItemTypeAtom,
-  selectedSectionAtom,
-} from '../../CanvasContext/atoms/atoms';
+import { SidemenusSections, useSectionsStore } from '../../CanvasContext/atoms/atoms';
 import { IconProps } from '../../../Icon';
 
 const strokeColor = '#667085';
@@ -19,12 +14,12 @@ const iconProps: Omit<IconProps, 'name'> = {
 };
 
 const Sidebar = () => {
-  const [selectedSection, setSelectedSection] = useAtom(selectedSectionAtom);
-  const [, handleSetSelectedItemType] = useAtom(handleSetSelectedItemTypeAtom);
+  const selectedSection = useSectionsStore((store) => store.selectedSection);
+  const setSelectedSection = useSectionsStore((store) => store.setSelectedSection);
+  const setSelectedItemType = useSectionsStore((store) => store.setSelectedItemType);
   const handleSelectSection = (section: SidemenusSections) => {
     setSelectedSection(section);
-    handleSetSelectedItemType('');
-    console.log('seteando tpye: ""');
+    setSelectedItemType('');
   };
   return (
     <BaseSidebar

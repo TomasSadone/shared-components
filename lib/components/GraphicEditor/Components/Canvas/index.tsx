@@ -3,8 +3,7 @@ import { fabric } from 'fabric';
 import { useCanvasContext } from '../../CanvasContext/CanvasContext';
 import style from './style.module.sass';
 import { useOnOutsideClick } from '../../../../hooks/useOnOutsideClick';
-import { selectedItemTypeAtom } from '../../CanvasContext/atoms/atoms';
-import { useAtom } from 'jotai';
+import { selectedItemTypeAtom, useSectionsStore } from '../../CanvasContext/atoms/atoms';
 
 const Canvas = () => {
   const canvasDomRef = useRef<HTMLCanvasElement | null>(null);
@@ -12,9 +11,19 @@ const Canvas = () => {
   // and that creates unexpected behaviors with outsideclick if we pass it that ref:
   const libraryWrapperRef = useRef<HTMLDivElement | null>(null);
   const canvasInstanceRef = useCanvasContext();
-  const [selectedItemType, setSelectedItemType] = useAtom(selectedItemTypeAtom);
+  //   const [selectedItemType, setSelectedItemType] = useAtom(selectedItemTypeAtom);
+  const selectedItemType = useSectionsStore((store) => store.selectedItemType);
+  const setSelectedItemType = useSectionsStore((store) => store.setSelectedItemType);
 
-  window.addEventListener('click', () => console.log(selectedItemType));
+  useOnOutsideClick(
+    [libraryWrapperRef],
+    () => {
+      if (selectedItemType === 'canvas') {
+        setSelectedItemType('');
+      }
+    },
+    [selectedItemType],
+  );
 
   useEffect(() => {
     canvasInstanceRef.current = initCanvas();

@@ -3,6 +3,7 @@ import { useEffect } from 'react';
 export function useOnOutsideClick(
   refs: React.RefObject<HTMLElement>[],
   onClickOut: () => void,
+  deps?: React.DependencyList,
 ) {
   useEffect(() => {
     const onClick = ({ target }: any) => {
@@ -11,5 +12,5 @@ export function useOnOutsideClick(
     };
     document.addEventListener('click', onClick);
     return () => document.removeEventListener('click', onClick);
-  }, []);
+  }, deps);
 }

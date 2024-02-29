@@ -5,12 +5,11 @@ import { useCanvasContext } from '../../../CanvasContext/CanvasContext';
 import { fabric } from 'fabric';
 import { Icon } from '../../../../Icon';
 import { AppButton } from '../../../../Button';
-import { handleSetSelectedItemTypeAtom } from '../../../CanvasContext/atoms/atoms';
-import { useAtom } from 'jotai';
+import { useSectionsStore } from '../../../CanvasContext/atoms/atoms';
 
 export const TextSubmenu = () => {
   const [search, setSearch] = useState('');
-  const [, handleSetSelectedItemType] = useAtom(handleSetSelectedItemTypeAtom);
+  const setSelectedItemType = useSectionsStore((store) => store.setSelectedItemType);
   const handleSearch = (e: React.FormEvent<HTMLInputElement>) => {
     setSearch(e.currentTarget.value);
   };
@@ -35,8 +34,7 @@ export const TextSubmenu = () => {
     canvasInstanceRef.current.add(newText);
     canvasInstanceRef.current.setActiveObject(newText);
 
-    handleSetSelectedItemType('text');
-    console.log('seteando type: text');
+    setSelectedItemType('text');
   };
 
   return (
