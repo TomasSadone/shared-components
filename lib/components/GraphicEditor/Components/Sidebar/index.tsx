@@ -1,7 +1,7 @@
 import { useAtom } from 'jotai';
 import { Sidebar as BaseSidebar } from '../../../Editor/BaseEditor/Sidebar';
 import {
-  Sections,
+  SidemenusSections,
   handleSetSelectedItemTypeAtom,
   selectedSectionAtom,
 } from '../../CanvasContext/atoms/atoms';
@@ -21,9 +21,10 @@ const iconProps: Omit<IconProps, 'name'> = {
 const Sidebar = () => {
   const [selectedSection, setSelectedSection] = useAtom(selectedSectionAtom);
   const [, handleSetSelectedItemType] = useAtom(handleSetSelectedItemTypeAtom);
-  const handleSelectSection = (section: Sections) => {
+  const handleSelectSection = (section: SidemenusSections) => {
     setSelectedSection(section);
     handleSetSelectedItemType('');
+    console.log('seteando tpye: ""');
   };
   return (
     <BaseSidebar

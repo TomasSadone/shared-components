@@ -1,42 +1,47 @@
 import { forwardRef, useEffect } from 'react';
-import { Editor } from '../Editor/BaseEditor';
-import { ActionsBar } from './Components/ActionsBar';
-import { BackgroundCard } from '../Editor/BackgroundCard';
 import { fabric } from 'fabric';
-import { useCanvasContext } from './CanvasContext/CanvasContext';
-import { Canvas } from './Components/Canvas';
 import { useAtom } from 'jotai';
+import { Editor } from '../Editor/BaseEditor';
+import { Canvas } from './Components/Canvas';
+import { ActionsBar } from './Components/ActionsBar';
+import { Sidebar } from './Components/Sidebar';
+import { Toolbar } from './Components/Toolbars';
+import { useCanvasContext } from './CanvasContext/CanvasContext';
 import {
+  ToolbarsSections,
   handleSetSelectedItemTypeAtom,
   handleSetSelectedSectionAtom,
 } from './CanvasContext/atoms/atoms';
-import { Sidebar } from './Components/Sidebar';
-import { Toolbar } from './Components/Toolbars';
+import { Sidemenu } from './Components/Sidemenus';
 
 export type Props = {
   onSave: (template: JSON) => void;
   onExit: () => void;
 };
 
-/*
-Cuando vaya a hacer el <sidebar[section] o toolsbar, ver https://stackoverflow.com/questions/58780817/using-optional-chaining-operator-for-object-property-access
-para hacerlo con el estado sin tener que checkear condiciones
-porque si canvas esta seleccionado, no hay section y si navbar,
-y si luego hay otras sections que no afectan e canvas, no habria navbar calculo
-*/
+fabric.Object.prototype.transparentCorners = false;
+fabric.Object.prototype.cornerColor = '#00b27a';
+fabric.Object.prototype.cornerStyle = 'circle';
 
-//puede cambiar a ser los tipos como te los dice el canvas para que sea mas simple. ej "i-text"
-type Sections = '' | 'images' | 'text' | 'elements' | 'layers' | 'uploads' | 'canvas';
 const elementSectionTypes = ['rect', 'circle', 'group', 'path'];
 
+if (document) {
+  document.head.innerHTML += `
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Amatic+SC:wght@400;700&family=Arimo:ital,wght@0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Bebas+Neue&family=Caveat+Brush&family=Dancing+Script:wght@400;500;600;700&family=Itim&family=Londrina+Shadow&family=Pacifico&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700;1,800;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Signika:wght@300;400;500;600;700&family=Tenor+Sans&family=Tinos:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet" />
+    `;
+}
+
 export const GraphicEditor = forwardRef(({ onSave, onExit }: Props, ref) => {
+  const canvasInstanceRef = useCanvasContext();
   const [, setSelectedSection] = useAtom(handleSetSelectedSectionAtom);
   const [, setSelectedItemType] = useAtom(handleSetSelectedItemTypeAtom);
-  const setSectionAndItemType = (section: Sections) => {
+  const setSectionAndItemType = (section: Exclude<ToolbarsSections, 'canvas'>) => {
     setSelectedSection(section);
     setSelectedItemType(section);
+    console.log('seteando type:', section);
   };
-  const canvasInstanceRef = useCanvasContext();
 
   useEffect(() => {
     if (canvasInstanceRef.current) {
@@ -50,14 +55,13 @@ export const GraphicEditor = forwardRef(({ onSave, onExit }: Props, ref) => {
 
   function handleMouseDown(e: fabric.IEvent<Event>) {
     if (!e.target || !e.target?.type) {
-      setSectionAndItemType('');
+      console.log('seteando type:', 'canvas');
+      setSelectedItemType('canvas');
       return;
     }
     const { type } = e.target;
     if (type === 'i-text') {
       setSectionAndItemType('text');
-    } else if (type === 'image') {
-      setSectionAndItemType('images');
     } else if (elementSectionTypes.includes(type)) {
       setSectionAndItemType('elements');
     }
@@ -65,50 +69,15 @@ export const GraphicEditor = forwardRef(({ onSave, onExit }: Props, ref) => {
 
   function handleSectionCleared() {
     //TODO: cerrar threepoints menu
+    console.log('sectioncleared');
     setSelectedItemType('');
   }
-  console.log('render');
+
   return (
     <Editor
-      ActionsBarChildren={
-        <div
-          style={{
-            height: '100%',
-            padding: '1rem',
-            paddingInline: '3rem',
-          }}
-        >
-          <ActionsBar
-            onExit={() => null}
-            onRedo={() => null}
-            onSave={() => null}
-            onUndo={() => null}
-          />
-        </div>
-      }
+      ActionsBarChildren={<ActionsBar onExit={() => null} onSave={() => null} />}
       Sidebar={<Sidebar />}
-      SidemenuChildren={
-        <div style={{ padding: '1rem', display: 'grid', gap: '0.5rem' }}>
-          <BackgroundCard>hola</BackgroundCard>
-          <BackgroundCard>chau</BackgroundCard>
-          <BackgroundCard>hola</BackgroundCard>
-          <BackgroundCard>chau</BackgroundCard>
-          <BackgroundCard>hola</BackgroundCard>
-          <BackgroundCard>chau</BackgroundCard>
-          <BackgroundCard>hola</BackgroundCard>
-          <BackgroundCard>chau</BackgroundCard>
-          <BackgroundCard>hola</BackgroundCard>
-          <BackgroundCard>chau</BackgroundCard>
-          <BackgroundCard>hola</BackgroundCard>
-          <BackgroundCard>chau</BackgroundCard>
-          <BackgroundCard>hola</BackgroundCard>
-          <BackgroundCard>chau</BackgroundCard>
-          <BackgroundCard>hola</BackgroundCard>
-          <BackgroundCard>chau</BackgroundCard>
-          <BackgroundCard>hola</BackgroundCard>
-          <BackgroundCard>chau</BackgroundCard>
-        </div>
-      }
+      SidemenuChildren={<Sidemenu />}
       ToolsBarChildren={<Toolbar />}
     >
       <Canvas />
