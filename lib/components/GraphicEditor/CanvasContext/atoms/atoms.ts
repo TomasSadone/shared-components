@@ -1,9 +1,17 @@
 import { atom } from 'jotai';
 
 // SELECTED SECTIONS / ITEM TYPE ATOMS:
-type Sections = '' | 'images' | 'text' | 'elements' | 'layers' | 'uploads' | 'canvas';
+type Sections =
+  | ''
+  | 'images'
+  | 'text'
+  | 'elements'
+  | 'layers'
+  | 'uploads'
+  | 'canvas'
+  | 'color';
 export type SidemenusSections = Exclude<Sections, 'canvas'>;
-export type ToolbarsSections = Exclude<Sections, 'layers' | 'uploads' | 'images'>;
+export type ToolbarsSections = Exclude<Sections, 'layers' | 'uploads' | 'images' | 'color'>;
 
 // TODO inicializar en ''
 export const selectedSectionAtom = atom<SidemenusSections>('text');

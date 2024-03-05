@@ -7,7 +7,13 @@ import { fileURLToPath } from 'node:url';
 import { glob } from 'glob';
 
 export default defineConfig({
-  plugins: [react(), dts({ include: ['lib'], copyDtsFiles: true }), libInjectCss()],
+  plugins: [
+    react({
+      include: '**/*.tsx',
+    }),
+    dts({ include: ['lib'], copyDtsFiles: true }),
+    libInjectCss(),
+  ],
   resolve: {
     alias: {
       components: '/lib/components',

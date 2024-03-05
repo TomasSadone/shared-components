@@ -6,11 +6,12 @@ import { Toggler, TogglerArgs } from './Toggler';
 import style from './style.module.sass';
 import { OpacitySelector } from './OpacitySelector';
 import { FontFamilySelector } from './FontFamilySelector';
+import { ColorSelector } from '../../ColorSelector';
 
 const TextToolbar = () => {
   //   TODO agregar title a todos los botones para que en hover se sepa que son
   const canvasInstanceRef = useCanvasContext();
-  if (!canvasInstanceRef.current) return <></>;
+  if (!canvasInstanceRef.current) return <div></div>;
 
   const { _activeObject } = useCanvasAsState(canvasInstanceRef.current!, 'after:render', [
     '_activeObject',
@@ -59,6 +60,7 @@ const TextToolbar = () => {
 
   return (
     <div className={style.textToolbar}>
+      <ColorSelector object={_activeObject} />
       <FontFamilySelector activeTextObject={_activeObject}></FontFamilySelector>
       <FontSizeHandler activeTextObject={_activeObject} />
       <div className={style.groupedButtons}>

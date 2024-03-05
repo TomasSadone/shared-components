@@ -28,7 +28,7 @@ export const TextSubmenu = () => {
       top: 100,
       fontFamily,
       fontSize: 30,
-      fill: 'black',
+      fill: '#000',
       opacity: 1.0,
       fontStyle: 'normal',
     });

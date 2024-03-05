@@ -1,7 +1,7 @@
 import { ChangeEvent, useState } from 'react';
 import { Icon } from '../../../../../Icon';
-import style from '../FontSizeHandler/otro.module.sass';
-// import style from './style.module.sass';
+// import style from '../FontSizeHandler/otro.module.sass';
+import style from './style.module.sass';
 import useCanvasAsState from '../../../../hooks/useCanvasAsState';
 import { useCanvasContext } from '../../../../CanvasContext/useCanvasContext';
 import { EventName } from 'fabric/fabric-impl';
@@ -39,12 +39,12 @@ export const OpacitySelector = ({ activeTextObject, title }: Props) => {
       className={style.toggler}
       title={title}
     >
-      <Icon size={16} fill="#667085" name="opacity" />
-      {true && (
+      <Icon size={17} fill="#667085" name="opacity" />
+      {open && (
         <div className={style.sliderContainer}>
-          <div className="">
+          <div className={style.opacity}>
             <span>Opacità</span>
-            <div className="">{Math.round(opacity * 100)}%</div>
+            <div className={style.opacityLabel}>{Math.round(opacity * 100)}%</div>
           </div>
           <div className="">
             <input
@@ -56,9 +56,9 @@ export const OpacitySelector = ({ activeTextObject, title }: Props) => {
               step="1"
               value={opacity * 100}
               onChange={handleOpacityChange}
-              //   style={{
-              //     '--value': `${opacity * 100}%`,
-              //   }}
+              style={{
+                '--value': `${opacity * 100}%`,
+              }}
             />
           </div>
         </div>
