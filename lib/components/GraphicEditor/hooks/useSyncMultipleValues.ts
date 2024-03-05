@@ -4,7 +4,7 @@ type StoreValues<Obj, Arr extends Array<keyof Obj>> = {
   [Str in Arr[number]]: Obj[Str];
 };
 
-const useSyncCanvas = <
+const useSyncMultipleValues = <
   Store extends { [key: string]: any },
   Values extends Array<keyof Store>,
 >(
@@ -21,4 +21,4 @@ const useSyncCanvas = <
   return statefulValues;
 };
 
-export default useSyncCanvas;
+export default useSyncMultipleValues;

@@ -48,3 +48,4 @@ export { AppDatepicker } from './components/AppDatepicker';
 export { MessaggiDatePicker } from './components/AppDatepicker/MessaggiDatepicker';
 export { HorizontalTabs } from './components/HorizontalTabs';
 export { HorizontalTabsLink } from './components/HorizontalTabs/HorizontalTabsLink';
+export { GraphicEditorWithContext as GraphicEditor } from './components/GraphicEditor/CanvasContext/CanvasContext';

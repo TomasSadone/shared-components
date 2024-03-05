@@ -4,8 +4,6 @@ import { TextToolbar } from './TextToolbar';
 
 export const Toolbar = () => {
   const [selectedItemType] = useAtom(selectedItemTypeAtom);
-  console.log(selectedItemType);
-  console.log('toolbars');
   let CurrentToolbar: React.FC;
   if (Toolbars[selectedItemType] !== undefined) {
     CurrentToolbar = Toolbars[selectedItemType] as React.FC;

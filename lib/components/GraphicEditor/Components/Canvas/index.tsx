@@ -1,6 +1,6 @@
-import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
+import { useEffect, useRef } from 'react';
 import { fabric } from 'fabric';
-import { useCanvasContext } from '../../CanvasContext/CanvasContext';
+import { useCanvasContext } from '../../CanvasContext/useCanvasContext';
 import style from './style.module.sass';
 import { useOnOutsideClick } from '../../../../hooks/useOnOutsideClick';
 import { selectedItemTypeAtom } from '../../CanvasContext/atoms/atoms';
@@ -14,7 +14,13 @@ const Canvas = () => {
   const canvasInstanceRef = useCanvasContext();
   const [selectedItemType, setSelectedItemType] = useAtom(selectedItemTypeAtom);
 
-  window.addEventListener('click', () => console.log(selectedItemType));
+  const onOutsideClick = () => {
+    if (selectedItemType === 'canvas') {
+      setSelectedItemType('');
+    }
+  };
+
+  useOnOutsideClick([libraryWrapperRef], onOutsideClick, [selectedItemType]);
 
   useEffect(() => {
     canvasInstanceRef.current = initCanvas();
@@ -30,7 +36,6 @@ const Canvas = () => {
   }
   return (
     <div className={style.canvasContainer}>
-      {selectedItemType}
       <div ref={libraryWrapperRef}>
         <canvas
           ref={canvasDomRef}

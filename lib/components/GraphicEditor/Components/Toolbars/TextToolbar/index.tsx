@@ -1,28 +1,105 @@
-import { subscribeFunctionGenerator } from '../../../helpers/subscribeFunctionGenerator';
-import { useCanvasContext } from '../../../CanvasContext/CanvasContext';
-import useSyncCanvas from '../../../hooks/useSyncCanvas';
+import { useCanvasContext } from '../../../CanvasContext/useCanvasContext';
+import useCanvasAsState from '../../../hooks/useCanvasAsState';
+import { FontSizeHandler } from './FontSizeHandler';
+import { TextAlignmentToggler } from './TextAlignmentToggler';
+import { Toggler, TogglerArgs } from './Toggler';
+import style from './style.module.sass';
+import { OpacitySelector } from './OpacitySelector';
+import { FontFamilySelector } from './FontFamilySelector';
 
 const TextToolbar = () => {
-  // states: fontColor, fontFamiliy, fontSize, bold, underline, italic, linethrough, uppercase, opacity
+  //   TODO agregar title a todos los botones para que en hover se sepa que son
   const canvasInstanceRef = useCanvasContext();
-  const subscribe = subscribeFunctionGenerator(
-    canvasInstanceRef.current as fabric.Canvas,
-    'after:render',
-  );
-
   if (!canvasInstanceRef.current) return <></>;
 
-  const { _activeObject } = useSyncCanvas(
-    subscribe,
-    ['_activeObject'],
-    canvasInstanceRef.current,
-  ) as { _activeObject: fabric.IText };
+  const { _activeObject } = useCanvasAsState(canvasInstanceRef.current!, 'after:render', [
+    '_activeObject',
+  ]) as { _activeObject: fabric.IText };
+
+  const onToggle = ({ event, key, value }: TogglerArgs) => {
+    _activeObject.set(key, value);
+    _activeObject.fire(event);
+    canvasInstanceRef.current!.renderAll();
+  };
+
+  const onBoldToggle = (args: TogglerArgs) => {
+    onStringToggle(args, 'bold');
+  };
+  const onStyleToggle = (args: TogglerArgs) => {
+    onStringToggle(args, 'italic');
+  };
+  const onStringToggle = (args: TogglerArgs, notNormalValue: 'italic' | 'bold') => {
+    if (args.value === 'normal') {
+      onToggle({ ...args, value: notNormalValue });
+    } else if (args.value === notNormalValue) {
+      onToggle({ ...args, value: 'normal' });
+    }
+  };
+  const onBooleanToggle = (args: TogglerArgs) => {
+    onToggle({ ...args, value: !args.value });
+  };
+
+  const handleUppercaseToggle = (args: TogglerArgs) => {
+    (_activeObject as any).isUppercase = !args.value;
+    const setUppercase = () => {
+      if (args.value) {
+        return _activeObject.text?.toLowerCase();
+      } else {
+        return _activeObject.text?.toUpperCase();
+      }
+    };
+    _activeObject.text = setUppercase();
+    _activeObject.dirty = true;
+    _activeObject.fire('object:modified');
+    if (canvasInstanceRef.current) {
+      canvasInstanceRef.current.renderAll();
+    }
+  };
+  const isUpperCase = 'isUppercase' as keyof fabric.IText;
 
   return (
-    <div>
-      <span>{_activeObject.fontSize}</span>
-      <span>{_activeObject.fontFamily}</span>
-      <span>{_activeObject.underline}</span>
+    <div className={style.textToolbar}>
+      <FontFamilySelector activeTextObject={_activeObject}></FontFamilySelector>
+      <FontSizeHandler activeTextObject={_activeObject} />
+      <div className={style.groupedButtons}>
+        <Toggler
+          iconProps={{ name: 'bold', size: 16, viewBox: '0 0 11 14', fill: '#667085' }}
+          activeTextObject={_activeObject}
+          onToggle={onBoldToggle}
+          pertinentValue="fontWeight"
+          title="font weight"
+        />
+        <Toggler
+          iconProps={{ name: 'italic', size: 16, viewBox: '0 0 12 14', fill: '#667085' }}
+          activeTextObject={_activeObject}
+          onToggle={onStyleToggle}
+          pertinentValue="fontStyle"
+          title="font style"
+        />
+        <Toggler
+          iconProps={{ name: 'underline', size: 16, viewBox: '0 0 14 14', fill: '#667085' }}
+          activeTextObject={_activeObject}
+          onToggle={onBooleanToggle}
+          pertinentValue="underline"
+          title="underline"
+        />
+        <Toggler
+          iconProps={{ name: 'linethrough', size: 16, viewBox: '0 0 12 16', fill: '#667085' }}
+          activeTextObject={_activeObject}
+          onToggle={onBooleanToggle}
+          pertinentValue="linethrough"
+          title="line through"
+        />
+        <Toggler
+          iconProps={{ name: 'match-case', size: 24, viewBox: '0 0 24 24', fill: '#667085' }}
+          activeTextObject={_activeObject}
+          onToggle={handleUppercaseToggle}
+          pertinentValue={isUpperCase}
+          title="uppercase"
+        />
+        <TextAlignmentToggler title="text alignment" activeTextObject={_activeObject} />
+        <OpacitySelector activeTextObject={_activeObject} title="opacity"></OpacitySelector>
+      </div>
     </div>
   );
 };

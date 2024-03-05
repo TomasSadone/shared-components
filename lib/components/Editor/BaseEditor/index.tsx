@@ -1,8 +1,8 @@
-import { Sidebar, Props as TSidebarProps } from './Sidebar';
 import { ActionsBar } from './ActionsBar';
 import { Sidemenu } from './Submenu';
 import { Toolsbar } from './Toolbar';
 import style from './style.module.sass';
+import './reset.sass';
 
 type ReactNode = React.ReactNode;
 

@@ -35,6 +35,8 @@ export default defineConfig({
         'react-dom',
         'react-toastify',
         'react/jsx-runtime',
+        'fabric',
+        'jotai',
       ],
       input: Object.fromEntries(
         glob

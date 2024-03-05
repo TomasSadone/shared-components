@@ -36,7 +36,7 @@ export const Dropdown: React.FC<DropdownProps> = ({
     setVisible(false);
   };
 
-  useOnOutsideClick(dropDownId, setVisible, visible);
+  //   useOnOutsideClick(dropDownId, setVisible, visible);
 
   return (
     <div style={containerStyle} id={dropDownId} className={styles.dropdown}>

@@ -72,6 +72,8 @@
   },
   "peerDependencies": {
     "classnames": "^2.3.2",
+    "fabric": "^5.3.0",
+    "jotai": "^2.6.5",
     "libphonenumber-js": "^1.10.42",
     "react": "^18.2.0",
     "react-auth-code-input": "^3.2.1",

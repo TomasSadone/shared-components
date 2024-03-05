@@ -24,7 +24,6 @@ const Sidebar = () => {
   const handleSelectSection = (section: SidemenusSections) => {
     setSelectedSection(section);
     handleSetSelectedItemType('');
-    console.log('seteando tpye: ""');
   };
   return (
     <BaseSidebar

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { fonts } from '../../../constants/fonts';
 import style from './style.module.sass';
-import { useCanvasContext } from '../../../CanvasContext/CanvasContext';
+import { useCanvasContext } from '../../../CanvasContext/useCanvasContext';
 import { fabric } from 'fabric';
 import { Icon } from '../../../../Icon';
 import { AppButton } from '../../../../Button';
@@ -36,7 +36,6 @@ export const TextSubmenu = () => {
     canvasInstanceRef.current.setActiveObject(newText);
 
     handleSetSelectedItemType('text');
-    console.log('seteando type: text');
   };
 
   return (

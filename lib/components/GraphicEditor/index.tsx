@@ -6,7 +6,7 @@ import { Canvas } from './Components/Canvas';
 import { ActionsBar } from './Components/ActionsBar';
 import { Sidebar } from './Components/Sidebar';
 import { Toolbar } from './Components/Toolbars';
-import { useCanvasContext } from './CanvasContext/CanvasContext';
+import { useCanvasContext } from './CanvasContext/useCanvasContext';
 import {
   ToolbarsSections,
   handleSetSelectedItemTypeAtom,
@@ -40,7 +40,6 @@ export const GraphicEditor = forwardRef(({ onSave, onExit }: Props, ref) => {
   const setSectionAndItemType = (section: Exclude<ToolbarsSections, 'canvas'>) => {
     setSelectedSection(section);
     setSelectedItemType(section);
-    console.log('seteando type:', section);
   };
 
   useEffect(() => {
@@ -55,7 +54,6 @@ export const GraphicEditor = forwardRef(({ onSave, onExit }: Props, ref) => {
 
   function handleMouseDown(e: fabric.IEvent<Event>) {
     if (!e.target || !e.target?.type) {
-      console.log('seteando type:', 'canvas');
       setSelectedItemType('canvas');
       return;
     }
@@ -69,7 +67,6 @@ export const GraphicEditor = forwardRef(({ onSave, onExit }: Props, ref) => {
 
   function handleSectionCleared() {
     //TODO: cerrar threepoints menu
-    console.log('sectioncleared');
     setSelectedItemType('');
   }
 
