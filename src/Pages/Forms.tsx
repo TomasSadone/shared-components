@@ -37,7 +37,6 @@ const Forms = () => {
   const handleOnChange = (res: string) => {
     setResult(res);
   };
-
   return (
     <div>
       <Checkbox value={true} onChange={() => null} />

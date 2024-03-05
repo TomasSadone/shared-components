@@ -1,6 +1,6 @@
 import { Icon } from '../../Icon';
 import { icons } from '../../../constants/svgIcons';
-import React, { CSSProperties } from 'react';
+import React, { CSSProperties, useRef } from 'react';
 import styles from './Dropdown.module.sass';
 import cn from 'classnames';
 import { SelectOptions } from '../../../types/MainTypes';
@@ -30,16 +30,21 @@ export const Dropdown: React.FC<DropdownProps> = ({
   containerStyle,
 }) => {
   const [visible, setVisible] = React.useState(false);
+  const dropDownRef = useRef(null);
 
   const handleSelect = (item: SelectOptions) => {
     setSelectedItem && setSelectedItem(item);
     setVisible(false);
   };
 
+<<<<<<< HEAD
   //   useOnOutsideClick(dropDownId, setVisible, visible);
+=======
+  useOnOutsideClick([dropDownRef], () => setVisible(false));
+>>>>>>> AIG-1840
 
   return (
-    <div style={containerStyle} id={dropDownId} className={styles.dropdown}>
+    <div style={containerStyle} ref={dropDownRef} id={dropDownId} className={styles.dropdown}>
       <div onClick={() => setVisible(!visible)} className={styles.head}>
         <div className={styles.title_container}>
           {icon && <Icon name={icon} size={24} viewBox={iconViewBox} />}
