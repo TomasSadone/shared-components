@@ -54,6 +54,7 @@ export const GraphicEditor = forwardRef(({ onSave, onExit }: Props, ref) => {
 
   function handleMouseDown(e: fabric.IEvent<Event>) {
     if (!e.target || !e.target?.type) {
+      setSelectedSection('');
       setSelectedItemType('canvas');
       return;
     }

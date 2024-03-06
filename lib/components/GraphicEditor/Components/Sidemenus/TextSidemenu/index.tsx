@@ -8,7 +8,7 @@ import { AppButton } from '../../../../Button';
 import { handleSetSelectedItemTypeAtom } from '../../../CanvasContext/atoms/atoms';
 import { useAtom } from 'jotai';
 
-export const TextSubmenu = () => {
+export const TextSidemenu = () => {
   const [search, setSearch] = useState('');
   const [, handleSetSelectedItemType] = useAtom(handleSetSelectedItemTypeAtom);
   const handleSearch = (e: React.FormEvent<HTMLInputElement>) => {

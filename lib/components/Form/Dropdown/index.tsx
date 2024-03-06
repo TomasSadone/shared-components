@@ -37,11 +37,7 @@ export const Dropdown: React.FC<DropdownProps> = ({
     setVisible(false);
   };
 
-<<<<<<< HEAD
   //   useOnOutsideClick(dropDownId, setVisible, visible);
-=======
-  useOnOutsideClick([dropDownRef], () => setVisible(false));
->>>>>>> AIG-1840
 
   return (
     <div style={containerStyle} ref={dropDownRef} id={dropDownId} className={styles.dropdown}>

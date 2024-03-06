@@ -7,15 +7,20 @@ import style from './style.module.sass';
 import { OpacitySelector } from './OpacitySelector';
 import { FontFamilySelector } from './FontFamilySelector';
 import { ColorSelector } from '../../ColorSelector';
+import { handleSetSelectedItemTypeAtom } from '../../../CanvasContext/atoms/atoms';
+import { useAtom } from 'jotai';
 
 const TextToolbar = () => {
-  //   TODO agregar title a todos los botones para que en hover se sepa que son
   const canvasInstanceRef = useCanvasContext();
   if (!canvasInstanceRef.current) return <div></div>;
+  const [, setSelectedItemType] = useAtom(handleSetSelectedItemTypeAtom);
 
   const { _activeObject } = useCanvasAsState(canvasInstanceRef.current!, 'after:render', [
     '_activeObject',
   ]) as { _activeObject: fabric.IText };
+
+  //   prevent error on section change
+  if (!_activeObject) setSelectedItemType('');
 
   const onToggle = ({ event, key, value }: TogglerArgs) => {
     _activeObject.set(key, value);

@@ -1,7 +1,9 @@
 import { useAtom } from 'jotai';
 import { SidemenusSections, selectedSectionAtom } from '../../CanvasContext/atoms/atoms';
-import { TextSubmenu } from './TextSidemenu';
+import { TextSidemenu } from './TextSidemenu';
 import { ColorSideMenu } from './ColorSideMenu';
+import style from './style.module.sass';
+import { ElementsSidemenu } from './ElementsSidemenu';
 
 // TODO unificar o sidemenus o submenos, en un lado son de una manera y en otro de otra. ver base editor
 
@@ -13,12 +15,16 @@ export const Sidemenu = () => {
   } else {
     return <></>;
   }
-  return <CurrentSubmenu />;
+  return (
+    <div className={style.sideMenus}>
+      <CurrentSubmenu />
+    </div>
+  );
 };
 
 const Submenus: Partial<{ [key in SidemenusSections]: React.FC }> = {
-  text: () => <TextSubmenu />,
-  elements: () => <>elements</>,
+  text: () => <TextSidemenu />,
+  elements: () => <ElementsSidemenu />,
   images: () => <>images</>,
   layers: () => <>layers</>,
   uploads: () => <>uploads</>,
