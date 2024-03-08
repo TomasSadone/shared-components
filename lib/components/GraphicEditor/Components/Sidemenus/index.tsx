@@ -4,6 +4,9 @@ import { TextSidemenu } from './TextSidemenu';
 import { ColorSideMenu } from './ColorSideMenu';
 import style from './style.module.sass';
 import { ElementsSidemenu } from './ElementsSidemenu';
+import { TextColorSM } from './ColorSideMenu/TextColorSM';
+import { ElementColorSM } from './ColorSideMenu/ElementColorSM';
+import { BorderColorSM } from './ColorSideMenu/BorderColorSM';
 
 // TODO unificar o sidemenus o submenos, en un lado son de una manera y en otro de otra. ver base editor
 
@@ -28,5 +31,7 @@ const Submenus: Partial<{ [key in SidemenusSections]: React.FC }> = {
   images: () => <>images</>,
   layers: () => <>layers</>,
   uploads: () => <>uploads</>,
-  color: () => <ColorSideMenu />,
+  'element-color': () => <ElementColorSM />,
+  'border-color': () => <BorderColorSM />,
+  'text-color': () => <TextColorSM />,
 };

@@ -12,20 +12,20 @@ export type TogglerArgs = {
 type Props = {
   iconProps: Omit<IconProps, 'onClick'>;
   activeTextObject: fabric.IText;
-  pertinentValue: keyof fabric.IText;
+  valueToWatch: keyof fabric.IText;
   onToggle: (args: TogglerArgs) => void;
   title?: string;
 };
 
 export const Toggler = ({
-  pertinentValue,
+  valueToWatch,
   activeTextObject,
   onToggle,
   iconProps,
   title,
 }: Props) => {
   const [selected, setSelected] = useState(false);
-  const value = useCanvasAsState(activeTextObject, 'object:modified', [pertinentValue]);
+  const value = useCanvasAsState(activeTextObject, 'object:modified', [valueToWatch]);
   const isSelected = (value: string | boolean) => {
     if (typeof value === 'string') {
       return value !== 'normal';
@@ -36,15 +36,15 @@ export const Toggler = ({
     setSelected(!selected);
     onToggle({
       event: 'object:modified',
-      key: pertinentValue,
-      value: value[pertinentValue],
+      key: valueToWatch,
+      value: value[valueToWatch],
     });
   };
   return (
     <button
       title={title}
       onClick={handleClick}
-      className={`${style.toggler} ${isSelected(value?.[pertinentValue]) && style.selected}`}
+      className={`${style.toggler} ${isSelected(value?.[valueToWatch]) && style.selected}`}
     >
       <Icon {...iconProps} />
     </button>

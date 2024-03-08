@@ -12,7 +12,8 @@ import style from './style.module.sass';
 import { Color } from '../../../../Color';
 
 type Props = {
-  perIl: string;
+  handleColorChange: (color: string) => void;
+  valueToWatch: 'backgroundColor' | 'fill' | 'stroke';
 };
 
 const colorPallette = [
@@ -38,7 +39,7 @@ const colorPallette = [
   '#368b70',
 ];
 
-export const ColorSideMenu = () => {
+export const ColorSideMenu = ({ handleColorChange, valueToWatch }: Props) => {
   const canvasInstanceRef = useCanvasContext();
   const [, setSelectedSection] = useAtom(handleSetSelectedSectionAtom);
   const [itemType] = useAtom(selectedItemTypeAtom);
@@ -54,15 +55,15 @@ export const ColorSideMenu = () => {
   //   prevent error on section change
   if (!_activeObject) setSelectedSection('');
 
-  const { fill } = useCanvasAsState(_activeObject, 'object:modified', ['fill']);
+  const value = useCanvasAsState(_activeObject, 'object:modified', [valueToWatch]);
 
   const handleClick = (color: string) => {
-    _activeObject.set('fill', color);
+    handleColorChange(color);
     _activeObject.fire('object:modified');
     canvasInstanceRef.current?.renderAll();
   };
 
-  const color = fill || '#000';
+  const color = value[valueToWatch] || '#000';
 
   return (
     <div className={style.colorSideMenu}>
@@ -70,7 +71,7 @@ export const ColorSideMenu = () => {
         <p className={style.text}>Imposta un colore per il testo</p>
         <Tooltip trigger="click" hoverItem={<img src={addcolor} />}>
           <ColorPicker
-            color={color}
+            color={color as string}
             onChange={handleClick}
             onEyeDropError={() => handleClick('#000')}
           />

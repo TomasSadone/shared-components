@@ -4,11 +4,12 @@ import { FontSizeHandler } from './FontSizeHandler';
 import { TextAlignmentToggler } from './TextAlignmentToggler';
 import { Toggler, TogglerArgs } from './Toggler';
 import style from './style.module.sass';
-import { OpacitySelector } from './OpacitySelector';
+
 import { FontFamilySelector } from './FontFamilySelector';
 import { ColorSelector } from '../../ColorSelector';
 import { handleSetSelectedItemTypeAtom } from '../../../CanvasContext/atoms/atoms';
 import { useAtom } from 'jotai';
+import { OpacitySliderSelector } from '../../SliderSelector/OpacitySliderSelector';
 
 const TextToolbar = () => {
   const canvasInstanceRef = useCanvasContext();
@@ -65,7 +66,7 @@ const TextToolbar = () => {
 
   return (
     <div className={style.textToolbar}>
-      <ColorSelector object={_activeObject} />
+      <ColorSelector section="text-color" valueToWatch="fill" object={_activeObject} />
       <FontFamilySelector activeTextObject={_activeObject}></FontFamilySelector>
       <FontSizeHandler activeTextObject={_activeObject} />
       <div className={style.groupedButtons}>
@@ -73,39 +74,39 @@ const TextToolbar = () => {
           iconProps={{ name: 'bold', size: 16, viewBox: '0 0 11 14', fill: '#667085' }}
           activeTextObject={_activeObject}
           onToggle={onBoldToggle}
-          pertinentValue="fontWeight"
+          valueToWatch="fontWeight"
           title="font weight"
         />
         <Toggler
           iconProps={{ name: 'italic', size: 16, viewBox: '0 0 12 14', fill: '#667085' }}
           activeTextObject={_activeObject}
           onToggle={onStyleToggle}
-          pertinentValue="fontStyle"
+          valueToWatch="fontStyle"
           title="font style"
         />
         <Toggler
           iconProps={{ name: 'underline', size: 16, viewBox: '0 0 14 14', fill: '#667085' }}
           activeTextObject={_activeObject}
           onToggle={onBooleanToggle}
-          pertinentValue="underline"
+          valueToWatch="underline"
           title="underline"
         />
         <Toggler
           iconProps={{ name: 'linethrough', size: 16, viewBox: '0 0 12 16', fill: '#667085' }}
           activeTextObject={_activeObject}
           onToggle={onBooleanToggle}
-          pertinentValue="linethrough"
+          valueToWatch="linethrough"
           title="line through"
         />
         <Toggler
           iconProps={{ name: 'match-case', size: 24, viewBox: '0 0 24 24', fill: '#667085' }}
           activeTextObject={_activeObject}
           onToggle={handleUppercaseToggle}
-          pertinentValue={isUpperCase}
+          valueToWatch={isUpperCase}
           title="uppercase"
         />
         <TextAlignmentToggler title="text alignment" activeTextObject={_activeObject} />
-        <OpacitySelector activeTextObject={_activeObject} title="opacity"></OpacitySelector>
+        <OpacitySliderSelector activeObject={_activeObject} />
       </div>
     </div>
   );

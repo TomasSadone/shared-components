@@ -9,12 +9,17 @@ type Sections =
   | 'layers'
   | 'uploads'
   | 'canvas'
-  | 'color';
+  | 'text-color'
+  | 'border-color'
+  | 'element-color';
 export type SidemenusSections = Exclude<Sections, 'canvas'>;
-export type ToolbarsSections = Exclude<Sections, 'layers' | 'uploads' | 'images' | 'color'>;
+export type ToolbarsSections = Exclude<
+  Sections,
+  'layers' | 'uploads' | 'images' | 'text-color' | 'element-color'
+>;
 
 // TODO inicializar en ''
-export const selectedSectionAtom = atom<SidemenusSections>('text');
+export const selectedSectionAtom = atom<SidemenusSections>('');
 export const selectedItemTypeAtom = atom<ToolbarsSections>('');
 
 export const handleSetSelectedSectionAtom = atom(
