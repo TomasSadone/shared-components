@@ -1,0 +1,71 @@
+@use '../../../styles/helpers'
+
+.card
+    background-color: helpers.$g05
+
+.layoutContainer
+    padding: 16px 8px
+    display: flex
+    justify-content: space-between
+    align-items: center
+    background-color: white
+
+.buttonContainer
+    padding: 2px 9px 6px 0px
+    > button
+        display: block
+        margin-left: auto
+
+
+.logoLeftRestRight, .restLeftButtonRight
+    .subGroupContainer 
+        display: flex
+        gap: 14px
+        align-items: center
+
+.linksLogoButton
+    display: grid
+    grid-template-columns: repeat(3, 1fr)
+    .button
+        margin-left: auto
+
+.linksLogoButton, .logoButton_Links
+    .logo
+        p
+            text-align: center
+
+.logoButton_Links
+    .layoutContainer
+        padding: 0
+    position: relative
+    background-color: white
+    padding-block: 16px
+    .logo
+        flex: 1
+        margin-bottom: 8px
+    .button
+        position: absolute
+        right: 8px
+    .links
+        justify-content: center
+
+.logoAction_Links
+    background-color: white
+
+.logo
+    font-weight: 600
+    p
+        line-height: 16px
+
+.links
+    display: flex
+    gap: 6px
+    > span
+        background-color: helpers.$g3
+        width: 24px
+        height: 4.5px
+
+.button
+    width: 32px
+    height: 14px
+    background-color: helpers.$g4

@@ -1,6 +1,7 @@
 import { BackgroundCard, Props as BGCardProps } from '../BackgroundCard';
 import style from './style.module.sass';
 
+
 export type Props = {
   button: JSX.Element;
   position: 'left' | 'center' | 'right';
