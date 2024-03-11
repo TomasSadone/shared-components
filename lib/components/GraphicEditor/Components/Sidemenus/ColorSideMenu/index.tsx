@@ -80,16 +80,15 @@ export const ColorSideMenu = ({ handleColorChange, valueToWatch }: Props) => {
       <div className={style.section}>
         <p className={style.text}>Colori predefiniti</p>
         <div className={style.colors}>
-          {colorPallette.map((color) => {
-            return (
-              <button
-                className={style.predefinedColorInteractable}
-                onClick={() => handleClick(color)}
-              >
-                <Color hexCode={color} key={color} className={style.predefinedColor} />
-              </button>
-            );
-          })}
+          {colorPallette.map((color) => (
+            <button
+              key={color}
+              className={style.predefinedColorInteractable}
+              onClick={() => handleClick(color)}
+            >
+              <Color hexCode={color} key={color} className={style.predefinedColor} />
+            </button>
+          ))}
         </div>
       </div>
     </div>

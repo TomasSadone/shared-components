@@ -16,6 +16,7 @@ import facebook from './assets/facebook.svg';
 import whatsapp from './assets/whatsapp.svg';
 import { useAtom } from 'jotai';
 import { handleSetSelectedItemTypeAtom } from '../../../CanvasContext/atoms/atoms';
+import { v4 as uuid } from 'uuid';
 
 const icons = [
   circle,
@@ -69,6 +70,7 @@ export const ElementsSidemenu = () => {
         scaleX: 3,
         scaleY: 3,
         strokeWidth: 0,
+        name: uuid(),
       });
       canvasInstanceRef.current?.add(elementAdded);
       canvasInstanceRef.current?.setActiveObject(elementAdded);

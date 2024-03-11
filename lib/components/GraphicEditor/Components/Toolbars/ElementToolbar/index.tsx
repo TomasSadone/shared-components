@@ -13,7 +13,6 @@ export const ElementToolbar = () => {
   ]);
   const borderEditable = _activeObject.type === 'rect' || _activeObject.type === 'circle';
 
-  useCanvasAsState;
   return (
     <div className={style.elementToolbar}>
       <ColorSelector valueToWatch="fill" section="element-color" object={_activeObject} />

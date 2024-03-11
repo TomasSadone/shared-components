@@ -34,24 +34,3 @@ export const Editor = ({
     </div>
   );
 };
-
-/*
-    new Canvas?
-    grapiceditor = () => {
-        selectedSection,setSelectedsection = state(string);
-        new Canvas?
-        //config aca o fuera etc
-        const canvas
-
-        <editor>
-            <sidebar items={{text, icon, onClick, isSelected}} />
-            <editor.navbar>
-                <graphiceditornavbar[selectedSection]/>
-            </navbar>
-            <editor.submenu>
-                <graphiceditorsubmenu[selectedSection] />
-            </submenu>
-            <canvas/>
-        </editor>
-    }
-*/

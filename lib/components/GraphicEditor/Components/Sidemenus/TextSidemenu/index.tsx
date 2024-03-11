@@ -7,6 +7,7 @@ import { Icon } from '../../../../Icon';
 import { AppButton } from '../../../../Button';
 import { handleSetSelectedItemTypeAtom } from '../../../CanvasContext/atoms/atoms';
 import { useAtom } from 'jotai';
+import { v4 as uuid } from 'uuid';
 
 export const TextSidemenu = () => {
   const [search, setSearch] = useState('');
@@ -31,6 +32,7 @@ export const TextSidemenu = () => {
       fill: '#000',
       opacity: 1.0,
       fontStyle: 'normal',
+      name: uuid(),
     });
     canvasInstanceRef.current.add(newText);
     canvasInstanceRef.current.setActiveObject(newText);

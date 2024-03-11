@@ -45,6 +45,8 @@ export default defineConfig({
         'react-colorful',
         'fabric',
         'jotai',
+        'react-beautiful-dnd',
+        'react-colorful',
       ],
       input: Object.fromEntries(
         glob
