@@ -1,7 +1,8 @@
 import { useCanvasContext } from 'components/GraphicEditor/CanvasContext/useCanvasContext';
-import { ColorSideMenu } from '..';
+import { ColorSideMenu } from '../..';
 import useCanvasAsState from 'components/GraphicEditor/hooks/useCanvasAsState';
 import { fabric } from 'fabric';
+import { ObjectColorSM } from '..';
 
 export const ElementColorSM = () => {
   const canvasInstanceRef = useCanvasContext();
@@ -10,8 +11,6 @@ export const ElementColorSM = () => {
   ]);
 
   const valueToWatch = 'fill';
-
-  console.log(_activeObject.type);
 
   const recursiveFillSetter = (object: fabric.Object, color: string) => {
     if (object[valueToWatch]) {
@@ -27,5 +26,11 @@ export const ElementColorSM = () => {
     recursiveFillSetter(_activeObject, color);
   };
 
-  return <ColorSideMenu handleColorChange={onChange} valueToWatch={valueToWatch} />;
+  return (
+    <ObjectColorSM
+      title="Imposta un colore per l'elemento"
+      handleColorChange={onChange}
+      valueToWatch={valueToWatch}
+    />
+  );
 };

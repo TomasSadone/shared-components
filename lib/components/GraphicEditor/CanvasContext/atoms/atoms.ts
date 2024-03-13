@@ -11,11 +11,18 @@ type Sections =
   | 'canvas'
   | 'text-color'
   | 'border-color'
-  | 'element-color';
+  | 'element-color'
+  | 'canvas-color';
 export type SidemenusSections = Exclude<Sections, 'canvas'>;
 export type ToolbarsSections = Exclude<
   Sections,
-  'layers' | 'uploads' | 'images' | 'text-color' | 'element-color'
+  | 'layers'
+  | 'uploads'
+  | 'images'
+  | 'text-color'
+  | 'element-color'
+  | 'border-color'
+  | 'canvas-color'
 >;
 
 // TODO inicializar en ''
@@ -36,6 +43,24 @@ export const handleSetSelectedItemTypeAtom = atom(
   (get, set, update: ToolbarsSections) => {
     if (get(selectedItemTypeAtom) !== undefined) {
       set(selectedItemTypeAtom, update);
+    }
+  },
+);
+
+// Three points menu atom
+
+export type TooltipPosition = {
+  x: number;
+  y: number;
+};
+
+export const threePointsMenuPositionAtom = atom<TooltipPosition | null>(null);
+
+export const handleSetThreePointsMenuPosition = atom(
+  null,
+  (get, set, update: TooltipPosition | null) => {
+    if (get(threePointsMenuPositionAtom) !== undefined) {
+      set(threePointsMenuPositionAtom, update);
     }
   },
 );

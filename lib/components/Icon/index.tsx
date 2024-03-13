@@ -36,17 +36,19 @@ export const Icon: React.FC<IconProps> = ({
       onClick={onClick}
     >
       {Array.isArray(icons[name]) ? (
-        (icons[name] as { path: string; fill?: string }[]).map(({ path, fill: pathFill }) => (
-          <path
-            stroke={stroke || '10'}
-            strokeLinecap={strokeLinecap}
-            strokeLinejoin={strokeLinejoin}
-            strokeWidth={strokeWidth}
-            key={path}
-            fill={pathFill}
-            d={path}
-          />
-        ))
+        (icons[name] as { path: string; fill?: string }[]).map(
+          ({ path, fill: pathFill = 'none' }) => (
+            <path
+              stroke={stroke || '10'}
+              strokeLinecap={strokeLinecap}
+              strokeLinejoin={strokeLinejoin}
+              strokeWidth={strokeWidth}
+              key={path}
+              fill={fill || pathFill}
+              d={path}
+            />
+          ),
+        )
       ) : (
         <path
           stroke={stroke || '10'}

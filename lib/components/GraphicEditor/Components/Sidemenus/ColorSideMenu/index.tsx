@@ -1,19 +1,13 @@
-import useCanvasAsState from '../../../hooks/useCanvasAsState';
-import { useCanvasContext } from '../../../CanvasContext/useCanvasContext';
 import { ColorPicker } from '../../../../Editor/ColorPicker';
-import { useAtom } from 'jotai';
-import {
-  handleSetSelectedSectionAtom,
-  selectedItemTypeAtom,
-} from '../../../CanvasContext/atoms/atoms';
 import { Tooltip } from '../../../../Tooltip';
 import addcolor from './assets/addcolor.svg';
 import style from './style.module.sass';
 import { Color } from '../../../../Color';
 
 type Props = {
+  title: string;
+  color: string;
   handleColorChange: (color: string) => void;
-  valueToWatch: 'backgroundColor' | 'fill' | 'stroke';
 };
 
 const colorPallette = [
@@ -39,36 +33,14 @@ const colorPallette = [
   '#368b70',
 ];
 
-export const ColorSideMenu = ({ handleColorChange, valueToWatch }: Props) => {
-  const canvasInstanceRef = useCanvasContext();
-  const [, setSelectedSection] = useAtom(handleSetSelectedSectionAtom);
-  const [itemType] = useAtom(selectedItemTypeAtom);
-  if (itemType === '')
-    if (!canvasInstanceRef.current) {
-      return <></>;
-    }
-
-  const { _activeObject } = useCanvasAsState(canvasInstanceRef.current!, 'after:render', [
-    '_activeObject',
-  ]);
-
-  //   prevent error on section change
-  if (!_activeObject) setSelectedSection('');
-
-  const value = useCanvasAsState(_activeObject, 'object:modified', [valueToWatch]);
-
+export const ColorSideMenu = ({ handleColorChange, color = '#000', title }: Props) => {
   const handleClick = (color: string) => {
     handleColorChange(color);
-    _activeObject.fire('object:modified');
-    canvasInstanceRef.current?.renderAll();
   };
-
-  const color = value[valueToWatch] || '#000';
-
   return (
     <div className={style.colorSideMenu}>
       <div className={style.section}>
-        <p className={style.text}>Imposta un colore per il testo</p>
+        <p className={style.text}>{title}</p>
         <Tooltip trigger="click" hoverItem={<img src={addcolor} />}>
           <ColorPicker
             color={color as string}

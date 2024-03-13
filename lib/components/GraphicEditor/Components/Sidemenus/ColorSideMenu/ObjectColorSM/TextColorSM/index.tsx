@@ -1,6 +1,7 @@
 import { useCanvasContext } from 'components/GraphicEditor/CanvasContext/useCanvasContext';
-import { ColorSideMenu } from '..';
+import { ColorSideMenu } from '../..';
 import useCanvasAsState from 'components/GraphicEditor/hooks/useCanvasAsState';
+import { ObjectColorSM } from '..';
 
 export const TextColorSM = () => {
   const canvasInstanceRef = useCanvasContext();
@@ -14,5 +15,11 @@ export const TextColorSM = () => {
     _activeObject.set(valueToWatch, color);
   };
 
-  return <ColorSideMenu handleColorChange={onChange} valueToWatch={valueToWatch} />;
+  return (
+    <ObjectColorSM
+      title="Imposta un colore per il testo"
+      handleColorChange={onChange}
+      valueToWatch={valueToWatch}
+    />
+  );
 };

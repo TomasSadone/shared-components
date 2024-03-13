@@ -11,8 +11,10 @@ import {
   ToolbarsSections,
   handleSetSelectedItemTypeAtom,
   handleSetSelectedSectionAtom,
+  handleSetThreePointsMenuPosition,
 } from './CanvasContext/atoms/atoms';
 import { Sidemenu } from './Components/Sidemenus';
+import { elementSectionTypes } from './constants/elementSectionTypes';
 
 export type Props = {
   onSave: (template: JSON) => void;
@@ -22,8 +24,6 @@ export type Props = {
 fabric.Object.prototype.transparentCorners = false;
 fabric.Object.prototype.cornerColor = '#00b27a';
 fabric.Object.prototype.cornerStyle = 'circle';
-
-const elementSectionTypes = ['rect', 'circle', 'group', 'path'];
 
 if (document) {
   document.head.innerHTML += `
@@ -41,11 +41,15 @@ export const GraphicEditor = forwardRef(({ onSave, onExit }: Props, ref) => {
     setSelectedSection(section);
     setSelectedItemType(section);
   };
+  const [, setPositionThreePointsMenu] = useAtom(handleSetThreePointsMenuPosition);
 
   useEffect(() => {
     if (canvasInstanceRef.current) {
       canvasInstanceRef.current.on('mouse:down', handleMouseDown);
       canvasInstanceRef.current.on('selection:cleared', handleSectionCleared);
+      canvasInstanceRef.current.on('selection:created', handleSelection);
+      canvasInstanceRef.current.on('selection:updated', handleSelection);
+      canvasInstanceRef.current.on('object:modified', handleSelection);
       return () => {
         canvasInstanceRef.current?.dispose();
       };
@@ -67,8 +71,12 @@ export const GraphicEditor = forwardRef(({ onSave, onExit }: Props, ref) => {
   }
 
   function handleSectionCleared() {
-    //TODO: cerrar threepoints menu
+    setPositionThreePointsMenu(null);
     setSelectedItemType('');
+  }
+
+  function handleSelection() {
+    setPositionThreePointsMenu(null);
   }
 
   return (

@@ -2,6 +2,7 @@ import { useAtom } from 'jotai';
 import { ToolbarsSections, selectedItemTypeAtom } from '../../CanvasContext/atoms/atoms';
 import { TextToolbar } from './TextToolbar';
 import { ElementToolbar } from './ElementToolbar';
+import { CanvasToolbar } from './CanvasToolbar';
 
 export const Toolbar = () => {
   const [selectedItemType] = useAtom(selectedItemTypeAtom);
@@ -16,6 +17,6 @@ export const Toolbar = () => {
 
 const Toolbars: Partial<{ [key in ToolbarsSections]: React.FC }> = {
   text: TextToolbar,
-  canvas: () => <>canvas</>,
+  canvas: CanvasToolbar,
   elements: ElementToolbar,
 };

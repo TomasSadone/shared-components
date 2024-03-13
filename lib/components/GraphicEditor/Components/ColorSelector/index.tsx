@@ -6,7 +6,7 @@ import { useAtom } from 'jotai';
 import { handleSetSelectedSectionAtom } from '../../CanvasContext/atoms/atoms';
 
 type BaseProps = {
-  section: 'text-color' | 'element-color' | 'border-color';
+  section: 'text-color' | 'element-color' | 'border-color' | 'canvas-color';
   border?: boolean;
 };
 

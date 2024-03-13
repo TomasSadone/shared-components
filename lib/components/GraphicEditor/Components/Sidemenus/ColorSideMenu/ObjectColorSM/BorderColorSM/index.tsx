@@ -1,6 +1,6 @@
 import { useCanvasContext } from 'components/GraphicEditor/CanvasContext/useCanvasContext';
-import { ColorSideMenu } from '..';
 import useCanvasAsState from 'components/GraphicEditor/hooks/useCanvasAsState';
+import { ObjectColorSM } from '..';
 
 export const BorderColorSM = () => {
   const canvasInstanceRef = useCanvasContext();
@@ -12,7 +12,15 @@ export const BorderColorSM = () => {
 
   const onChange = (color: string) => {
     _activeObject.set(valueToWatch, color);
+    _activeObject.fire('object:modified');
+    canvasInstanceRef.current?.renderAll();
   };
 
-  return <ColorSideMenu handleColorChange={onChange} valueToWatch={valueToWatch} />;
+  return (
+    <ObjectColorSM
+      title="Imposta un colore per il bordo"
+      handleColorChange={onChange}
+      valueToWatch={valueToWatch}
+    />
+  );
 };

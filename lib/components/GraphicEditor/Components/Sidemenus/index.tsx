@@ -3,10 +3,12 @@ import { SidemenusSections, selectedSectionAtom } from '../../CanvasContext/atom
 import { TextSidemenu } from './TextSidemenu';
 import style from './style.module.sass';
 import { ElementsSidemenu } from './ElementsSidemenu';
-import { TextColorSM } from './ColorSideMenu/TextColorSM';
-import { ElementColorSM } from './ColorSideMenu/ElementColorSM';
-import { BorderColorSM } from './ColorSideMenu/BorderColorSM';
+import { TextColorSM } from './ColorSideMenu/ObjectColorSM/TextColorSM';
+import { ElementColorSM } from './ColorSideMenu/ObjectColorSM/ElementColorSM';
+import { BorderColorSM } from './ColorSideMenu/ObjectColorSM/BorderColorSM';
 import { LayersSubmenu } from './LayersSubmenu';
+import { ImagesSidemenu } from './ImagesSidemenu';
+import { CanvasColorSM } from './ColorSideMenu/CanvasColorSM';
 
 // TODO unificar o sidemenus o submenos, en un lado son de una manera y en otro de otra. ver base editor
 
@@ -28,10 +30,11 @@ export const Sidemenu = () => {
 const Submenus: Partial<{ [key in SidemenusSections]: React.FC }> = {
   text: () => <TextSidemenu />,
   elements: () => <ElementsSidemenu />,
-  images: () => <>images</>,
+  images: () => <ImagesSidemenu />,
   layers: () => <LayersSubmenu />,
   uploads: () => <>uploads</>,
   'element-color': () => <ElementColorSM />,
   'border-color': () => <BorderColorSM />,
   'text-color': () => <TextColorSM />,
+  'canvas-color': () => <CanvasColorSM />,
 };
