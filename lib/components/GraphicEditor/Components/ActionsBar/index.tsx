@@ -1,3 +1,4 @@
+import { useCanvasContext } from 'components/GraphicEditor/CanvasContext/useCanvasContext';
 import { AppButton } from '../../../Button';
 import { IconButton } from '../../../IconButton';
 import style from './style.module.sass';
@@ -8,6 +9,15 @@ type Props = {
 };
 
 export const ActionsBar = ({ onSave, onExit }: Props) => {
+  const canvasInstanceRef = useCanvasContext();
+  const undo = () => {
+    if (!canvasInstanceRef.current) return;
+    (canvasInstanceRef.current as { undo: Function } & fabric.Canvas).undo();
+  };
+  const redo = () => {
+    if (!canvasInstanceRef.current) return;
+    (canvasInstanceRef.current as { redo: Function } & fabric.Canvas).redo();
+  };
   return (
     <div className={style.actionsBar}>
       <AppButton
@@ -27,10 +37,12 @@ export const ActionsBar = ({ onSave, onExit }: Props) => {
       />
       <div className={style.subGroup}>
         <IconButton
+          onClick={undo}
           iconProps={{ fill: '#344054', viewBox: '0 0 24 24', size: 24 }}
           icon="undo"
         />
         <IconButton
+          onClick={redo}
           iconProps={{ fill: '#344054', viewBox: '0 0 24 24', size: 24 }}
           icon="redo"
         />

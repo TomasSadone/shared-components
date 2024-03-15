@@ -44,6 +44,8 @@ export default defineConfig({
         'react-dropzone',
         'react-colorful',
         'fabric',
+        'fabric-history',
+        'uuid',
         'jotai',
         'react-beautiful-dnd',
         'react-colorful',

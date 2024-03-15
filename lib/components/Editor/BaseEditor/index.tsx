@@ -25,10 +25,10 @@ export const Editor = ({
       <ActionsBar>{ActionsBarChildren}</ActionsBar>
       <div className={style.layout}>
         {Sidebar}
-        <Sidemenu>{SidemenuChildren}</Sidemenu>
-        <div className={style.toolbarAndEditor}>
+        <Sidemenu className={style.overflowAuto}>{SidemenuChildren}</Sidemenu>
+        <div className={[style.toolbarAndEditor, style.overflowAuto].join(' ')}>
           <Toolsbar>{ToolsBarChildren}</Toolsbar>
-          <div className={style.main}>{children}</div>
+          <main className={[style.main, style.overflowAuto].join(' ')}>{children}</main>
         </div>
       </div>
     </div>

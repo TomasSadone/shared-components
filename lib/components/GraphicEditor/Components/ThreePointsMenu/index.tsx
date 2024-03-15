@@ -39,7 +39,7 @@ export const ThreePointsMenu = ({ items, position, z = 20 }: Props) => {
     >
       {items.map((item, i) => {
         return (
-          <li onMouseEnter={() => handleMouseEnter(item, i)}>
+          <li key={item.icon} onMouseEnter={() => handleMouseEnter(item, i)}>
             <button
               className={style.button}
               onClick={() => {

@@ -7,7 +7,6 @@ import { EventName } from 'fabric/fabric-impl';
 import { icons } from 'constants/svgIcons';
 import { SliderInput, Props as SliderProps } from '../../../Form/SliderInput';
 import { BackgroundCard } from 'components/Editor/BackgroundCard';
-import { ColorSelector } from '../ColorSelector';
 
 type Props = {
   activeObject: fabric.Object;

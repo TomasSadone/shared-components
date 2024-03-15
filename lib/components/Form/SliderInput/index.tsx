@@ -7,9 +7,10 @@ export type Props = {
   title: string;
   maxValue: number;
   step: number;
+  minValue?: number;
 };
 
-export const SliderInput = ({ maxValue, step, onChange, value }: Props) => {
+export const SliderInput = ({ maxValue, step, onChange, value, minValue }: Props) => {
   const handleSliderChange = (e: ChangeEvent<HTMLInputElement>) => {
     onChange(Number(e.target.value));
   };
@@ -19,7 +20,7 @@ export const SliderInput = ({ maxValue, step, onChange, value }: Props) => {
       type="range"
       id="volume"
       name="volume"
-      min="0"
+      min={minValue}
       max={maxValue}
       step={step}
       value={value}

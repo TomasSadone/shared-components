@@ -1,5 +1,6 @@
 import { forwardRef, useEffect } from 'react';
 import { fabric } from 'fabric';
+import 'fabric-history';
 import { useAtom } from 'jotai';
 import { Editor } from '../Editor/BaseEditor';
 import { Canvas } from './Components/Canvas';
@@ -15,6 +16,7 @@ import {
 } from './CanvasContext/atoms/atoms';
 import { Sidemenu } from './Components/Sidemenus';
 import { elementSectionTypes } from './constants/elementSectionTypes';
+import { Resizer } from './Components/Resizer';
 
 export type Props = {
   onSave: (template: JSON) => void;
@@ -56,6 +58,11 @@ export const GraphicEditor = forwardRef(({ onSave, onExit }: Props, ref) => {
     }
   }, []);
 
+  useEffect(() => {
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, []);
+
   function handleMouseDown(e: fabric.IEvent<Event>) {
     if (!e.target || !e.target?.type) {
       setSelectedSection('');
@@ -79,6 +86,31 @@ export const GraphicEditor = forwardRef(({ onSave, onExit }: Props, ref) => {
     setPositionThreePointsMenu(null);
   }
 
+  function handleKeyDown(e: KeyboardEvent) {
+    if (!canvasInstanceRef.current) return;
+    if ((e.ctrlKey && e.key === 'z' && e.altKey) || (e.ctrlKey && e.key === 'y')) {
+      // Ctrl+Z+Alt or Ctrl+Y  for redo
+      e.preventDefault();
+      (canvasInstanceRef.current as { redo: Function } & fabric.Canvas).redo();
+    } else if (
+      e.ctrlKey &&
+      e.key === 'z' &&
+      (canvasInstanceRef.current as any).historyUndo.length > 0
+    ) {
+      // Ctrl+Z for undo
+      e.preventDefault();
+      (canvasInstanceRef.current as { undo: Function } & fabric.Canvas).undo();
+    } else if (e.key === 'Backspace' || e.key === 'Delete') {
+      // Backspace or Delete for delete
+      const activeObject = canvasInstanceRef.current.getActiveObject();
+      if (activeObject) {
+        console.log(activeObject);
+        e.preventDefault();
+        canvasInstanceRef.current.remove(activeObject);
+      }
+    }
+  }
+
   return (
     <Editor
       ActionsBarChildren={<ActionsBar onExit={() => null} onSave={() => null} />}
@@ -86,7 +118,10 @@ export const GraphicEditor = forwardRef(({ onSave, onExit }: Props, ref) => {
       SidemenuChildren={<Sidemenu />}
       ToolsBarChildren={<Toolbar />}
     >
-      <Canvas />
+      <div style={{ height: '100%' }}>
+        <Canvas />
+        <Resizer />
+      </div>
     </Editor>
   );
 });
