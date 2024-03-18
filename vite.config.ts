@@ -49,6 +49,7 @@ export default defineConfig({
         'jotai',
         'react-beautiful-dnd',
         'react-colorful',
+        '@hello-pangea/dnd',
       ],
       input: Object.fromEntries(
         glob

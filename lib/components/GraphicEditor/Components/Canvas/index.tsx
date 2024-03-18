@@ -102,7 +102,8 @@ const Canvas = () => {
         current.clientWidth < current.clientHeight
           ? current.clientWidth
           : current.clientHeight;
-      canvasInstanceRef.current = initCanvas(smallerDimention * 0.9);
+      const totalPadding = 96; //(px)
+      canvasInstanceRef.current = initCanvas(smallerDimention - totalPadding);
     }
   }, []);
   useEffect(() => {
@@ -118,53 +119,9 @@ const Canvas = () => {
     });
   }
 
-  function handleEnlarge() {
-    const width = canvasInstanceRef.current?.getWidth();
-    const height = canvasInstanceRef.current?.getHeight();
-    const zoom = canvasInstanceRef.current?.getZoom();
-    const multiplier = 1.2;
-    canvasInstanceRef.current?.setZoom(zoom * multiplier);
-    canvasInstanceRef.current?.setWidth(width * multiplier);
-    canvasInstanceRef.current?.setHeight(height * multiplier);
-    // canvasInstanceRef.current?.renderAll();
-  }
-  function handleReduce() {
-    const width = canvasInstanceRef.current?.getWidth();
-    const height = canvasInstanceRef.current?.getHeight();
-    const zoom = canvasInstanceRef.current?.getZoom();
-    const multiplier = 1.2;
-    canvasInstanceRef.current?.setZoom(zoom / multiplier);
-    canvasInstanceRef.current?.setWidth(width / multiplier);
-    canvasInstanceRef.current?.setHeight(height / multiplier);
-
-    // canvasInstanceRef.current?.renderAll();
-  }
-
   return (
-    <div
-      style={{
-        height: 'calc(100% - 30px)',
-        overflow: 'auto',
-        display: 'block',
-        //en css directamente borrar min-width
-        minWidth: 'auto',
-      }}
-      className={style.canvasContainer}
-    >
-      <div
-        style={{
-          padding: '3rem',
-          minWidth: 'min-content',
-          display: 'flex',
-          justifyContent: 'center',
-          alignItems: 'center',
-          height: 'min-content',
-          minHeight: '100%',
-          // height: 'min-content',
-        }}
-        className={style.libraryWrapper}
-        ref={libraryWrapperRef}
-      >
+    <div className={style.canvasContainer}>
+      <div className={style.libraryWrapper} ref={libraryWrapperRef}>
         <canvas
           ref={canvasDomRef}
           className={`${style.canvas} ${selectedItemType === 'canvas' && style.active}`}
