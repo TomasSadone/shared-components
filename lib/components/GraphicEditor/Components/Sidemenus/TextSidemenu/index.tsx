@@ -32,7 +32,7 @@ export const TextSidemenu = () => {
       fill: '#000',
       opacity: 1.0,
       fontStyle: 'normal',
-      name: uuid(),
+      name: uuid(), //the name set to an uuid it's what makes the layers work
     });
     canvasInstanceRef.current.add(newText);
     canvasInstanceRef.current.setActiveObject(newText);

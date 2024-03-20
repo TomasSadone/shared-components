@@ -3,6 +3,7 @@ import { ToolbarsSections, selectedItemTypeAtom } from '../../CanvasContext/atom
 import { TextToolbar } from './TextToolbar';
 import { ElementToolbar } from './ElementToolbar';
 import { CanvasToolbar } from './CanvasToolbar';
+import { ImageToolbar } from './ImageToolbar';
 
 export const Toolbar = () => {
   const [selectedItemType] = useAtom(selectedItemTypeAtom);
@@ -19,4 +20,5 @@ const Toolbars: Partial<{ [key in ToolbarsSections]: React.FC }> = {
   text: TextToolbar,
   canvas: CanvasToolbar,
   elements: ElementToolbar,
+  images: ImageToolbar,
 };

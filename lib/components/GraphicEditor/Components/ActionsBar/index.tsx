@@ -3,8 +3,17 @@ import { AppButton } from '../../../Button';
 import { IconButton } from '../../../IconButton';
 import style from './style.module.sass';
 
+export type SaveObject = {
+  version: string;
+  objects: Object[];
+  toDataURL: fabric.Canvas['toDataURL'];
+  width: number;
+  height: number;
+  background: string;
+};
+
 type Props = {
-  onSave: (template: JSON) => void;
+  onSave: (template: SaveObject) => void;
   onExit: () => void;
 };
 
@@ -18,6 +27,17 @@ export const ActionsBar = ({ onSave, onExit }: Props) => {
     if (!canvasInstanceRef.current) return;
     (canvasInstanceRef.current as { redo: Function } & fabric.Canvas).redo();
   };
+
+  const handleSave = () => {
+    if (!canvasInstanceRef.current) return;
+    const { current: canvas } = canvasInstanceRef;
+    //if you are going to edit the passed array, please remember to adjust the type SaveObject
+    const jsonUntyped = canvas.toJSON(['width', 'height', 'toDataURL', 'background']) as any;
+    const json = jsonUntyped as SaveObject;
+    json.toDataURL = json.toDataURL.bind(canvas);
+    onSave(json);
+  };
+
   return (
     <div className={style.actionsBar}>
       <AppButton
@@ -47,7 +67,7 @@ export const ActionsBar = ({ onSave, onExit }: Props) => {
           icon="redo"
         />
         <AppButton
-          onClick={onExit}
+          onClick={handleSave}
           icon="check"
           iconProps={{
             fill: 'none',

@@ -16,16 +16,9 @@ type Sections =
 export type SidemenusSections = Exclude<Sections, 'canvas'>;
 export type ToolbarsSections = Exclude<
   Sections,
-  | 'layers'
-  | 'uploads'
-  | 'images'
-  | 'text-color'
-  | 'element-color'
-  | 'border-color'
-  | 'canvas-color'
+  'layers' | 'uploads' | 'text-color' | 'element-color' | 'border-color' | 'canvas-color'
 >;
 
-// TODO inicializar en ''
 export const selectedSectionAtom = atom<SidemenusSections>('');
 export const selectedItemTypeAtom = atom<ToolbarsSections>('');
 
@@ -61,6 +54,23 @@ export const handleSetThreePointsMenuPosition = atom(
   (get, set, update: TooltipPosition | null) => {
     if (get(threePointsMenuPositionAtom) !== undefined) {
       set(threePointsMenuPositionAtom, update);
+    }
+  },
+);
+
+//logos atom
+
+type ImagesColection = string[];
+
+//uploads section atoms
+
+export const templateUploadsAtom = atom<ImagesColection | []>([]);
+
+export const handleSetTemplateUploadsAtom = atom(
+  null,
+  (get, set, update: ImagesColection | []) => {
+    if (get(templateUploadsAtom) !== undefined) {
+      set(templateUploadsAtom, update);
     }
   },
 );

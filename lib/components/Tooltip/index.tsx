@@ -29,18 +29,18 @@ export const Tooltip = ({ children, hoverItem, trigger }: Props) => {
         onClick={trigger === 'click' ? onToggle : undefined}
       >
         {hoverItem}
+        {createPortal(
+          <div
+            id={id}
+            ref={tooltipRef}
+            className={`${style.tooltip} ${isVisible && style.show} `}
+            style={{ ...coords }}
+          >
+            {children}
+          </div>,
+          document.body,
+        )}
       </div>
-      {createPortal(
-        <div
-          id={id}
-          ref={tooltipRef}
-          className={`${style.tooltip} ${isVisible && style.show} `}
-          style={{ ...coords }}
-        >
-          {children}
-        </div>,
-        document.body,
-      )}
     </>
   );
 };

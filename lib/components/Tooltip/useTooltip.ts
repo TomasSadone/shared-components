@@ -1,7 +1,7 @@
 import { useRef, useState, MouseEvent, useEffect } from 'react';
 
 const useTooltip = () => {
-  const [coords, setCoords] = useState({});
+  const [coords, setCoords] = useState<{ top: number; left: number }>({ top: 0, left: 0 });
   const [isVisible, setIsVisible] = useState(false);
   const tooltipRef = useRef<HTMLDivElement>(null);
 
@@ -15,7 +15,10 @@ const useTooltip = () => {
   }, [handleScroll]);
 
   const onToggle = (e: MouseEvent<HTMLDivElement>) => {
-    if (e.type === 'mouseleave' || (e.type === 'click' && isVisible)) {
+    if (e.type === 'mouseleave') {
+      setIsVisible(false);
+      return;
+    } else if (e.type === 'click' && isVisible) {
       setIsVisible(false);
       return;
     }
@@ -34,11 +37,8 @@ const useTooltip = () => {
       : 100;
 
     const coordsToSet = {
-      left: spaceRight > spaceLeft ? rect.x : rect.x - contentWidth,
-      top:
-        spaceAbove > spaceBelow
-          ? spaceAbove - contentHeight - 10
-          : spaceAbove + rect.height + 10,
+      left: spaceRight > spaceLeft ? rect.x : rect.x - contentWidth + rect.width,
+      top: spaceAbove > spaceBelow ? spaceAbove - contentHeight : spaceAbove + rect.height,
     };
 
     setCoords(coordsToSet);

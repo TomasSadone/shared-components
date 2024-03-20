@@ -19,8 +19,6 @@ import SendLayerDownwards from './assets/down.svg';
 import SendLayerTop from './assets/bringToFront.svg';
 import SendLayerBottom from './assets/sendToBack.svg';
 
-// let clipboard: fabric.Object | null = null;
-
 type BaseMenuItem = {
   icon: string;
   name: string;

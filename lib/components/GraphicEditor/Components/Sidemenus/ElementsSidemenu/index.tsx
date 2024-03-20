@@ -70,7 +70,7 @@ export const ElementsSidemenu = () => {
         scaleX: 3,
         scaleY: 3,
         strokeWidth: 0,
-        name: uuid(),
+        name: uuid(), //the name set to an uuid it's what makes the layers work
       });
       canvasInstanceRef.current?.add(elementAdded);
       canvasInstanceRef.current?.setActiveObject(elementAdded);

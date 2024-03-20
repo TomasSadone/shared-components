@@ -21,7 +21,6 @@ export const LayersSubmenu = () => {
   ]);
   const [, setSelectedItemType] = useAtom(handleSetSelectedItemTypeAtom);
 
-  // TODO borrar uuid en los objetosy desisntalar libreria con sus devdependencies, hook useid
   const onDragEnd = (result: DropResult) => {
     if (!result.destination) return;
     const objectsCopy = Array.from(_objects);

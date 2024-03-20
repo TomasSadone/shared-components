@@ -1,36 +1,48 @@
 import { SliderInput } from 'components/Form/SliderInput';
 import { useCanvasContext } from 'components/GraphicEditor/CanvasContext/useCanvasContext';
-import { useMemo, useState } from 'react';
+import { forwardRef, useImperativeHandle, useState } from 'react';
 import style from './style.module.sass';
 
-export const Resizer = () => {
+type Size = {
+  width: number;
+  height: number;
+};
+
+let initialSize: Size;
+
+export type ExposedMehtods = {
+  setInitialSize: (size: Size) => void;
+};
+export const Resizer = forwardRef((_, ref) => {
   const canvasInstanceRef = useCanvasContext();
   const [zoom, setZoom] = useState(1);
-  const initialSize = useMemo(() => {
-    if (canvasInstanceRef.current) {
-      return {
-        width: canvasInstanceRef.current.getWidth(),
-        height: canvasInstanceRef.current.getHeight(),
-      };
-    } else {
-      return {
-        width: 500,
-        height: 500,
-      };
-    }
-  }, [canvasInstanceRef]);
+
+  useImperativeHandle(ref, function (): ExposedMehtods {
+    return {
+      setInitialSize({ height, width }: Size) {
+        setZoom(1);
+        canvasInstanceRef.current?.setZoom(1);
+        initialSize = { height, width };
+      },
+    };
+  });
 
   const handleSliderChange = (value: number) => {
     if (!canvasInstanceRef.current) return;
-    const { current: canvas } = canvasInstanceRef;
-    setDimentions(value, canvas);
+    if (!initialSize) {
+      initialSize = {
+        height: canvasInstanceRef.current.getHeight(),
+        width: canvasInstanceRef.current.getWidth(),
+      };
+    }
+    setDimentions(value, canvasInstanceRef.current);
   };
 
   const setDimentions = (zoom: number, canvas: fabric.Canvas): void => {
-    if (!canvasInstanceRef.current) return;
     canvas.setZoom(zoom);
     canvas.setHeight(initialSize.height * zoom);
     canvas.setWidth(initialSize.width * zoom);
+    canvas.renderAll();
     setZoom(zoom);
   };
 
@@ -49,4 +61,4 @@ export const Resizer = () => {
       </div>
     </div>
   );
-};
+});

@@ -7,18 +7,26 @@ import { TextColorSM } from './ColorSideMenu/ObjectColorSM/TextColorSM';
 import { ElementColorSM } from './ColorSideMenu/ObjectColorSM/ElementColorSM';
 import { BorderColorSM } from './ColorSideMenu/ObjectColorSM/BorderColorSM';
 import { LayersSubmenu } from './LayersSubmenu';
-import { ImagesSidemenu } from './ImagesSidemenu';
+import { ImagesSidemenu, Props as ImageSidemenuProps } from './ImagesSidemenu';
 import { CanvasColorSM } from './ColorSideMenu/CanvasColorSM';
+import { UploadsSidemenu, Props as UploadSidemenuProps } from './UploadsSidemenu';
 
 // TODO unificar o sidemenus o submenos, en un lado son de una manera y en otro de otra. ver base editor
 
-export const Sidemenu = () => {
+type SubmenuProps = UploadSidemenuProps & ImageSidemenuProps;
+
+type SubmenuComponent = React.FC<SubmenuProps>;
+
+export const Sidemenu: React.FC<SubmenuProps> = (props) => {
   const [selectedSection] = useAtom(selectedSectionAtom);
   let CurrentSubmenu: React.FC;
-  if (Submenus[selectedSection] !== undefined) {
-    CurrentSubmenu = Submenus[selectedSection] as React.FC;
+  if (Sidemenus[selectedSection] !== undefined) {
+    CurrentSubmenu = Sidemenus[selectedSection] as React.FC;
   } else {
     return <></>;
+  }
+  if (selectedSection === 'uploads' || selectedSection === 'images') {
+    CurrentSubmenu.defaultProps = props;
   }
   return (
     <div className={style.sideMenus}>
@@ -27,12 +35,12 @@ export const Sidemenu = () => {
   );
 };
 
-const Submenus: Partial<{ [key in SidemenusSections]: React.FC }> = {
+const Sidemenus: Partial<{ [key in SidemenusSections]: SubmenuComponent }> = {
   text: () => <TextSidemenu />,
   elements: () => <ElementsSidemenu />,
-  images: () => <ImagesSidemenu />,
+  images: ImagesSidemenu,
   layers: () => <LayersSubmenu />,
-  uploads: () => <>uploads</>,
+  uploads: UploadsSidemenu,
   'element-color': () => <ElementColorSM />,
   'border-color': () => <BorderColorSM />,
   'text-color': () => <TextColorSM />,

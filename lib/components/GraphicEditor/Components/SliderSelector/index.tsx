@@ -7,6 +7,7 @@ import { EventName } from 'fabric/fabric-impl';
 import { icons } from 'constants/svgIcons';
 import { SliderInput, Props as SliderProps } from '../../../Form/SliderInput';
 import { BackgroundCard } from 'components/Editor/BackgroundCard';
+import { Tooltip } from '../../../Tooltip';
 
 type Props = {
   activeObject: fabric.Object;
@@ -34,7 +35,7 @@ export const SliderSelector = ({
   childrenBelow,
 }: Props) => {
   const [open, setOpen] = useState(false);
-  const handleOpen = () => {
+  const handleToggle = () => {
     setOpen(!open);
   };
   const value = useCanvasAsState(activeObject, event, [valueToWatch]) as Record<
@@ -50,14 +51,13 @@ export const SliderSelector = ({
   };
   return (
     <div
-      onMouseEnter={handleOpen}
-      onMouseLeave={handleOpen}
+      //   onMouseEnter={handleToggle}
+      //   onMouseLeave={handleToggle}
       className={style.toggler}
       title={title}
     >
-      <Icon size={17} fill="#667085" name={icon} />
-      {open && (
-        <BackgroundCard className={style.sliderContainer}>
+      <Tooltip trigger="hover" hoverItem={<Icon size={17} fill="#667085" name={icon} />}>
+        <BackgroundCard>
           {childrenAbove}
 
           <div className={style.slider}>
@@ -74,7 +74,7 @@ export const SliderSelector = ({
           />
           {childrenBelow}
         </BackgroundCard>
-      )}
+      </Tooltip>
     </div>
   );
 };
