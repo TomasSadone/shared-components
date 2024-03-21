@@ -1,5 +1,5 @@
 import { useCanvasContext } from 'components/graphic-editor/canvas-context/useCanvasContext';
-import { AppButton } from '../../../button';
+import { AppButton } from '../../../button_temp';
 import { IconButton } from '../../../icon-button';
 import style from './style.module.sass';
 

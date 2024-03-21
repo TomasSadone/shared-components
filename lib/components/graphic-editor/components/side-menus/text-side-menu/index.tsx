@@ -4,7 +4,7 @@ import style from './style.module.sass';
 import { useCanvasContext } from '../../../canvas-context/useCanvasContext';
 import { fabric } from 'fabric';
 import { Icon } from '../../../../icon';
-import { AppButton } from '../../../../button';
+import { AppButton } from '../../../../button_temp';
 import { handleSetSelectedItemTypeAtom } from '../../../canvas-context/atoms/atoms';
 import { useAtom } from 'jotai';
 import { v4 as uuid } from 'uuid';

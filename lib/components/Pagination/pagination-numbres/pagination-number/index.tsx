@@ -1,4 +1,4 @@
-import { AppButton } from '../../../button';
+import { AppButton } from '../../../button_temp';
 
 type Props = {
   page: number;
