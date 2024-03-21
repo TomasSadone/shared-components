@@ -1,5 +1,5 @@
 import { useRef, useState } from 'react';
-import { GraphicEditorWithContext as GraphicEditor } from '../../lib/components/GraphicEditor/CanvasContext/CanvasContext';
+import { GraphicEditorWithContext as GraphicEditor } from '../../lib/components/graphic-editor/canvas-context/canvas-context';
 // import { GraphicEditor } from '../../';
 import image from '../../public/logo192.png';
 import image2 from '../../public/logo512.png';
