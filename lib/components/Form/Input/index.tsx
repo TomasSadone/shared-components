@@ -3,7 +3,7 @@ import styles from './Input.module.sass';
 import { useInput } from './useInput';
 import { icons } from '../../../constants/svgIcons';
 import { ValidationRules } from '../../../utils/formValidator';
-import { Icon } from '../../Icon';
+import { Icon } from '../../icon';
 import { AppColors } from '../../../types/MainTypes';
 import { CSSProperties } from 'react';
 

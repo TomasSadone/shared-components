@@ -1,5 +1,5 @@
 import { BackgroundCard } from '../Editor/BackgroundCard';
-import { Icon } from '../Icon';
+import { Icon } from '../icon';
 import style from './style.module.sass';
 type Props = {
   text: string;

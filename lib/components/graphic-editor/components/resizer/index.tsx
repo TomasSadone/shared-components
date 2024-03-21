@@ -1,4 +1,4 @@
-import { SliderInput } from 'components/Form/SliderInput';
+import { SliderInput } from 'components/form/slider-input';
 import { useCanvasContext } from 'components/graphic-editor/canvas-context/useCanvasContext';
 import { forwardRef, useImperativeHandle, useState } from 'react';
 import style from './style.module.sass';

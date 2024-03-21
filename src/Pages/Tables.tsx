@@ -9,7 +9,7 @@ import {
   Text,
   AppButton,
   Pagination,
-} from '../../';
+} from '../../dist/main';
 import { AppColors } from '../../lib/types/MainTypes';
 
 export const Tables = () => {

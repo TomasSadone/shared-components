@@ -1,5 +1,5 @@
 import { icons } from '../../constants/svgIcons';
-import { Icon } from '../Icon';
+import { Icon } from '../icon';
 import cn from 'classnames';
 import { NavLink } from 'react-router-dom';
 import styles from './MenuItem.module.sass';

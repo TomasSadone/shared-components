@@ -1,4 +1,4 @@
-import { Color } from '../../../Color';
+import { Color } from '../../../color';
 import useCanvasAsState from '../../hooks/use-canvas-as-state';
 import { EventName } from 'fabric/fabric-impl';
 import style from './style.module.sass';

@@ -1,5 +1,5 @@
 import { AppColors } from '../../types/MainTypes';
-import { Icon, IconProps } from './';
+import { Icon, IconProps } from '.';
 import styles from './Icons.module.sass';
 import { icons } from '../../constants/svgIcons';
 import cn from 'classnames';

@@ -1,7 +1,7 @@
 import style from './style.module.sass';
 import { BackgroundCard } from '../BackgroundCard';
-import { IconButton } from '../../IconButton';
-import { Icon } from '../../Icon';
+import { IconButton } from '../../icon-button';
+import { Icon } from '../../icon';
 
 type CommonProps = {
   src: string;

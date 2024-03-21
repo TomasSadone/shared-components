@@ -1,4 +1,4 @@
-import { AppButton } from '../../Button';
+import { AppButton } from '../../button';
 import usePaginationNumbers from './usePaginationNumbers';
 import { PaginationNumber } from './PaginationNumber';
 

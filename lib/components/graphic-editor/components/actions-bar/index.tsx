@@ -1,6 +1,6 @@
 import { useCanvasContext } from 'components/graphic-editor/canvas-context/useCanvasContext';
-import { AppButton } from '../../../Button';
-import { IconButton } from '../../../IconButton';
+import { AppButton } from '../../../button';
+import { IconButton } from '../../../icon-button';
 import style from './style.module.sass';
 
 export type SaveObject = {

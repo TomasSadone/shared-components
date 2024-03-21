@@ -1,4 +1,4 @@
-import { Icon } from '../../Icon';
+import { Icon } from '../../icon';
 import { BackgroundCard } from '../BackgroundCard';
 import style from './style.module.sass';
 

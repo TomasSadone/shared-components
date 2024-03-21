@@ -1,10 +1,10 @@
-import { AppButton } from '../Button';
+import { AppButton } from '../button';
 import useWindowDimentions from './useWindowDimentions';
 import usePagination from './usePagination';
 import { PaginationNumbers } from './PaginationNumbers';
 import style from './style.module.sass';
-import { IconButton } from '../IconButton';
-import { IconProps } from '../Icon';
+import { IconButton } from '../icon-button';
+import { IconProps } from '../icon';
 
 type BaseProps = {
   totalPages: number;

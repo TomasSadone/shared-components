@@ -1,7 +1,7 @@
 import { HexColorInput, HexColorPicker } from 'react-colorful';
 import { BackgroundCard } from '../BackgroundCard';
 import useEyeDropper from '../../../hooks/useEyeDropper';
-import { EyeDropper } from '../EyeDropper';
+import { EyeDropper } from '../eye-dropper';
 import './style.sass';
 
 type Props = {

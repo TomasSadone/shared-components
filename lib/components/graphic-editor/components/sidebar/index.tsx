@@ -1,11 +1,11 @@
 import { useAtom } from 'jotai';
-import { Sidebar as BaseSidebar } from '../../../Editor/BaseEditor/Sidebar';
+import { Sidebar as BaseSidebar } from '../../../editor/base-editor/side-bar';
 import {
   SidemenusSections,
   handleSetSelectedItemTypeAtom,
   selectedSectionAtom,
 } from '../../canvas-context/atoms/atoms';
-import { IconProps } from '../../../Icon';
+import { IconProps } from '../../../icon';
 
 const strokeColor = '#667085';
 const iconProps: Omit<IconProps, 'name'> = {

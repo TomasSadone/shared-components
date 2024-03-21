@@ -1,7 +1,7 @@
 import { Controller, useFormContext } from 'react-hook-form';
 import { SelectOptions } from '../../../types/MainTypes';
 import { ValidationRules } from '../../../utils/formValidator';
-import { Dropdown } from './';
+import { Dropdown } from '.';
 import { CSSProperties } from 'react';
 import { icons } from '../../../constants/svgIcons';
 

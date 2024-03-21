@@ -1,10 +1,10 @@
 import { useCanvasContext } from 'components/graphic-editor/canvas-context/useCanvasContext';
 import useCanvasAsState from 'components/graphic-editor/hooks/use-canvas-as-state';
 import { OpacitySliderSelector } from '../../slider-selector/opacity-slider-selector';
-import { Icon } from '../../../../Icon';
-import { BackgroundCard } from '../../../../Editor/BackgroundCard';
+import { Icon } from '../../../../icon';
+import { BackgroundCard } from '../../../../editor/BackgroundCard';
 import style from './style.module.sass';
-import { Tooltip } from '../../../../Tooltip';
+import { Tooltip } from '../../../../tooltip';
 
 export const ImageToolbar = () => {
   const canvasInstanceRef = useCanvasContext();

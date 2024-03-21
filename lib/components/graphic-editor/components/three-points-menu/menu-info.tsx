@@ -250,5 +250,3 @@ function alignCenterHorizontally(canvas: fabric.Canvas) {
   });
   canvas.requestRenderAll();
 }
-
-//cada item con un value,  entonces en la lista pones el mouseenterlistener y te fijas con el value q es el index para indexar el subme

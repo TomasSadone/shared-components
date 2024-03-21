@@ -1,7 +1,7 @@
 import { ReactNode } from 'react';
-import { Tooltip } from '../../Tooltip';
-import { Color } from '../../Color';
-import { IconButton } from '../../IconButton';
+import { Tooltip } from '../../tooltip';
+import { Color } from '../../color';
+import { IconButton } from '../../icon-button';
 import style from './style.module.sass';
 
 type Props = {

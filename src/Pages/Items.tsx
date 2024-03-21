@@ -1,4 +1,4 @@
-import { Badge, MessaggiDatePicker } from '../../';
+import { Badge, MessaggiDatePicker } from '../../dist/main';
 import { useState } from 'react';
 
 const Items = () => (

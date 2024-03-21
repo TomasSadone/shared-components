@@ -1,9 +1,9 @@
-import { Icon, IconProps } from '../Icon';
-import styles from './IconButton.module.sass';
+import { Icon, IconProps } from '../icon';
+import styles from './icon-button.module.sass';
 import { AppColors } from '../../types/MainTypes';
 import { icons } from '../../constants/svgIcons';
 import cn from 'classnames';
-import { Loader } from '../Loader';
+import { Loader } from '../loader';
 
 export const IconButton: React.FC<{
   icon: keyof typeof icons;

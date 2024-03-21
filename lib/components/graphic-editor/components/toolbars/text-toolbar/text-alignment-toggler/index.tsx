@@ -2,7 +2,7 @@ import style from './style.module.sass';
 import { EventName } from 'fabric/fabric-impl';
 import useCanvasAsState from '../../../../hooks/use-canvas-as-state';
 import { useCanvasContext } from '../../../../canvas-context/useCanvasContext';
-import { Icon } from '../../../../../Icon';
+import { Icon } from '../../../../../icon';
 
 type Position = 'left' | 'center' | 'right';
 

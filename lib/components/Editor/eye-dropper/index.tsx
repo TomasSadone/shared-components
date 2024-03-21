@@ -1,5 +1,5 @@
 import useEyeDropper from '../../../hooks/useEyeDropper';
-import { IconButton } from '../../IconButton';
+import { IconButton } from '../../icon-button';
 
 type Props = {
   onChange: (color: string) => void;

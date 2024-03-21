@@ -1,8 +1,8 @@
-import { ColorPicker } from '../../../../Editor/ColorPicker';
-import { Tooltip } from '../../../../Tooltip';
+import { ColorPicker } from '../../../../editor/color-picker';
+import { Tooltip } from '../../../../tooltip';
 import addcolor from './assets/addcolor.svg';
 import style from './style.module.sass';
-import { Color } from '../../../../Color';
+import { Color } from '../../../../color';
 
 type Props = {
   title: string;

@@ -1,5 +1,5 @@
 import { ChangeEvent, useRef } from 'react';
-import { AppButton } from '../../../../Button';
+import { AppButton } from '../../../../button';
 import { useCanvasContext } from 'components/graphic-editor/canvas-context/useCanvasContext';
 import { useAtom } from 'jotai';
 import { handleSetSelectedItemTypeAtom } from 'components/graphic-editor/canvas-context/atoms/atoms';

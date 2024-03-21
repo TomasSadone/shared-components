@@ -1,13 +1,13 @@
 import { useState } from 'react';
-import { Icon } from '../../../Icon';
+import { Icon } from '../../../icon';
 import style from './style.module.sass';
 import useCanvasAsState from '../../hooks/use-canvas-as-state';
 import { useCanvasContext } from '../../canvas-context/useCanvasContext';
 import { EventName } from 'fabric/fabric-impl';
 import { icons } from 'constants/svgIcons';
-import { SliderInput, Props as SliderProps } from '../../../Form/SliderInput';
-import { BackgroundCard } from 'components/Editor/BackgroundCard';
-import { Tooltip } from '../../../Tooltip';
+import { SliderInput, Props as SliderProps } from '../../../form/slider-input';
+import { BackgroundCard } from 'components/editor/BackgroundCard';
+import { Tooltip } from '../../../tooltip';
 
 type Props = {
   activeObject: fabric.Object;

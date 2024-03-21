@@ -1,6 +1,6 @@
-import { ActionsBar } from './ActionsBar';
-import { Sidemenu } from './Submenu';
-import { Toolsbar } from './Toolbar';
+import { ActionsBar } from './actions-bar';
+import { Sidemenu } from './sub-menu';
+import { Toolsbar } from './toolbar';
 import style from './style.module.sass';
 import './reset.sass';
 

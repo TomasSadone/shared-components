@@ -2,13 +2,13 @@ import React from 'react';
 // import './styles/app.sass';
 import { Routes, Route, BrowserRouter } from 'react-router-dom';
 import Layout from './Layout';
-import Home from './Pages/Home';
-import Icons from './Pages/Icons';
-import Items from './Pages/Items';
-import Forms from './Pages/Forms';
-import Links from './Pages/Links';
-import { Tables } from './Pages/Tables';
-import Test from './Pages/Test';
+import Home from './pages/Home';
+import Icons from './pages/Icons';
+import Items from './pages/Items';
+import Forms from './pages/forms';
+import Links from './pages/Links';
+import { Tables } from './pages/Tables';
+import Test from './pages/test';
 
 const App = () => {
   return (

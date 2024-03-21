@@ -1,4 +1,4 @@
-import { Icon } from '../Icon';
+import { Icon } from '../icon';
 import { icons } from '../../constants/svgIcons';
 import React from 'react';
 import styles from './Dropdown.module.sass';

@@ -1,5 +1,5 @@
 import style from './style.module.sass';
-import { Icon, IconProps } from '../../../../../Icon';
+import { Icon, IconProps } from '../../../../../icon';
 import useCanvasAsState from '../../../../hooks/use-canvas-as-state';
 import { useState } from 'react';
 

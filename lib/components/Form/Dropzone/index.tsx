@@ -1,7 +1,7 @@
 import { useCallback } from 'react';
 import { useDropzone, FileRejection, DropEvent } from 'react-dropzone';
 import style from './style.module.sass';
-import { FeaturedIcon } from '../../Icon/FeaturedIcon';
+import { FeaturedIcon } from '../../icon/FeaturedIcon';
 
 type Props = {
   handleFiles: (

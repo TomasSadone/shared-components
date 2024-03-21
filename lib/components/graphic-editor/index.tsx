@@ -2,7 +2,7 @@ import { forwardRef, useEffect, useImperativeHandle, useRef } from 'react';
 import { fabric } from 'fabric';
 import 'fabric-history';
 import { useAtom } from 'jotai';
-import { Editor } from '../Editor/BaseEditor';
+import { Editor } from '../editor/base-editor';
 import { Canvas } from './components/canvas';
 import { ActionsBar, SaveObject } from './components/actions-bar';
 import { Sidebar } from './components/sidebar';

@@ -1,8 +1,8 @@
 import { ButtonHTMLAttributes } from 'react';
 import { icons } from '../../constants/svgIcons';
-import { Icon, IconProps } from '../Icon';
+import { Icon, IconProps } from '../icon';
 import styles from './style.module.sass';
-import { Loader } from '../Loader';
+import { Loader } from '../loader';
 import { AppColors } from '../../types/MainTypes';
 
 export interface IAppButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {

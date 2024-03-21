@@ -5,7 +5,7 @@ import { DragDropContext, Droppable, Draggable, DropResult } from '@hello-pangea
 import { useAtom } from 'jotai';
 import { handleSetSelectedItemTypeAtom } from 'components/graphic-editor/canvas-context/atoms/atoms';
 import style from './style.module.sass';
-import { Icon } from '../../../../Icon';
+import { Icon } from '../../../../icon';
 import { LayerContent } from './layer-content';
 import { elementSectionTypes } from 'components/graphic-editor/constants/element-section-types';
 

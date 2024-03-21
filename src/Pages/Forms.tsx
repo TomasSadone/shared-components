@@ -10,12 +10,12 @@ import {
   Icon,
   //   RadioGroupItem,
   TitleSubtitleLabel,
-} from '../../';
+} from '../../dist/main';
 import { useState } from 'react';
 import { FormProvider, useForm } from 'react-hook-form';
-import { Textarea } from '../../';
-import { AppDropzone } from '../../';
-import { Toggle } from '../../';
+import { Textarea } from '../../dist/main';
+import { AppDropzone } from '../../dist/main';
+import { Toggle } from '../../dist/main';
 import { FileRejection, DropEvent } from 'react-dropzone';
 
 const Forms = () => {

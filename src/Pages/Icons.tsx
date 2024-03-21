@@ -1,4 +1,4 @@
-import { FeaturedIcon, Icon } from '../../';
+import { FeaturedIcon, Icon } from '../../dist/main';
 
 const Icons = () => (
   <div>
