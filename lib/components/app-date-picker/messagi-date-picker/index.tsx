@@ -1,6 +1,6 @@
 import { forwardRef, useRef, useState } from 'react';
 import { AppDatepicker } from '..';
-import { AppButton } from '../../button_temp';
+import { AppButton } from '../../button';
 import ReactDatePicker from 'react-datepicker';
 
 type Props = {

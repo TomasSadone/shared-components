@@ -2,7 +2,7 @@ import './styles/app.sass';
 
 export { Modal } from './components/Modal';
 export { Header } from './components/Header';
-export { AppButton } from './components/button_temp';
+export { AppButton } from './components/button';
 export { Loader } from './components/loader';
 export { Icon } from './components/icon';
 export { FeaturedIcon } from './components/icon/FeaturedIcon';
