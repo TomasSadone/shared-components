@@ -1,7 +1,7 @@
 import { Controller, useFormContext } from 'react-hook-form';
 import { ValidationRules } from '../../../utils/formValidator';
-import { Checkbox } from './Checkbox';
-import styles from './Checkbox.module.sass';
+import { Checkbox } from './checkbox';
+import styles from './checkbox.module.sass';
 
 interface IProps {
   name: string;

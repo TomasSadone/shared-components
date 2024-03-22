@@ -18,7 +18,7 @@ export { AuthCodeInput } from './components/form/auth-code-input';
 export { AuthCodeInputLabel } from './components/form/auth-code-input/auth-code-input-label';
 export { AuthCodeInputParragraph } from './components/form/auth-code-input/auth-code-input-parragraph';
 export { ControlledCheckbox } from './components/form/checkbox';
-export { Checkbox } from './components/form/checkbox/Checkbox';
+export { Checkbox } from './components/form/checkbox/checkbox';
 export { RadioButton } from './components/form/radio-button';
 export { RadioGroupItem } from './components/form/radio-group-item';
 export { Dropdown as FormDropdown } from './components/form/dropdown';

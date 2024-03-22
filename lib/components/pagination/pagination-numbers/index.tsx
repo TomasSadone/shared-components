@@ -1,6 +1,6 @@
 import { AppButton } from '../../button';
-import usePaginationNumbers from './usePaginationNumbers';
-import { PaginationNumber } from './PaginationNumber';
+import usePaginationNumbers from './use-pagination-numbers';
+import { PaginationNumber } from './pagination-number';
 
 type Props = {
   width: number;

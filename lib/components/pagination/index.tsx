@@ -1,7 +1,7 @@
 import { AppButton } from '../button';
-import useWindowDimentions from './useWindowDimentions';
-import usePagination from './usePagination';
-import { PaginationNumbers } from './PaginationNumbers';
+import useWindowDimentions from './use-window-dimensions';
+import usePagination from './use-pagination';
+import { PaginationNumbers } from './pagination-numbers';
 import style from './style.module.sass';
 import { IconButton } from '../icon-button';
 import { IconProps } from '../icon';
