@@ -2,7 +2,7 @@ import { useEffect, useLayoutEffect, useRef } from 'react';
 import { fabric } from 'fabric';
 import { useCanvasContext } from '../../canvas-context/useCanvasContext';
 import style from './style.module.sass';
-import { useOnOutsideClick } from '../../../../hooks/useOnOutsideClick';
+import { useOnOutsideClick } from '../../../../hooks/use-on-outside-click';
 import {
   selectedItemTypeAtom,
   threePointsMenuPositionAtom,

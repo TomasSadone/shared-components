@@ -3,7 +3,7 @@ import { SelectOptions } from '../../../types/MainTypes';
 import { ValidationRules } from '../../../utils/formValidator';
 import { Dropdown } from '.';
 import { CSSProperties } from 'react';
-import { icons } from '../../../constants/svgIcons';
+import { icons } from '../../../constants/svg-icons';
 
 interface IProps {
   name: string;

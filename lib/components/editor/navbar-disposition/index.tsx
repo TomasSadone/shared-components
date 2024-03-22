@@ -1,4 +1,4 @@
-import { BackgroundCard } from '../BackgroundCard';
+import { BackgroundCard } from '../background-card';
 import style from './style.module.sass';
 
 type Dispositions =

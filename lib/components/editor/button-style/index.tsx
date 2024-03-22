@@ -1,4 +1,4 @@
-import { BackgroundCard } from '../BackgroundCard';
+import { BackgroundCard } from '../background-card';
 import style from './style.module.sass';
 type Shapes = 'squared' | 'rounded' | 'circle' | null;
 type Props = {
@@ -7,7 +7,6 @@ type Props = {
 };
 
 export const ButtonStyle = ({ onSelect, selected }: Props) => {
-
   return (
     <BackgroundCard className={style.card} padding={0}>
       <button

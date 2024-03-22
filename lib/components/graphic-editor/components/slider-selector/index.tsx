@@ -4,9 +4,9 @@ import style from './style.module.sass';
 import useCanvasAsState from '../../hooks/use-canvas-as-state';
 import { useCanvasContext } from '../../canvas-context/useCanvasContext';
 import { EventName } from 'fabric/fabric-impl';
-import { icons } from 'constants/svgIcons';
+import { icons } from 'constants/svg-icons';
 import { SliderInput, Props as SliderProps } from '../../../form/slider-input';
-import { BackgroundCard } from 'components/editor/BackgroundCard';
+import { BackgroundCard } from 'components/editor/background-card';
 import { Tooltip } from '../../../tooltip';
 
 type Props = {

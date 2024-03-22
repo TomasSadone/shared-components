@@ -1,5 +1,5 @@
 import style from './style.module.sass';
-import { BackgroundCard } from '../BackgroundCard';
+import { BackgroundCard } from '../background-card';
 import { IconButton } from '../../icon-button';
 import { Icon } from '../../icon';
 

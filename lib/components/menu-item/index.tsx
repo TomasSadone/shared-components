@@ -1,4 +1,4 @@
-import { icons } from '../../constants/svgIcons';
+import { icons } from '../../constants/svg-icons';
 import { Icon } from '../icon';
 import cn from 'classnames';
 import { NavLink } from 'react-router-dom';

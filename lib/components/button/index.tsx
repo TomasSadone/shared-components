@@ -1,5 +1,5 @@
 import { ButtonHTMLAttributes } from 'react';
-import { icons } from '../../constants/svgIcons';
+import { icons } from '../../constants/svg-icons';
 import { Icon, IconProps } from '../icon';
 import styles from './style.module.sass';
 import { Loader } from '../loader';

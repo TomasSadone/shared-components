@@ -1,5 +1,5 @@
 import cn from 'classnames';
-import { icons } from '../../constants/svgIcons';
+import { icons } from '../../constants/svg-icons';
 export type IconProps = {
   name: keyof typeof icons;
   size?: number;

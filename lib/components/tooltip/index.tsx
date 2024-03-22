@@ -1,8 +1,8 @@
 import { ReactNode, useRef } from 'react';
 import style from './style.module.sass';
 import { createPortal } from 'react-dom';
-import useTooltip from './useTooltip';
-import { useOnOutsideClick } from '../../hooks/useOnOutsideClick';
+import useTooltip from './use-tooltip';
+import { useOnOutsideClick } from '../../hooks/use-on-outside-click';
 
 type Props = {
   children: ReactNode;

@@ -1,4 +1,4 @@
-import { icons } from 'constants/svgIcons';
+import { icons } from 'constants/svg-icons';
 
 export type AppColors = 'orange' | 'green' | 'red' | 'blue';
 export type MenuItem = {

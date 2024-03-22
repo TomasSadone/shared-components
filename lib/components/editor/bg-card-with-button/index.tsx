@@ -1,6 +1,5 @@
-import { BackgroundCard, Props as BGCardProps } from '../BackgroundCard';
+import { BackgroundCard, Props as BGCardProps } from '../background-card';
 import style from './style.module.sass';
-
 
 export type Props = {
   button: JSX.Element;

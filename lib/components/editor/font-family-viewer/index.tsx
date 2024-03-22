@@ -1,5 +1,5 @@
 import { FontTypes } from '../../../types/MainTypes';
-import { BGCardWithButton, Props as BGCardWBProps } from '../BGCardWithButton';
+import { BGCardWithButton, Props as BGCardWBProps } from '../bg-card-with-button';
 import style from './style.module.sass';
 
 type Props = {

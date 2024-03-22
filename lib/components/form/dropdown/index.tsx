@@ -1,10 +1,10 @@
 import { Icon } from '../../icon';
-import { icons } from '../../../constants/svgIcons';
+import { icons } from '../../../constants/svg-icons';
 import React, { CSSProperties, useRef } from 'react';
 import styles from './Dropdown.module.sass';
 import cn from 'classnames';
 import { SelectOptions } from '../../../types/MainTypes';
-import { useOnOutsideClick } from '../../../hooks/useOnOutsideClick';
+import { use-on-outside-click } from '../../../hooks/use-on-outside-click';
 
 type DropdownProps = {
   icon?: keyof typeof icons;
@@ -37,7 +37,7 @@ export const Dropdown: React.FC<DropdownProps> = ({
     setVisible(false);
   };
 
-  //   useOnOutsideClick(dropDownId, setVisible, visible);
+  //   use-on-outside-click(dropDownId, setVisible, visible);
 
   return (
     <div style={containerStyle} ref={dropDownRef} id={dropDownId} className={styles.dropdown}>

@@ -1,5 +1,5 @@
 import { Icon } from '../icon';
-import { icons } from '../../constants/svgIcons';
+import { icons } from '../../constants/svg-icons';
 import React from 'react';
 import styles from './Dropdown.module.sass';
 import { NavLink, useLocation } from 'react-router-dom';

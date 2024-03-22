@@ -1,5 +1,5 @@
 import { UnderlineButton } from '../../UnderlineButton';
-import { RadioButton, RadioButtonProps } from '../RadioButton';
+import { RadioButton, RadioButtonProps } from '../radio-button';
 import style from './style.module.sass';
 
 type Props = {

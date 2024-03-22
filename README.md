@@ -64,7 +64,7 @@ If a component uses a third party dependencie, this must be added to `peerDepend
 
 ### Icon component
 
-If you want to add a new icon to the list of available svg icons to use within this component, you want to go to `/lib/constants/svgIcons.ts` and there add the key (name) paired with the value of the `"path"` field in your svg, If you happen to have many paths, add them in an array of objects like: `{path: string, fill: string}`. There are examples in the file.
+If you want to add a new icon to the list of available svg icons to use within this component, you want to go to `/lib/constants/svg-icons.ts` and there add the key (name) paired with the value of the `"path"` field in your svg, If you happen to have many paths, add them in an array of objects like: `{path: string, fill: string}`. There are examples in the file.
 
 ## `src`
 

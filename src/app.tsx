@@ -6,9 +6,9 @@ import Home from './pages/home';
 import Icons from './pages/icons';
 import Items from './pages/items';
 import Forms from './pages/forms';
-import Links from './pages/Links';
+import Links from './pages/links';
 import { Tables } from './pages/tables';
-import Test from './pages/Test';
+import Test from './pages/test';
 
 const App = () => {
   return (

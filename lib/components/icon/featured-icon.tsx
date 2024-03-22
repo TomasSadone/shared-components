@@ -1,7 +1,7 @@
 import { AppColors } from '../../types/MainTypes';
 import { Icon, IconProps } from '.';
 import styles from './Icons.module.sass';
-import { icons } from '../../constants/svgIcons';
+import { icons } from '../../constants/svg-icons';
 import cn from 'classnames';
 
 type Props = IconProps & {

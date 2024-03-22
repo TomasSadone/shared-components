@@ -1,4 +1,4 @@
-import useEyeDropper from '../../../hooks/useEyeDropper';
+import useEyeDropper from '../../../hooks/use-eye-dropper';
 import { IconButton } from '../../icon-button';
 
 type Props = {

@@ -1,6 +1,6 @@
 import { HexColorInput, HexColorPicker } from 'react-colorful';
-import { BackgroundCard } from '../BackgroundCard';
-import useEyeDropper from '../../../hooks/useEyeDropper';
+import { BackgroundCard } from '../background-card';
+import useEyeDropper from '../../../hooks/use-eye-dropper';
 import { EyeDropper } from '../eye-dropper';
 import './style.sass';
 

@@ -1,6 +1,6 @@
 import cn from 'classnames';
 import type { FC } from 'react';
-import styles from './RadioButton.module.sass';
+import styles from './radio-button.module.sass';
 import { Controller, useFormContext } from 'react-hook-form';
 
 export type RadioButtonProps = {

@@ -2,7 +2,7 @@ import { useCanvasContext } from 'components/graphic-editor/canvas-context/useCa
 import useCanvasAsState from 'components/graphic-editor/hooks/use-canvas-as-state';
 import { OpacitySliderSelector } from '../../slider-selector/opacity-slider-selector';
 import { Icon } from '../../../../icon';
-import { BackgroundCard } from '../../../../editor/BackgroundCard';
+import { BackgroundCard } from '../../../../editor/background-card';
 import style from './style.module.sass';
 import { Tooltip } from '../../../../tooltip';
 
