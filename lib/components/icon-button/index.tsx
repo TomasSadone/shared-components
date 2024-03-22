@@ -1,6 +1,6 @@
 import { Icon, IconProps } from '../icon';
 import styles from './icon-button.module.sass';
-import { AppColors } from '../../types/MainTypes';
+import { AppColors } from '../../types/main-types';
 import { icons } from '../../constants/svg-icons';
 import cn from 'classnames';
 import { Loader } from '../loader';

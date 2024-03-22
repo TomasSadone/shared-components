@@ -2,7 +2,7 @@ import { Dropdown, MenuItem } from '../../';
 import { Outlet } from 'react-router-dom';
 import React from 'react';
 import { navBar } from '../constants/appNavLinks';
-import { DropdownItem as DropdownItemType, MenuItem as MenuItemType } from 'types/MainTypes';
+import { DropdownItem as DropdownItemType, MenuItem as MenuItemType } from 'types/main-types';
 
 const Layout = () => {
   const renderNavBar = React.useCallback(() => {

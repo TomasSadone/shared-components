@@ -3,7 +3,7 @@ import { Icon } from '../icon';
 import cn from 'classnames';
 import { NavLink } from 'react-router-dom';
 import styles from './MenuItem.module.sass';
-import { AppColors } from '../../types/MainTypes';
+import { AppColors } from '../../types/main-types';
 
 type MenuItemProps = {
   title: string;

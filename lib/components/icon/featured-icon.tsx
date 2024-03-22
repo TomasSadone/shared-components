@@ -1,4 +1,4 @@
-import { AppColors } from '../../types/MainTypes';
+import { AppColors } from '../../types/main-types';
 import { Icon, IconProps } from '.';
 import styles from './Icons.module.sass';
 import { icons } from '../../constants/svg-icons';

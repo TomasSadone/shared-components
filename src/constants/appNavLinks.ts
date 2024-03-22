@@ -1,4 +1,4 @@
-import { DropdownItem, MenuItem } from 'types/MainTypes';
+import { DropdownItem, MenuItem } from 'types/main-types';
 
 export const navBar: (DropdownItem | MenuItem)[] = [
   {

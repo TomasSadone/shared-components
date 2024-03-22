@@ -4,7 +4,7 @@ import { useInput } from './useInput';
 import { icons } from '../../../constants/svg-icons';
 import { ValidationRules } from '../../../utils/formValidator';
 import { Icon } from '../../icon';
-import { AppColors } from '../../../types/MainTypes';
+import { AppColors } from '../../../types/main-types';
 import { CSSProperties } from 'react';
 
 type InputOrAreaProps = React.HTMLProps<HTMLInputElement | HTMLTextAreaElement>;

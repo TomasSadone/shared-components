@@ -3,7 +3,7 @@ import { icons } from '../../../constants/svg-icons';
 import React, { CSSProperties, useRef } from 'react';
 import styles from './Dropdown.module.sass';
 import cn from 'classnames';
-import { SelectOptions } from '../../../types/MainTypes';
+import { SelectOptions } from '../../../types/main-types';
 import { use-on-outside-click } from '../../../hooks/use-on-outside-click';
 
 type DropdownProps = {

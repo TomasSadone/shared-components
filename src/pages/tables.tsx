@@ -10,7 +10,7 @@ import {
   AppButton,
   Pagination,
 } from '../../dist/main';
-import { AppColors } from '../../lib/types/MainTypes';
+import { AppColors } from '../../lib/types/main-types';
 
 export const Tables = () => {
   const badges: {

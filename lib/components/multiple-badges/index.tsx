@@ -1,6 +1,6 @@
-import { Badge } from '../Badge';
+import { Badge } from '../badge';
 import style from './style.module.sass';
-import { AppColors } from '../../types/MainTypes';
+import { AppColors } from '../../types/main-types';
 import { createPortal } from 'react-dom';
 import useMultipleBadges from './useMultipleBadges';
 

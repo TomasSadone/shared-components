@@ -3,7 +3,7 @@ import { icons } from '../../constants/svg-icons';
 import { Icon, IconProps } from '../icon';
 import styles from './style.module.sass';
 import { Loader } from '../loader';
-import { AppColors } from '../../types/MainTypes';
+import { AppColors } from '../../types/main-types';
 
 export interface IAppButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   title: string;

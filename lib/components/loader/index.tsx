@@ -1,6 +1,6 @@
 import cn from 'classnames';
 import type { FC } from 'react';
-import styles from './Loader.module.sass';
+import styles from './loader.module.sass';
 
 type LoaderProps = {
   className?: string;

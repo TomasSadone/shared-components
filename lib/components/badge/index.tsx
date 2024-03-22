@@ -1,6 +1,6 @@
 import cn from 'classnames';
 import styles from './Badge.module.sass';
-import { AppColors } from '../../types/MainTypes';
+import { AppColors } from '../../types/main-types';
 
 export const Badge: React.FC<{
   text: string;

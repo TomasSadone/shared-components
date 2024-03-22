@@ -4,7 +4,7 @@ import React from 'react';
 import styles from './Dropdown.module.sass';
 import { NavLink, useLocation } from 'react-router-dom';
 import cn from 'classnames';
-import { AppColors } from '../../types/MainTypes';
+import { AppColors } from '../../types/main-types';
 
 type DropdownProps = {
   icon?: keyof typeof icons;
