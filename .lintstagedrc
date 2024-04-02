@@ -1,0 +1,3 @@
+{
+  "**/*.ts?(x)": ["yarn prettier:fix", "yarn lint:check", "yarn lint:spell"]
+}
