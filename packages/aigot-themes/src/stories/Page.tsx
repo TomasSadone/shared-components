@@ -4,7 +4,7 @@ import './page.css'
 
 export const Page: React.FC = () => {
   return (
-    <article>
+    <article data-testid="page">
       <section className="storybook-page">
         <h2>Pages in Storybook</h2>
         <p>
